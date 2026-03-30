@@ -1,6 +1,7 @@
 import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
 import PartnersStrip from "@/components/PartnersStrip";
+import SectionDivider from "@/components/SectionDivider";
 import ProductsSection from "@/components/ProductsSection";
 import MissionSection from "@/components/MissionSection";
 import CtaBanner from "@/components/CtaBanner";
@@ -12,14 +13,18 @@ import BackToTop from "@/components/BackToTop";
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-background scroll-smooth">
+    <div className="min-h-screen bg-background">
       <Navbar />
       <HeroSection />
       <PartnersStrip />
+      <SectionDivider />
       <ProductsSection />
+      <SectionDivider flipped />
       <MissionSection />
       <CtaBanner />
+      <SectionDivider />
       <ServicesSection />
+      <SectionDivider flipped />
       <NewsSection />
       <ContactForm />
       <FooterSection />
