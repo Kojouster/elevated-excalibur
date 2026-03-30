@@ -1,68 +1,129 @@
-import { motion, useMotionValue, useTransform, animate } from "framer-motion";
-import { ArrowRight } from "lucide-react";
-import { useEffect, useRef, useState } from "react";
+import { useState, useEffect, useCallback } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { ArrowRight, ChevronUp, ChevronDown, Shield, Target, Crosshair, Rocket } from "lucide-react";
+import productApc from "@/assets/product-apc.jpg";
+import productHowitzer from "@/assets/product-howitzer.jpg";
+import productTank from "@/assets/product-tank.jpg";
+import productRocket from "@/assets/product-rocket.jpg";
 import heroImage from "@/assets/hero-military.jpg";
 
-const CountUp = ({ target, suffix = "" }: { target: number; suffix?: string }) => {
-  const [count, setCount] = useState(0);
-  const ref = useRef<HTMLDivElement>(null);
-  const [hasAnimated, setHasAnimated] = useState(false);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting && !hasAnimated) {
-          setHasAnimated(true);
-          const motionVal = { val: 0 };
-          const controls = animate(motionVal, { val: target }, {
-            duration: 2,
-            ease: "easeOut",
-            onUpdate: () => setCount(Math.round(motionVal.val)),
-          });
-          return () => controls.stop();
-        }
-      },
-      { threshold: 0.5 }
-    );
-    if (ref.current) observer.observe(ref.current);
-    return () => observer.disconnect();
-  }, [target, hasAnimated]);
-
-  return (
-    <span ref={ref} className="tabular-nums">
-      {count}{suffix}
-    </span>
-  );
-};
-
-const heroStats = [
-  { value: 30, suffix: "+", label: "Years" },
-  { value: 60, suffix: "+", label: "Countries" },
-  { value: 1000, suffix: "+", label: "Vehicles" },
+const slides = [
+  {
+    name: "PATRIOT I",
+    category: "Armoured Vehicles",
+    description: "Multi-purpose platform featuring superior off-road mobility and advanced crew protection.",
+    image: heroImage,
+    icon: Shield,
+  },
+  {
+    name: "T-72 EA",
+    category: "Main Battle Tanks",
+    description: "Renowned tank with extensive logistic support and crew safety enhancement potential.",
+    image: productTank,
+    icon: Crosshair,
+  },
+  {
+    name: "DANA M2",
+    category: "Self-Propelled Howitzers",
+    description: "The most advanced 152mm self-propelled gun howitzer with greater accuracy.",
+    image: productHowitzer,
+    icon: Target,
+  },
+  {
+    name: "RM-70 M1",
+    category: "Rocket Launchers",
+    description: "Mobile artillery providing concentrated fire support with 80 carried rockets.",
+    image: productRocket,
+    icon: Rocket,
+  },
 ];
 
+const DotGrid = () => (
+  <div className="absolute left-0 top-0 bottom-0 w-1/2 pointer-events-none overflow-hidden">
+    <svg className="w-full h-full opacity-[0.07]" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <pattern id="dotgrid" x="0" y="0" width="24" height="24" patternUnits="userSpaceOnUse">
+          <circle cx="2" cy="2" r="1.5" fill="hsl(43 52% 54%)" />
+        </pattern>
+      </defs>
+      <rect width="100%" height="100%" fill="url(#dotgrid)" />
+    </svg>
+  </div>
+);
+
 const HeroSection = () => {
+  const [current, setCurrent] = useState(0);
+  const [direction, setDirection] = useState(1);
+
+  const goTo = useCallback((index: number) => {
+    setDirection(index > current ? 1 : -1);
+    setCurrent(index);
+  }, [current]);
+
+  const next = useCallback(() => {
+    setDirection(1);
+    setCurrent((p) => (p + 1) % slides.length);
+  }, []);
+
+  const prev = useCallback(() => {
+    setDirection(-1);
+    setCurrent((p) => (p - 1 + slides.length) % slides.length);
+  }, []);
+
+  // Auto-advance
+  useEffect(() => {
+    const timer = setInterval(next, 6000);
+    return () => clearInterval(timer);
+  }, [next]);
+
+  const slide = slides[current];
+  const Icon = slide.icon;
+
   return (
-    <section className="relative min-h-screen flex items-center overflow-hidden">
-      {/* Background Image */}
-      <div className="absolute inset-0">
-        <img
-          src={heroImage}
-          alt="Military armored vehicle in tactical operation"
-          className="w-full h-full object-cover"
-          width={1920}
-          height={1080}
-        />
-        <div className="absolute inset-0 bg-gradient-to-r from-background via-background/85 to-background/20" />
-        <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-background/50" />
+    <section className="relative h-screen min-h-[700px] flex items-center overflow-hidden">
+      {/* Dot Grid Pattern */}
+      <DotGrid />
+
+      {/* Background Slide Image */}
+      <AnimatePresence mode="wait">
+        <motion.div
+          key={current}
+          initial={{ opacity: 0, scale: 1.1 }}
+          animate={{ opacity: 1, scale: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 1.2, ease: "easeInOut" }}
+          className="absolute inset-0"
+        >
+          <img
+            src={slide.image}
+            alt={slide.name}
+            className="w-full h-full object-cover"
+            width={1920}
+            height={1080}
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-background via-background/75 to-background/20" />
+          <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-background/40" />
+        </motion.div>
+      </AnimatePresence>
+
+      {/* Large EA watermark */}
+      <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+        <motion.div
+          initial={{ opacity: 0, scale: 0.8, rotate: -10 }}
+          animate={{ opacity: 0.04, scale: 1, rotate: 0 }}
+          transition={{ delay: 0.5, duration: 1.5 }}
+          className="font-heading text-[30vw] font-bold text-foreground select-none leading-none"
+        >
+          EA
+        </motion.div>
       </div>
 
-      {/* Content */}
+      {/* Left content */}
       <div className="relative container mx-auto px-6 lg:px-12 pt-20">
-        <div className="max-w-2xl">
+        <div className="max-w-xl">
           <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.2 }}
             className="text-primary tracking-[0.5em] text-sm font-body uppercase mb-6"
           >
@@ -73,7 +134,7 @@ const HeroSection = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4 }}
-            className="font-heading text-6xl md:text-7xl lg:text-8xl font-bold leading-[0.9] mb-8"
+            className="font-heading text-5xl md:text-7xl lg:text-8xl font-bold leading-[0.9] mb-8"
           >
             <span className="text-foreground">PROTECT</span>
             <br />
@@ -90,52 +151,119 @@ const HeroSection = () => {
             Yet freedom and security are values that need to be protected.
           </motion.p>
 
-          <motion.div
+          <motion.a
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.8 }}
-            className="flex flex-wrap gap-4 mb-16"
+            href="#mission"
+            className="inline-flex items-center gap-3 bg-primary text-primary-foreground px-8 py-4 font-heading tracking-wider text-sm uppercase hover:bg-gold-light transition-colors group"
           >
-            <a
-              href="#mission"
-              className="inline-flex items-center gap-3 bg-primary text-primary-foreground px-8 py-4 font-heading tracking-wider text-sm uppercase hover:bg-gold-light transition-colors group"
-            >
-              Our Mission
-              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-            </a>
-            <a
-              href="#products"
-              className="inline-flex items-center gap-3 border border-border text-foreground px-8 py-4 font-heading tracking-wider text-sm uppercase hover:border-primary hover:text-primary transition-colors"
-            >
-              View Products
-            </a>
-          </motion.div>
-
-          {/* Hero Stats */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 1 }}
-            className="flex gap-10 md:gap-16"
-          >
-            {heroStats.map((stat) => (
-              <div key={stat.label}>
-                <div className="font-heading text-3xl md:text-4xl font-bold text-primary">
-                  <CountUp target={stat.value} suffix={stat.suffix} />
-                </div>
-                <div className="text-muted-foreground text-xs tracking-wider uppercase mt-1">{stat.label}</div>
-              </div>
-            ))}
-          </motion.div>
+            Our Mission
+            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+          </motion.a>
         </div>
       </div>
 
-      {/* Decorative lines */}
+      {/* Right side: Slide info panel */}
+      <div className="hidden lg:flex absolute right-0 top-0 bottom-0 w-[480px] items-end">
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={current}
+            initial={{ opacity: 0, y: direction * 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: direction * -40 }}
+            transition={{ duration: 0.6 }}
+            className="w-full p-12 pb-32"
+          >
+            <div className="border-l-2 border-primary pl-6">
+              <p className="text-primary text-xs tracking-[0.3em] uppercase mb-2">{slide.category}</p>
+              <h3 className="font-heading text-3xl font-bold text-foreground mb-3">{slide.name}</h3>
+              <p className="text-muted-foreground text-sm leading-relaxed mb-6">{slide.description}</p>
+              <a
+                href="#products"
+                className="inline-flex items-center gap-2 text-primary text-sm tracking-wider uppercase font-body hover:gap-3 transition-all"
+              >
+                Discover More <ArrowRight className="w-4 h-4" />
+              </a>
+            </div>
+          </motion.div>
+        </AnimatePresence>
+      </div>
+
+      {/* Side category icons */}
+      <div className="hidden lg:flex absolute right-12 top-1/2 -translate-y-1/2 flex-col items-center gap-2">
+        {/* Up arrow */}
+        <button onClick={prev} className="p-2 text-muted-foreground hover:text-primary transition-colors mb-2">
+          <ChevronUp className="w-6 h-6" />
+        </button>
+
+        {slides.map((s, i) => {
+          const SIcon = s.icon;
+          return (
+            <button
+              key={i}
+              onClick={() => goTo(i)}
+              className={`relative w-12 h-12 flex items-center justify-center transition-all duration-300 ${
+                i === current
+                  ? "text-primary border border-primary"
+                  : "text-muted-foreground/40 border border-transparent hover:text-muted-foreground hover:border-border"
+              }`}
+            >
+              <SIcon className="w-5 h-5" />
+              {i === current && (
+                <motion.div
+                  layoutId="activeSideIcon"
+                  className="absolute inset-0 border border-primary"
+                  transition={{ type: "spring", stiffness: 300, damping: 30 }}
+                />
+              )}
+            </button>
+          );
+        })}
+
+        {/* Down arrow */}
+        <button onClick={next} className="p-2 text-muted-foreground hover:text-primary transition-colors mt-2">
+          <ChevronDown className="w-6 h-6" />
+        </button>
+      </div>
+
+      {/* Bottom bar: Defence Technology + Discover More */}
+      <div className="absolute bottom-0 left-0 right-0">
+        <div className="flex items-center justify-between bg-background/60 backdrop-blur-md border-t border-border">
+          <div className="flex-1" />
+          <div className="flex items-center gap-8 px-8 py-5">
+            <div className="text-center">
+              <span className="text-primary text-xs tracking-[0.3em] uppercase block">Defence</span>
+              <span className="text-foreground font-heading text-sm font-bold tracking-wider uppercase">Technology</span>
+            </div>
+            <a
+              href="#products"
+              className="inline-flex items-center gap-3 bg-primary text-primary-foreground px-6 py-3 font-heading tracking-wider text-xs uppercase hover:bg-gold-light transition-colors group"
+            >
+              Discover More
+              <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
+            </a>
+          </div>
+        </div>
+
+        {/* Progress bar */}
+        <div className="h-0.5 bg-border">
+          <motion.div
+            key={current}
+            initial={{ width: "0%" }}
+            animate={{ width: "100%" }}
+            transition={{ duration: 6, ease: "linear" }}
+            className="h-full bg-primary"
+          />
+        </div>
+      </div>
+
+      {/* Decorative vertical line */}
       <motion.div
         initial={{ scaleY: 0 }}
         animate={{ scaleY: 1 }}
         transition={{ delay: 1, duration: 1 }}
-        className="absolute left-12 top-1/4 bottom-1/4 w-px bg-gradient-to-b from-transparent via-primary/40 to-transparent origin-top hidden lg:block"
+        className="absolute left-12 top-1/4 bottom-1/4 w-px bg-gradient-to-b from-transparent via-primary/30 to-transparent origin-top hidden lg:block"
       />
 
       {/* Scroll indicator */}
@@ -143,9 +271,9 @@ const HeroSection = () => {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.5 }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
+        className="absolute bottom-20 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
       >
-        <span className="text-muted-foreground text-xs tracking-[0.3em] uppercase">Scroll</span>
+        <span className="text-muted-foreground text-[10px] tracking-[0.4em] uppercase">Scroll</span>
         <motion.div
           animate={{ y: [0, 8, 0] }}
           transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
