@@ -80,7 +80,7 @@ const ProductsSection = () => {
               />
             </div>
             <div className="p-8 lg:p-12 flex flex-col justify-center">
-              <products[0].icon className="w-8 h-8 text-primary mb-4" />
+              {(() => { const Icon = products[0].icon; return <Icon className="w-8 h-8 text-primary mb-4" />; })()}
               <p className="text-primary text-xs tracking-[0.3em] uppercase mb-3">{products[0].category}</p>
               <h3 className="font-heading text-3xl lg:text-4xl font-bold text-foreground mb-4">
                 {products[0].name}
