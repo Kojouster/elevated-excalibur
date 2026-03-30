@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
 import { Wrench, ShieldCheck, GraduationCap, Truck, Settings, Cog, ArrowRight, Check, ChevronDown, ChevronUp } from "lucide-react";
 import Navbar from "@/components/Navbar";

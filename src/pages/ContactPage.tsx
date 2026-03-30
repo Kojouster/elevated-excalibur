@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
-import { Send, Mail, Phone, MapPin, Clock, Globe, ArrowRight, CheckCircle } from "lucide-react";
+import { Send, Mail, Phone, MapPin, Clock, Globe, ArrowRight, CheckCircle, ChevronDown, ChevronUp } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import FooterSection from "@/components/FooterSection";
 import BackToTop from "@/components/BackToTop";
