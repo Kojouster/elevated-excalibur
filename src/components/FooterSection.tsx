@@ -1,4 +1,5 @@
 import { Mail, Phone, MapPin } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const FooterSection = () => {
   return (
@@ -7,7 +8,7 @@ const FooterSection = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
           {/* Brand */}
           <div>
-            <div className="flex items-center gap-3 mb-6">
+            <Link to="/" className="flex items-center gap-3 mb-6">
               <div className="w-10 h-10 border-2 border-primary flex items-center justify-center">
                 <span className="font-heading text-primary font-bold text-lg">EA</span>
               </div>
@@ -15,7 +16,7 @@ const FooterSection = () => {
                 <div className="text-sm font-bold tracking-[0.3em] text-foreground leading-none">EXCALIBUR</div>
                 <div className="text-xs tracking-[0.3em] text-foreground leading-none mt-0.5">ARMY</div>
               </div>
-            </div>
+            </Link>
             <p className="text-muted-foreground text-sm leading-relaxed">
               Leading European defence company specializing in military technology and lifecycle support.
             </p>
@@ -25,10 +26,10 @@ const FooterSection = () => {
           <div>
             <h4 className="font-heading text-sm font-bold tracking-wider text-foreground uppercase mb-4">Products</h4>
             <ul className="space-y-3 text-sm text-muted-foreground">
-              <li><a href="#" className="hover:text-primary transition-colors">Armoured Vehicles</a></li>
-              <li><a href="#" className="hover:text-primary transition-colors">Main Battle Tanks</a></li>
-              <li><a href="#" className="hover:text-primary transition-colors">Self-Propelled Howitzers</a></li>
-              <li><a href="#" className="hover:text-primary transition-colors">Rocket Launchers</a></li>
+              <li><Link to="/products" className="hover:text-primary transition-colors">Armoured Vehicles</Link></li>
+              <li><Link to="/products" className="hover:text-primary transition-colors">Main Battle Tanks</Link></li>
+              <li><Link to="/products" className="hover:text-primary transition-colors">Self-Propelled Howitzers</Link></li>
+              <li><Link to="/products" className="hover:text-primary transition-colors">Rocket Launchers</Link></li>
             </ul>
           </div>
 
@@ -36,10 +37,10 @@ const FooterSection = () => {
           <div>
             <h4 className="font-heading text-sm font-bold tracking-wider text-foreground uppercase mb-4">Company</h4>
             <ul className="space-y-3 text-sm text-muted-foreground">
-              <li><a href="#" className="hover:text-primary transition-colors">About Us</a></li>
-              <li><a href="#" className="hover:text-primary transition-colors">Our Mission</a></li>
-              <li><a href="#" className="hover:text-primary transition-colors">Careers</a></li>
-              <li><a href="#" className="hover:text-primary transition-colors">News</a></li>
+              <li><Link to="/company" className="hover:text-primary transition-colors">About Us</Link></li>
+              <li><Link to="/company" className="hover:text-primary transition-colors">Our Mission</Link></li>
+              <li><Link to="/services" className="hover:text-primary transition-colors">Services</Link></li>
+              <li><Link to="/contact" className="hover:text-primary transition-colors">Contact</Link></li>
             </ul>
           </div>
 
