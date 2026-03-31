@@ -895,6 +895,18 @@ const ProductsPage = () => {
   const products = useProducts();
   const filtered = activeCategory === "All" ? products : products.filter((p) => p.category === activeCategory);
   const { t } = useLanguage();
+  const [searchParams, setSearchParams] = useSearchParams();
+
+  useEffect(() => {
+    const productName = searchParams.get("product");
+    if (productName && products.length) {
+      const match = products.find(p => p.name.toLowerCase().replace(/\s+/g, "-") === productName.toLowerCase());
+      if (match) {
+        setSelectedProduct(match);
+        setSearchParams({}, { replace: true });
+      }
+    }
+  }, [searchParams, products]);
 
   const categoryLabels: Record<string, string> = {
     "All": t("productsPage.all"),
