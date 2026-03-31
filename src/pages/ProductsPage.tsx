@@ -1,5 +1,6 @@
 import { motion, AnimatePresence, useSpring } from "framer-motion";
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
+import { useSearchParams } from "react-router-dom";
 import { ArrowRight, Shield, Crosshair, Rocket, X, ChevronLeft, ChevronRight, Filter, Radar, Truck, Eye, ChevronDown } from "lucide-react";
 import { useLanguage } from "@/i18n/LanguageContext";
 import Navbar from "@/components/Navbar";
@@ -894,6 +895,18 @@ const ProductsPage = () => {
   const products = useProducts();
   const filtered = activeCategory === "All" ? products : products.filter((p) => p.category === activeCategory);
   const { t } = useLanguage();
+  const [searchParams, setSearchParams] = useSearchParams();
+
+  useEffect(() => {
+    const productName = searchParams.get("product");
+    if (productName && products.length) {
+      const match = products.find(p => p.name.toLowerCase().replace(/\s+/g, "-") === productName.toLowerCase());
+      if (match) {
+        setSelectedProduct(match);
+        setSearchParams({}, { replace: true });
+      }
+    }
+  }, [searchParams, products]);
 
   const categoryLabels: Record<string, string> = {
     "All": t("productsPage.all"),

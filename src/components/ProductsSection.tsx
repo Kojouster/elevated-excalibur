@@ -102,7 +102,7 @@ const ProductsSection = () => {
                         </motion.span>
                       ))}
                     </div>
-                    <Link to="/products" className="inline-flex items-center gap-2 text-primary text-sm tracking-wider uppercase font-body group-hover:gap-4 transition-all duration-500">
+                    <Link to={`/products?product=${product.name.toLowerCase().replace(/\s+/g, "-")}`} className="inline-flex items-center gap-2 text-primary text-sm tracking-wider uppercase font-body group-hover:gap-4 transition-all duration-500">
                       {t("productsSection.discoverMore")} <ArrowRight className="w-4 h-4" />
                     </Link>
                   </div>
