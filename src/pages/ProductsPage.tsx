@@ -451,8 +451,8 @@ const useProducts = (): Product[] => {
     category: "Air Defence",
     image: productZsu,
     icon: Radar,
-    subtitle: "Modernized Self-Propelled Anti-Aircraft System",
-    description: "Deeply modernized ZSU-23-4 with new 3D X-band digital radar, capable of detecting aerial targets at 25 km and tracking up to 20 simultaneously. Enhanced capability against UAVs and cruise missiles with digital ballistic calculator.",
+    subtitle: t("productsPage.zsuSubtitle"),
+    description: t("productsPage.zsuDescription"),
     quickSpecs: ["3D X-band Radar", "25 km Detection", "Up to 20 Targets"],
     gallery: [productZsu],
     specSections: [
