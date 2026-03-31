@@ -30,7 +30,7 @@ export const en = {
     subtitle: "About Us",
     title1: "TRUSTED PARTNER IN",
     title2: "GLOBAL DEFENCE",
-    p1: "Excalibur Army is a leading European defence company specializing in the modernization, repair, and supply of military equipment. With decades of experience, we deliver reliable solutions that protect nations and their people.",
+    p1: "PALVAN is a leading European defence company specializing in the modernization, repair, and supply of military equipment. With decades of experience, we deliver reliable solutions that protect nations and their people.",
     p2: "Our comprehensive portfolio spans armoured vehicles, artillery systems, and complete lifecycle support — backed by world-class engineering and an unwavering commitment to quality.",
     stat1: "Years of Experience",
     stat2: "Countries Served",
