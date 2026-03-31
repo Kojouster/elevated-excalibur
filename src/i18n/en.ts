@@ -74,7 +74,7 @@ export const en = {
     article1Date: "March 15, 2026",
     article1Category: "Engineering",
     article1Title: "New Modernization Program for NATO Allies Announced",
-    article1Excerpt: "Excalibur Army launches comprehensive vehicle upgrade packages meeting the latest NATO standards.",
+    article1Excerpt: "PALVAN launches comprehensive vehicle upgrade packages meeting the latest NATO standards.",
     article2Date: "February 28, 2026",
     article2Category: "Events",
     article2Title: "IDEX 2026: Showcasing Next-Gen Defence Solutions",
