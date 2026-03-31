@@ -1,5 +1,6 @@
 import { motion, AnimatePresence, useSpring } from "framer-motion";
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
+import { useSearchParams } from "react-router-dom";
 import { ArrowRight, Shield, Crosshair, Rocket, X, ChevronLeft, ChevronRight, Filter, Radar, Truck, Eye, ChevronDown } from "lucide-react";
 import { useLanguage } from "@/i18n/LanguageContext";
 import Navbar from "@/components/Navbar";
