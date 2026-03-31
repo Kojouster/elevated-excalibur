@@ -231,8 +231,8 @@ const useProducts = (): Product[] => {
     category: "Reconnaissance",
     image: productBrdm,
     icon: Eye,
-    subtitle: "Modernized Amphibious Reconnaissance Vehicle",
-    description: "Upgraded BRDM-2 with modern DEUTZ BF4M1013FC diesel engine and ZF 6-speed manual transmission. Features turret-mounted twin machine gun setup with energy-absorbing crew seating and optional anti-cumulative protection.",
+    subtitle: t("productsPage.brdmSubtitle"),
+    description: t("productsPage.brdmDescription"),
     quickSpecs: ["DEUTZ 4.76L", "Amphibious", "Twin MG Turret"],
     gallery: [productBrdm],
     specSections: [
