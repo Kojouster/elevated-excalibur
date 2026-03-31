@@ -1,7 +1,7 @@
 import { Mail, Phone, MapPin } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useLanguage } from "@/i18n/LanguageContext";
-import palvanLogo from "@/assets/palvan-logo.jpg";
+import palvanLogo from "@/assets/palvan-logo.png";
 
 const FooterSection = () => {
   const { t } = useLanguage();

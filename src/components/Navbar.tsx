@@ -3,7 +3,7 @@ import { useLocation, Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { useLanguage } from "@/i18n/LanguageContext";
-import palvanLogo from "@/assets/palvan-logo.jpg";
+import palvanLogo from "@/assets/palvan-logo.png";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
