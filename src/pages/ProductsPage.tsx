@@ -287,8 +287,8 @@ const useProducts = (): Product[] => {
     category: "Armoured Vehicles",
     image: productMtlb,
     icon: Truck,
-    subtitle: "Multi-Purpose Tracked Armoured Vehicle",
-    description: "Versatile tracked platform with amphibious capability, upgraded YaMZ-238V turbocharged diesel engine, and energy-absorbing seats. Ideal for troop transport, command post, or weapons carrier roles.",
+    subtitle: t("productsPage.mtlbSubtitle"),
+    description: t("productsPage.mtlbDescription"),
     quickSpecs: ["11,300 kg", "240 HP", "Amphibious Tracked"],
     gallery: [productMtlb],
     specSections: [
