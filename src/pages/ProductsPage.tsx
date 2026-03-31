@@ -620,6 +620,7 @@ const SpecBlock = ({ section, index }: { section: SpecSection; index: number }) 
 const ProductModal = ({ product, onClose }: { product: Product; onClose: () => void }) => {
   const [galleryIndex, setGalleryIndex] = useState(0);
   const Icon = product.icon;
+  const { t } = useLanguage();
 
   return (
     <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
