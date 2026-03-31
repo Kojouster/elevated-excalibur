@@ -23,7 +23,7 @@ const Navbar = () => {
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-3">
-            <img src={palvanLogo} alt="PALVAN" className="h-14 w-auto invert mix-blend-screen bg-background" />
+            <img src={palvanLogo} alt="PALVAN" className="h-14 w-auto invert" />
             <div className="font-heading text-foreground">
               <div className="text-sm font-bold tracking-[0.3em] leading-none"></div>
             </div>
