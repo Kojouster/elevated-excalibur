@@ -551,8 +551,8 @@ const useProducts = (): Product[] => {
     variants: [
       {
         name: "GTS-30/N",
-        subtitle: "Remote Weapon Station with 30×173mm GTS-30/N Cannon",
-        description: "Advanced unmanned turret featuring a 30×173mm GTS-30/N automatic cannon, 7.62mm FN Herstal coaxial MG, and 902V Tucha smoke grenades. Integrated stabilized optoelectronic suite with thermal imaging and eye-safe laser rangefinder.",
+        subtitle: t("productsPage.xb30Variant1Subtitle"),
+        description: t("productsPage.xb30Variant1Description"),
         quickSpecs: ["30×173mm Cannon", "Thermal Imaging", "6 km LRF"],
         specSections: [
           {
