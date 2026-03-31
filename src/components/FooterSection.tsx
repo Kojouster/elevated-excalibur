@@ -14,7 +14,7 @@ const FooterSection = () => {
             <Link to="/" className="flex items-center gap-3 mb-6">
               <img src={palvanLogo} alt="PALVAN" className="h-14 w-auto invert mix-blend-screen" />
               <div className="font-heading">
-                <div className="text-sm font-bold tracking-[0.3em] text-foreground leading-none">PALVAN</div>
+                <div className="text-sm font-bold tracking-[0.3em] text-foreground leading-none"></div>
               </div>
             </Link>
             <p className="text-muted-foreground text-sm leading-relaxed">{t("footer.description")}</p>
