@@ -728,7 +728,7 @@ const ProductModal = ({ product, onClose }: { product: Product; onClose: () => v
           {product.options && product.options.length > 0 && (
             <>
               <h3 className="font-heading text-sm font-bold text-foreground tracking-wider uppercase mb-4">
-                Available Options
+                {t("productsPage.optionsTitle")}
               </h3>
               <div className="space-y-2 mb-6">
                 {product.options.map((o, i) => (
