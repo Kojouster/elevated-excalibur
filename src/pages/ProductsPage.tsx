@@ -823,7 +823,7 @@ const ProductsPage = () => {
                           ))}
                         </div>
                         <span className="inline-flex items-center gap-2 text-primary text-sm tracking-wider uppercase font-body group-hover:gap-3 transition-all">
-                          View Full Specs <ArrowRight className="w-4 h-4" />
+                          {t("productsPage.viewFullSpecs")} <ArrowRight className="w-4 h-4" />
                         </span>
                       </div>
                     </TiltCard>
