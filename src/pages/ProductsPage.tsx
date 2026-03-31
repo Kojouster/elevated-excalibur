@@ -9,7 +9,7 @@ import PageHeader from "@/components/PageHeader";
 import productVlra from "@/assets/product-vlra-mr24-hero.jpg";
 import productsHero from "@/assets/product-mangust-hero.png";
 import productMtlb from "@/assets/product-mt-lb-hero.jpg";
-import productZsu from "@/assets/product-zsu-hero.jpg";
+import productZsu from "@/assets/product-zsu-hero.png";
 import productMangust from "@/assets/product-mangust-hero.png";
 import productBtr70 from "@/assets/product-btr70td-hero.png";
 import productBrdm from "@/assets/product-brdm2p-hero.png";
