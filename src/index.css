@@ -103,7 +103,7 @@ html {
   border-radius: 3px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: hsl(217 75% 55%);
+  background: hsl(220 15% 65%);
 }
 
 /* Selection color */
