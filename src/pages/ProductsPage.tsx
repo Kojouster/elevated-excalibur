@@ -48,15 +48,17 @@ interface Product {
 
 const categories = ["All", "Armoured Vehicles", "Rocket Launchers", "Air Defence", "Combat Modules", "Reconnaissance"];
 
-const products: Product[] = [
+const useProducts = (): Product[] => {
+  const { t } = useLanguage();
+  return [
   {
     id: 1,
     name: "BTR MANGUST",
     category: "Armoured Vehicles",
     image: productMangust,
     icon: Shield,
-    subtitle: "6×6 Armoured Personnel Carrier with XB-30 Combat Module",
-    description: "Modern 6×6 monocoque APC featuring Level 1 ballistic protection and Level 3A/2B mine protection. Equipped with XB-30 remote weapon station, 370 HP diesel engine, and automatic transmission for superior battlefield mobility.",
+    subtitle: t("productsPage.mangustSubtitle"),
+    description: t("productsPage.mangustDescription"),
     quickSpecs: ["6×6 Drive", "370 HP", "Level 3A Mine Protection"],
     gallery: [productMangust, productXb30],
     specSections: [
@@ -172,8 +174,8 @@ const products: Product[] = [
     category: "Armoured Vehicles",
     image: productBtr70,
     icon: Shield,
-    subtitle: "Modernized 8×8 Amphibious APC — NSN: 2355-61-015-7372",
-    description: "Extensively modernized BTR-70 with new DEUTZ turbocharged diesel engine, 8-gear manual or 6-gear automatic transmission, and enhanced armament suite. Fully amphibious with optional perforated add-on armour.",
+    subtitle: t("productsPage.btr70Subtitle"),
+    description: t("productsPage.btr70Description"),
     quickSpecs: ["12,500 kg GVW", "DEUTZ 7.2L", "Amphibious"],
     gallery: [productBtr70],
     specSections: [
@@ -221,15 +223,7 @@ const products: Product[] = [
         ],
       },
     ],
-    options: [
-      "Installation of air conditioning system",
-      "Installation of additional power unit to power armament and vehicle",
-      "Front and rear parking cameras for driver (day-night)",
-      "Installation of GPS navigation",
-      "Additional armouring of the vehicle bottom",
-      "Energy absorbing seats based on advanced technologies",
-      "Perforated add-on armor protects against 7.62×54 mm (790 kg), 12.7×108 mm (1,024 kg) and 14.5×114 mm (1,144 kg), B32 rounds in all projections",
-    ],
+    options: t("productsPage.btr70Options") as unknown as string[],
   },
   {
     id: 3,
@@ -237,8 +231,8 @@ const products: Product[] = [
     category: "Reconnaissance",
     image: productBrdm,
     icon: Eye,
-    subtitle: "Modernized Amphibious Reconnaissance Vehicle",
-    description: "Upgraded BRDM-2 with modern DEUTZ BF4M1013FC diesel engine and ZF 6-speed manual transmission. Features turret-mounted twin machine gun setup with energy-absorbing crew seating and optional anti-cumulative protection.",
+    subtitle: t("productsPage.brdmSubtitle"),
+    description: t("productsPage.brdmDescription"),
     quickSpecs: ["DEUTZ 4.76L", "Amphibious", "Twin MG Turret"],
     gallery: [productBrdm],
     specSections: [
@@ -285,13 +279,7 @@ const products: Product[] = [
         ],
       },
     ],
-    options: [
-      "Energy-absorbing seats manufactured using modern technologies",
-      "Mounted perforated anti-cumulative protection provides protection against BZ-type ammunition:",
-      "— 7.62×54 mm (790 kg)",
-      "— 12.7×108 mm (1,024 kg)",
-      "— 14.5×114 mm (1,144 kg) on all projections",
-    ],
+    options: t("productsPage.brdmOptions") as unknown as string[],
   },
   {
     id: 4,
@@ -299,8 +287,8 @@ const products: Product[] = [
     category: "Armoured Vehicles",
     image: productMtlb,
     icon: Truck,
-    subtitle: "Multi-Purpose Tracked Armoured Vehicle",
-    description: "Versatile tracked platform with amphibious capability, upgraded YaMZ-238V turbocharged diesel engine, and energy-absorbing seats. Ideal for troop transport, command post, or weapons carrier roles.",
+    subtitle: t("productsPage.mtlbSubtitle"),
+    description: t("productsPage.mtlbDescription"),
     quickSpecs: ["11,300 kg", "240 HP", "Amphibious Tracked"],
     gallery: [productMtlb],
     specSections: [
@@ -343,9 +331,7 @@ const products: Product[] = [
         ],
       },
     ],
-    options: [
-      "Energy absorbing seats based on advanced technologies",
-    ],
+    options: t("productsPage.mtlbOptions") as unknown as string[],
   },
   {
     id: 5,
@@ -353,8 +339,8 @@ const products: Product[] = [
     category: "Rocket Launchers",
     image: productVlra,
     icon: Rocket,
-    subtitle: "122mm Multiple Launch Rocket System",
-    description: "Mobile 24-tube MLRS on a 4×4 VLRA chassis delivering concentrated rocket fire with 5–40 km range. Features hydraulic launcher drive, remote fire control, and rapid shoot-and-scoot capability with 1,400 km road range.",
+    subtitle: t("productsPage.vlraSubtitle"),
+    description: t("productsPage.vlraDescription"),
     quickSpecs: ["122mm / 24 Tubes", "5–40 km Range", "110 km/h"],
     gallery: [productVlra],
     specSections: [
@@ -465,8 +451,8 @@ const products: Product[] = [
     category: "Air Defence",
     image: productZsu,
     icon: Radar,
-    subtitle: "Modernized Self-Propelled Anti-Aircraft System",
-    description: "Deeply modernized ZSU-23-4 with new 3D X-band digital radar, capable of detecting aerial targets at 25 km and tracking up to 20 simultaneously. Enhanced capability against UAVs and cruise missiles with digital ballistic calculator.",
+    subtitle: t("productsPage.zsuSubtitle"),
+    description: t("productsPage.zsuDescription"),
     quickSpecs: ["3D X-band Radar", "25 km Detection", "Up to 20 Targets"],
     gallery: [productZsu],
     specSections: [
@@ -480,20 +466,7 @@ const products: Product[] = [
         ],
       },
     ],
-    advantages: [
-      "Increase the detection range of aerial targets up to 30 km",
-      "Sector of simultaneous view: 16° × 16° (azimuth 360°, elevation −4° to +85°)",
-      "Simultaneous determination of three coordinates (azimuth, range, height) and radial velocity",
-      "Detection, tracking and firing of small-scale targets (UAVs and cruise missiles)",
-      "Possibility of choosing the most dangerous target",
-      "High noise immunity",
-      "Real-time location (coordinates) determination of the upgraded ZSU-23-4M",
-      "Improved crew comfort (climate control system)",
-      "Built-in electronic simulator for crew training",
-      "Increased accuracy of target coordinate measurement",
-      "Target classification capability",
-      "Increased range and probability of hitting the target",
-    ],
+    advantages: t("productsPage.zsuAdvantages") as unknown as string[],
     comparisonTable: {
       header: ["Characteristics", "Before Modernization", "After Modernization"],
       rows: [
@@ -518,8 +491,8 @@ const products: Product[] = [
     category: "Combat Modules",
     image: productXb30,
     icon: Crosshair,
-    subtitle: "Remote Weapon Station with 30mm Cannon",
-    description: "Advanced unmanned turret featuring a 30×173mm GTS-30/N automatic cannon, 7.62mm FN Herstal coaxial MG, and 902V Tucha smoke grenades. Integrated stabilized optoelectronic suite with thermal imaging and eye-safe laser rangefinder.",
+    subtitle: t("productsPage.xb30Subtitle"),
+    description: t("productsPage.xb30Description"),
     quickSpecs: ["30×173mm Cannon", "Thermal Imaging", "6 km LRF"],
     gallery: [productXb30],
     specSections: [
@@ -578,8 +551,8 @@ const products: Product[] = [
     variants: [
       {
         name: "GTS-30/N",
-        subtitle: "Remote Weapon Station with 30×173mm GTS-30/N Cannon",
-        description: "Advanced unmanned turret featuring a 30×173mm GTS-30/N automatic cannon, 7.62mm FN Herstal coaxial MG, and 902V Tucha smoke grenades. Integrated stabilized optoelectronic suite with thermal imaging and eye-safe laser rangefinder.",
+        subtitle: t("productsPage.xb30Variant1Subtitle"),
+        description: t("productsPage.xb30Variant1Description"),
         quickSpecs: ["30×173mm Cannon", "Thermal Imaging", "6 km LRF"],
         specSections: [
           {
@@ -637,8 +610,8 @@ const products: Product[] = [
       },
       {
         name: "2A42",
-        subtitle: "Remote Weapon Station with 30mm 2A42 Automatic Cannon",
-        description: "Combat module armed with a 30mm 2A42 automatic cannon, 7.62mm PKT coaxial machine gun, and 902V Tucha smoke grenade launcher system. Features digital electromechanical 2-axis stabilizer, ONYX uncooled thermal imager, and eye-safe laser rangefinder.",
+        subtitle: t("productsPage.xb30Variant2Subtitle"),
+        description: t("productsPage.xb30Variant2Description"),
         quickSpecs: ["30mm 2A42 Cannon", "475 rds Loaded", "ONYX Thermal"],
         specSections: [
           {
@@ -704,7 +677,8 @@ const products: Product[] = [
       },
     ],
   },
-];
+  ];
+};
 
 /* ──── TiltCard ──── */
 const TiltCard = ({ children, className }: { children: React.ReactNode; className?: string }) => {
@@ -916,6 +890,7 @@ const ProductModal = ({ product, onClose }: { product: Product; onClose: () => v
 const ProductsPage = () => {
   const [activeCategory, setActiveCategory] = useState("All");
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
+  const products = useProducts();
   const filtered = activeCategory === "All" ? products : products.filter((p) => p.category === activeCategory);
   const { t } = useLanguage();
 
