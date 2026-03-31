@@ -30,7 +30,7 @@ export const sk = {
     subtitle: "O nás",
     title1: "DÔVERYHODNÝ PARTNER V",
     title2: "GLOBÁLNEJ OBRANE",
-    p1: "Excalibur Army je popredná európska obranná spoločnosť špecializujúca sa na modernizáciu, opravu a dodávku vojenskej techniky. S desaťročiami skúseností poskytujeme spoľahlivé riešenia, ktoré chránia národy a ich ľudí.",
+    p1: "PALVAN je popredná európska obranná spoločnosť špecializujúca sa na modernizáciu, opravu a dodávku vojenskej techniky. S desaťročiami skúseností poskytujeme spoľahlivé riešenia, ktoré chránia národy a ich ľudí.",
     p2: "Naše komplexné portfólio zahŕňa obrnené vozidlá, delostrelecké systémy a kompletú podporu životného cyklu — podporené svetovou inžiniérskou kvalitou a neochvejným záväzkom ku kvalite.",
     stat1: "Rokov skúseností",
     stat2: "Obslúžených krajín",
