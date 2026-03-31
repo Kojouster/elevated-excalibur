@@ -74,7 +74,7 @@ export const sk = {
     article1Date: "15. marca 2026",
     article1Category: "Inžinierstvo",
     article1Title: "Oznámený nový modernizačný program pre spojencov NATO",
-    article1Excerpt: "Excalibur Army spúšťa komplexné balíky modernizácie vozidiel spĺňajúce najnovšie štandardy NATO.",
+    article1Excerpt: "PALVAN spúšťa komplexné balíky modernizácie vozidiel spĺňajúce najnovšie štandardy NATO.",
     article2Date: "28. februára 2026",
     article2Category: "Udalosti",
     article2Title: "IDEX 2026: Prezentácia obranných riešení novej generácie",
