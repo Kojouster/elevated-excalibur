@@ -1,6 +1,6 @@
-import { motion, AnimatePresence, useMotionValue, useSpring } from "framer-motion";
+import { motion, AnimatePresence, useSpring } from "framer-motion";
 import { useState, useRef } from "react";
-import { ArrowRight, Shield, Target, Crosshair, Rocket, X, ChevronLeft, ChevronRight, Filter, Radar, Truck, Eye } from "lucide-react";
+import { ArrowRight, Shield, Crosshair, Rocket, X, ChevronLeft, ChevronRight, Filter, Radar, Truck, Eye, ChevronDown } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import FooterSection from "@/components/FooterSection";
 import BackToTop from "@/components/BackToTop";
@@ -13,274 +13,640 @@ import productBtr70 from "@/assets/product-btr70td-hero.jpg";
 import productBrdm from "@/assets/product-brdm2p-hero.jpg";
 import productXb30 from "@/assets/product-xb30-hero.jpg";
 
+interface SpecSection {
+  title: string;
+  rows: [string, string][];
+}
+
+interface Product {
+  id: number;
+  name: string;
+  category: string;
+  image: string;
+  icon: typeof Shield;
+  subtitle: string;
+  description: string;
+  quickSpecs: string[];
+  specSections: SpecSection[];
+  advantages?: string[];
+  options?: string[];
+  gallery: string[];
+  comparisonTable?: { header: string[]; rows: string[][] };
+}
+
 const categories = ["All", "Armoured Vehicles", "Rocket Launchers", "Air Defence", "Combat Modules", "Reconnaissance"];
 
-const products = [
+const products: Product[] = [
   {
-    id: 1, name: "BTR MANGUST", category: "Armoured Vehicles", image: productMangust, icon: Shield,
+    id: 1,
+    name: "BTR MANGUST",
+    category: "Armoured Vehicles",
+    image: productMangust,
+    icon: Shield,
     subtitle: "6×6 Armoured Personnel Carrier with XB-30 Combat Module",
     description: "Modern 6×6 monocoque APC featuring Level 1 ballistic protection and Level 3A/2B mine protection. Equipped with XB-30 remote weapon station, 370 HP diesel engine, and automatic transmission for superior battlefield mobility.",
-    specs: {
-      "Combat Weight": "20 t",
-      "Crew + Troops": "3+17",
-      "Engine": "370 HP / 6-cyl Diesel",
-      "Max Speed": "100 km/h",
-      "Cruising Range": "800 km",
-      "Protection": "Level 1 / 3A Mine",
-      "Drive": "6×6 Permanent",
-      "Transmission": "Automatic 6-speed",
-    },
-    features: [
-      "XB-30 remote weapon station with 30mm cannon",
-      "STANAG Level 1 ballistic protection",
-      "Level 3A/2B mine blast protection",
-      "Central Tire Inflation System (CTIS)",
-      "Run-flat system on all wheels",
-      "Climate control for crew comfort",
-      "Hydraulic retarder braking",
-      "Inter-wheel differential lock",
-      "6S/6M ABS with deactivation option",
-      "Rear ramp with double doors",
-    ],
+    quickSpecs: ["6×6 Drive", "370 HP", "Level 3A Mine Protection"],
     gallery: [productMangust, productXb30],
-  },
-  {
-    id: 2, name: "BTR-70TD", category: "Armoured Vehicles", image: productBtr70, icon: Shield,
-    subtitle: "Modernized 8×8 Amphibious APC",
-    description: "Extensively modernized BTR-70 with new DEUTZ turbocharged diesel engine, 8-gear manual or 6-gear automatic transmission, and enhanced armament suite. Fully amphibious with optional perforated add-on armour.",
-    specs: {
-      "GVW": "12,500 kg",
-      "Dimensions": "7.55 × 2.8 × 2.32 m",
-      "Clearance": "0.47 m",
-      "Engine": "DEUTZ 7.2L Diesel",
-      "Torque": "1050 Nm",
-      "Fuel Tank": "300 L",
-      "Fording": "Amphibious",
-      "Armament": "14.5mm + 7.62mm",
-    },
-    features: [
-      "14.5mm KPVT HMG with 500 rounds",
-      "7.62mm PKT coaxial MG with 2000 rounds",
-      "PP-61AM optical sight",
-      "Perforated add-on armour option (7.62–14.5mm protection)",
-      "Energy-absorbing seats",
-      "GPS navigation system",
-      "Day/night parking cameras",
-      "Air conditioning system option",
-      "Auxiliary power unit option",
-      "Fully amphibious capability",
+    specSections: [
+      {
+        title: "General",
+        rows: [
+          ["Dimensions (L×W×H)", "7,302 × 2,636 × 2,447 mm"],
+          ["Ground Clearance", "585 mm"],
+          ["Maximum Power", "370 HP"],
+          ["Cruising Range", "800 km"],
+          ["Maximum Speed", "100 km/h"],
+        ],
+      },
+      {
+        title: "Power Unit",
+        rows: [
+          ["Engine Type", "4-stroke, inline 6-cylinder diesel"],
+          ["Maximum Torque", "1,260 N·m at 1,200 rpm"],
+          ["Displacement", "7.2 L"],
+          ["Fuel Injection System", "Common Rail"],
+          ["Oil Cooler", "Equipped"],
+          ["Cold Start Range", "−25 to +49 °C"],
+          ["Emission Level", "Not certified"],
+        ],
+      },
+      {
+        title: "Transmission & Running Gear",
+        rows: [
+          ["Transmission Type", "Automatic"],
+          ["Forward Gears", "6"],
+          ["Reverse Gear", "1"],
+          ["Lock-up Torque Converter", "Equipped"],
+          ["Hydraulic Retarder", "Equipped"],
+          ["Front Axle", "Steering"],
+          ["Center Axle", "Steering"],
+          ["Rear Axle", "Fixed"],
+          ["Inter-wheel Differential Lock", "Equipped"],
+        ],
+      },
+      {
+        title: "Protection",
+        rows: [
+          ["Crew Protection Standard", "Level 1"],
+          ["5.56mm × 45 NATO SS109", "900 m/s"],
+          ["5.56mm × 45 M193", "937 m/s"],
+          ["7.62mm × 51 NATO Ball", "833 m/s"],
+          ["7.62mm × 39 API BZ", "690 m/s"],
+          ["7.62mm × 54R B32 API BP32 Dragunov", "854 m/s"],
+          ["20mm FSP", "770 m/s"],
+          ["12.7 × 99mm M33 Ball (200 m)", "MIL-STD-662F"],
+          ["Exclusion", "7.62mm × 51 AP WC"],
+        ],
+      },
+      {
+        title: "Mine Protection",
+        rows: [
+          ["Standard Level", "3A / 2B"],
+        ],
+      },
+      {
+        title: "Braking System",
+        rows: [
+          ["Type", "Pneumatic Oleo system"],
+          ["Circuits", "2 independent"],
+          ["Service Brakes", "6 disc brakes"],
+          ["ABS", "6S/6M (with deactivation option)"],
+          ["Compressor", "Twin-cylinder, 720 cm³"],
+          ["Parking Brake", "Pneumatic"],
+          ["Gradeability (braking on slope)", "60%"],
+        ],
+      },
+      {
+        title: "Wheels & Tires",
+        rows: [
+          ["Tire Size", "14.00 R20"],
+          ["Central Tire Inflation System (CTIS)", "Equipped"],
+          ["Run-flat System", "Equipped"],
+          ["Spare Wheel", "Optional (with handling system)"],
+        ],
+      },
+      {
+        title: "Cabin & Crew",
+        rows: [
+          ["Front Doors", "2"],
+          ["Rear Doors / Ramp", "Double"],
+          ["Roof Hatches", "3"],
+          ["Locks", "Reinforced security level"],
+          ["Additional Rear Windows", "Optional"],
+          ["Provision for Combat Module", "Yes"],
+          ["Adjustable Seats", "2 units, 3-point seat belts"],
+          ["Central Display", "Driving parameter monitoring"],
+          ["Transmission Control", "Equipped"],
+          ["ABS Control", "Equipped"],
+          ["CTIS Control", "Equipped"],
+          ["Blackout Lights", "Equipped"],
+        ],
+      },
+      {
+        title: "Chassis",
+        rows: [
+          ["Body Type", "Monocoque"],
+          ["Fuel Tanks", "1 unit"],
+          ["Fuel Tank Capacity", "300 L"],
+          ["Primary Fuel Filter", "Equipped"],
+          ["Amphibious System", "Optional"],
+        ],
+      },
     ],
-    gallery: [productBtr70],
   },
   {
-    id: 3, name: "BRDM-2P", category: "Reconnaissance", image: productBrdm, icon: Eye,
+    id: 2,
+    name: "BTR-70TD",
+    category: "Armoured Vehicles",
+    image: productBtr70,
+    icon: Shield,
+    subtitle: "Modernized 8×8 Amphibious APC — NSN: 2355-61-015-7372",
+    description: "Extensively modernized BTR-70 with new DEUTZ turbocharged diesel engine, 8-gear manual or 6-gear automatic transmission, and enhanced armament suite. Fully amphibious with optional perforated add-on armour.",
+    quickSpecs: ["12,500 kg GVW", "DEUTZ 7.2L", "Amphibious"],
+    gallery: [productBtr70],
+    specSections: [
+      {
+        title: "General",
+        rows: [
+          ["GVW", "12,500 kg"],
+          ["Dimensions (L×W×H)", "7.55 × 2.8 × 2.320 m"],
+          ["Ground Clearance", "0.47 m"],
+        ],
+      },
+      {
+        title: "Engine",
+        rows: [
+          ["Type", "DEUTZ, diesel, turbocharged"],
+          ["Engine Displacement", "7.2 L"],
+          ["Torque", "1,050 Nm at 1,400 RPM"],
+          ["Fuel Tank Capacity", "300 L"],
+        ],
+      },
+      {
+        title: "Transmission",
+        rows: [
+          ["Option 1", "Eaton, 8-gear, manual, fully synchronised, low shift"],
+          ["Option 2", "Allison, 6-gear, automatic"],
+          ["Clutch", "One disk, dry, diaphragm type"],
+        ],
+      },
+      {
+        title: "Armament",
+        rows: [
+          ["Primary", "14.5 mm HMG KPVT — 500 rounds"],
+          ["Secondary", "7.62 mm MG PKT — 2,000 rounds"],
+          ["Sight", "PP-61AM"],
+        ],
+      },
+      {
+        title: "Obstacles",
+        rows: [
+          ["Slope", "30°"],
+          ["Roll", "25°"],
+          ["Trench", "2 m"],
+          ["Wall", "0.5 m"],
+          ["Fording", "Amphibious"],
+        ],
+      },
+    ],
+    options: [
+      "Installation of air conditioning system",
+      "Installation of additional power unit to power armament and vehicle",
+      "Front and rear parking cameras for driver (day-night)",
+      "Installation of GPS navigation",
+      "Additional armouring of the vehicle bottom",
+      "Energy absorbing seats based on advanced technologies",
+      "Perforated add-on armor protects against 7.62×54 mm (790 kg), 12.7×108 mm (1,024 kg) and 14.5×114 mm (1,144 kg), B32 rounds in all projections",
+    ],
+  },
+  {
+    id: 3,
+    name: "BRDM-2P",
+    category: "Reconnaissance",
+    image: productBrdm,
+    icon: Eye,
     subtitle: "Modernized Amphibious Reconnaissance Vehicle",
     description: "Upgraded BRDM-2 with modern DEUTZ BF4M1013FC diesel engine and ZF 6-speed manual transmission. Features turret-mounted twin machine gun setup with energy-absorbing crew seating and optional anti-cumulative protection.",
-    specs: {
-      "GVW": "7,200 kg",
-      "Dimensions": "5.75 × 2.35 × 2.37 m",
-      "Clearance": "0.315 m",
-      "Engine": "DEUTZ 4.76L Diesel",
-      "Torque": "577 Nm",
-      "Fuel Tank": "280 L (2×140)",
-      "Fording": "Amphibious",
-      "Armament": "14.5mm + 7.62mm",
-    },
-    features: [
-      "14.5mm KPVT machine gun — 500 rounds",
-      "7.62mm PKT machine gun — 2000 rounds",
-      "PP-61AM optical sight",
-      "Energy-absorbing modern seats",
-      "Anti-cumulative perforated armour option",
-      "Protection against 7.62–14.5mm BZ rounds",
-      "ZF 6-speed manual transmission",
-      "Fully amphibious operation",
-    ],
+    quickSpecs: ["DEUTZ 4.76L", "Amphibious", "Twin MG Turret"],
     gallery: [productBrdm],
+    specSections: [
+      {
+        title: "General",
+        rows: [
+          ["Dimensions (L×W×H)", "5.75 × 2.35 × 2.37 m"],
+          ["Ground Clearance", "0.315 m"],
+        ],
+      },
+      {
+        title: "Engine",
+        rows: [
+          ["Type", "DEUTZ BF4M1013FC, four-stroke diesel with turbocharging"],
+          ["Engine Displacement", "4.76 L"],
+          ["Torque", "577 Nm"],
+          ["Fuel Tank Capacity", "280 L (2 × 140 L)"],
+        ],
+      },
+      {
+        title: "Transmission",
+        rows: [
+          ["Type", "ZF 6S 705 TO, 6-speed, manual"],
+          ["Clutch", "M & S, dry, single-disk"],
+        ],
+      },
+      {
+        title: "Armament",
+        rows: [
+          ["Mount", "Turret-mounted, twin machine gun setup"],
+          ["Primary", "14.5 mm KPVT — 500 rounds"],
+          ["Secondary", "7.62 mm PKT — 2,000 rounds"],
+          ["Sight", "PP-61AM"],
+        ],
+      },
+      {
+        title: "Performance",
+        rows: [
+          ["Slope", "30°"],
+          ["Roll", "25°"],
+          ["Trench", "1.1 m"],
+          ["Wall", "0.5 m"],
+          ["Fording", "Amphibious"],
+        ],
+      },
+    ],
+    options: [
+      "Energy-absorbing seats manufactured using modern technologies",
+      "Mounted perforated anti-cumulative protection provides protection against BZ-type ammunition:",
+      "— 7.62×54 mm (790 kg)",
+      "— 12.7×108 mm (1,024 kg)",
+      "— 14.5×114 mm (1,144 kg) on all projections",
+    ],
   },
   {
-    id: 4, name: "MT-LB", category: "Armoured Vehicles", image: productMtlb, icon: Truck,
+    id: 4,
+    name: "MT-LB",
+    category: "Armoured Vehicles",
+    image: productMtlb,
+    icon: Truck,
     subtitle: "Multi-Purpose Tracked Armoured Vehicle",
     description: "Versatile tracked platform with amphibious capability, upgraded YaMZ-238V turbocharged diesel engine, and energy-absorbing seats. Ideal for troop transport, command post, or weapons carrier roles.",
-    specs: {
-      "GVW": "11,300 kg",
-      "Crew + Troops": "2+11",
-      "Engine": "YaMZ-238V Turbo Diesel",
-      "Max Power": "240 HP",
-      "Cruising Range": "500 km",
-      "Max Speed": "61.5 km/h",
-      "Water Speed": "6 km/h",
-      "Clearance": "0.415 m",
-    },
-    features: [
-      "7.62mm PKM-B machinegun with 500 rounds",
-      "Motorola DM-4601 & R-173 radio systems",
-      "Fully amphibious",
-      "Energy-absorbing advanced seats",
-      "35° slope / 25° roll capability",
-      "1.5m trench crossing",
-      "0.5m wall climbing",
-    ],
+    quickSpecs: ["11,300 kg", "240 HP", "Amphibious Tracked"],
     gallery: [productMtlb],
+    specSections: [
+      {
+        title: "General",
+        rows: [
+          ["GVW", "11,300 kg"],
+          ["Max Power", "240 HP"],
+          ["Cruising Range", "500 km"],
+          ["Ground Clearance", "0.415 m"],
+        ],
+      },
+      {
+        title: "Engine",
+        rows: [
+          ["Type", "Four-stroke YaMZ-238V diesel, turbocharged"],
+        ],
+      },
+      {
+        title: "Armament",
+        rows: [
+          ["Machine Gun", "7.62 mm PKM-B — 500 rounds"],
+        ],
+      },
+      {
+        title: "Radio",
+        rows: [
+          ["System 1", "Motorola DM-4601"],
+          ["System 2", "R-173"],
+        ],
+      },
+      {
+        title: "Obstacles",
+        rows: [
+          ["Slope", "35°"],
+          ["Roll", "25°"],
+          ["Trench", "1.5 m"],
+          ["Wall", "0.5 m"],
+          ["Fording", "Amphibious"],
+        ],
+      },
+    ],
+    options: [
+      "Energy absorbing seats based on advanced technologies",
+    ],
   },
   {
-    id: 5, name: "VLRA MR-24", category: "Rocket Launchers", image: productVlra, icon: Rocket,
+    id: 5,
+    name: "VLRA MR-24",
+    category: "Rocket Launchers",
+    image: productVlra,
+    icon: Rocket,
     subtitle: "122mm Multiple Launch Rocket System",
-    description: "Mobile 24-tube MLRS on a 4×4 VLRA chassis delivering concentrated rocket fire with 5–40 km range. Features hydraulic launcher drive, remote fire control, and rapid shoot-and-scoot capability.",
-    specs: {
-      "Calibre": "122 mm",
-      "Tubes": "24",
-      "Range": "5–40 km",
-      "Full Volley": "10–12 sec",
-      "Crew": "3",
-      "Ready to Fire": "1 min 40 sec",
-      "Chassis": "4×4 / 175 HP",
-      "Max Speed": "110 km/h",
-    },
-    features: [
-      "24 rocket guides with 122mm calibre",
-      "Hydraulic (electromechanical) launcher drive",
-      "Remote fire control up to 100m distance",
-      "Mechanical sight Сб 00-19",
-      "Vertical guidance: 0°–55°",
-      "Horizontal rotation: ±90°",
-      "1 min 15 sec position departure after volley",
-      "Central Tire Inflation System option",
-      "Run-flat capability",
-      "1,400 km road range",
-    ],
+    description: "Mobile 24-tube MLRS on a 4×4 VLRA chassis delivering concentrated rocket fire with 5–40 km range. Features hydraulic launcher drive, remote fire control, and rapid shoot-and-scoot capability with 1,400 km road range.",
+    quickSpecs: ["122mm / 24 Tubes", "5–40 km Range", "110 km/h"],
     gallery: [productVlra],
+    specSections: [
+      {
+        title: "MLRS Launcher",
+        rows: [
+          ["Caliber", "122 mm"],
+          ["Number of Guides", "24 pcs"],
+          ["Firing Range (min)", "5 km"],
+          ["Firing Range (max)", "40 km"],
+          ["Combat Crew", "3 persons"],
+          ["Time Until Start of Fire", "1 min 40 sec"],
+          ["Full Volley Time", "10–12 sec"],
+          ["Time to Leave Positions After Volley", "1 min 15 sec"],
+          ["Vertical Guidance Angles", "0° – 55°"],
+          ["Horizontal Rotation Angles", "Left 0°–90°, Right 0°–90°"],
+          ["Drive System", "Hydraulic (electromechanical)"],
+          ["Drive Control System", "Standard, from cabin and remote control 100 m"],
+          ["Fire Control System", "From cabin and with remote electric control"],
+        ],
+      },
+      {
+        title: "Running Gear",
+        rows: [
+          ["Outrigger System", "Mechanical jacks"],
+          ["Sighting System", "Mechanical sight Сб 00-19"],
+          ["ZIP-O Kit", "Included"],
+        ],
+      },
+      {
+        title: "Chassis",
+        rows: [
+          ["Wheel Formula", "4×4"],
+          ["Wheelbase", "4,300 mm"],
+          ["Length", "7,230 mm"],
+          ["Width", "2,200 mm"],
+          ["Height (laden)", "2,450 mm"],
+          ["Transfer Case", "Permanent 4×4, 2-speed, pneumatic control"],
+          ["Differential", "Locking, gear ratio 1:2.08"],
+          ["Axles", "Hub reduction, planetary, gear ratio 6.000"],
+          ["Steering", "Left-hand, hydraulic power assist"],
+          ["Suspension", "Parabolic multi-leaf springs, oil-pneumatic shock absorbers"],
+          ["Brakes", "Dual-circuit oil-pneumatic, disc on all wheels, switchable ABS"],
+          ["Parking Brake", "Pneumatic, on transfer case"],
+          ["Trailer Brake", "Dual-line, ISO standard"],
+          ["Tires", "365/80 R20 off-road"],
+          ["Rims", "Standard steel, optional aluminum with CTIS + Runflat"],
+          ["Turning Radius", "7,500 mm"],
+          ["Approach Angle", "40.6°"],
+          ["Departure Angle", "29.6°"],
+          ["Ramp Angle", "32.6°"],
+          ["Ground Clearance (laden)", "490 mm"],
+        ],
+      },
+      {
+        title: "Design Features",
+        rows: [
+          ["Fuel Tank Capacity", "340 L (2 × 170 L)"],
+          ["Platform Design", "Corrosion-resistant steel floor"],
+          ["Storage Spaces", "Under-platform boxes (2), spare wheel on the side"],
+          ["Seats", "Adjustable with 3-point safety belts"],
+        ],
+      },
+      {
+        title: "Power Unit",
+        rows: [
+          ["Engine Type", "Diesel, without ECU (TDN), 4.76 L, inline 4-cylinder"],
+          ["Engine Power", "175 HP (129 kW) at 2,300 rpm"],
+          ["Torque", "700 N·m at 1,400 rpm"],
+          ["Emissions", "Euro 2"],
+          ["Air Compressor", "225 cm³"],
+          ["Transmission", "Manual, 6 forward / 1 reverse gear"],
+        ],
+      },
+      {
+        title: "Electrical Appliances",
+        rows: [
+          ["Electrical System", "24 V, alternator 55 A / 28 V"],
+          ["Batteries", "2 × 12 V, 125 Ah, 300 A"],
+          ["Controls", "CTIS, ABS, fuel selector, differential lock, transfer case"],
+          ["Lighting", "Front/rear headlights, blackout lights"],
+          ["Winch (optional)", "Front, 6,800 daN, 35 m steel cable, 10 m remote control"],
+          ["Instrument Panel", "Steel with central display (fuel, gear, speed, distance, engine data, warnings)"],
+        ],
+      },
+      {
+        title: "Performance Characteristics",
+        rows: [
+          ["Gradient (max)", "60%"],
+          ["Side Slope", "30%"],
+          ["Trench", "0.8 m"],
+          ["Vertical Obstacle", "0.4 m"],
+          ["Fording Depth", "0.9 m"],
+          ["GVW (without ammunition)", "7,000 kg"],
+          ["GVW (with ammunition)", "9,000 kg"],
+          ["Max Front Axle Load", "5,000 kg"],
+          ["Max Rear Axle Load", "7,000 kg"],
+          ["Max Speed", "110 km/h"],
+          ["Range on Road", "1,400 km"],
+          ["Towing Capacity", "5,000 kg"],
+        ],
+      },
+    ],
   },
   {
-    id: 6, name: "ZSU 23-4M-A1", category: "Air Defence", image: productZsu, icon: Radar,
+    id: 6,
+    name: "ZSU 23-4M-A1",
+    category: "Air Defence",
+    image: productZsu,
+    icon: Radar,
     subtitle: "Modernized Self-Propelled Anti-Aircraft System",
-    description: "Deeply modernized ZSU-23-4 with new 3D X-band digital radar, capable of detecting aerial targets at 30 km and tracking up to 20 simultaneously. Enhanced capability against UAVs and cruise missiles.",
-    specs: {
-      "Radar Type": "3D X-band Digital",
-      "Detection Range": "25 km (fighter)",
-      "UAV Detection": "4–9 km",
-      "Tracking Targets": "Up to 20",
-      "Target Speed": "Up to 700 m/s",
-      "Hit Probability": "0.35–0.4",
-      "Processing Time": "0.2 sec",
-      "Navigation": "GPS + GLONASS",
-    },
-    features: [
-      "3D digital radar replacing analog system",
-      "30 km aerial target detection range",
-      "Simultaneous 16°×16° space scan",
-      "Three-coordinate target determination (azimuth, range, height)",
-      "UAV and cruise missile detection capability",
-      "Digital ballistic calculator",
-      "Automated external target data reception",
-      "Built-in electronic crew training simulator",
-      "Climate control system for improved crew comfort",
-      "High noise immunity radar",
-    ],
+    description: "Deeply modernized ZSU-23-4 with new 3D X-band digital radar, capable of detecting aerial targets at 25 km and tracking up to 20 simultaneously. Enhanced capability against UAVs and cruise missiles with digital ballistic calculator.",
+    quickSpecs: ["3D X-band Radar", "25 km Detection", "Up to 20 Targets"],
     gallery: [productZsu],
+    specSections: [
+      {
+        title: "Modernization Stages",
+        rows: [
+          ["Stage 1", "Dismantling of old systems and devices"],
+          ["Stage 2", "Installation of new systems and units"],
+          ["Stage 3", "Repair/replacement of necessary systems and units"],
+          ["Stage 4", "Testing and tuning of the modernized ZSU-23-4M-A1"],
+        ],
+      },
+    ],
+    advantages: [
+      "Increase the detection range of aerial targets up to 30 km",
+      "Sector of simultaneous view: 16° × 16° (azimuth 360°, elevation −4° to +85°)",
+      "Simultaneous determination of three coordinates (azimuth, range, height) and radial velocity",
+      "Detection, tracking and firing of small-scale targets (UAVs and cruise missiles)",
+      "Possibility of choosing the most dangerous target",
+      "High noise immunity",
+      "Real-time location (coordinates) determination of the upgraded ZSU-23-4M",
+      "Improved crew comfort (climate control system)",
+      "Built-in electronic simulator for crew training",
+      "Increased accuracy of target coordinate measurement",
+      "Target classification capability",
+      "Increased range and probability of hitting the target",
+    ],
+    comparisonTable: {
+      header: ["Characteristics", "Before Modernization", "After Modernization"],
+      rows: [
+        ["Type of radar", "Analog two-coordinate", "3D X-band digital radar + radial speed"],
+        ["Detection range (tactical fighter), km", "12", "25"],
+        ["Detection range (UAV), km", "—", "4–9 (depends on UAV type)"],
+        ["Max target tracking range, km", "10", "20"],
+        ["Min target tracking height, m", "100", "From 0"],
+        ["Target processing time, sec", "18", "0.2"],
+        ["Number of tracking targets", "1", "Up to 20"],
+        ["Speed of tracking targets, m/s", "Up to 450", "Up to 700"],
+        ["Strike probability of air target", "0.07–0.18", "0.35–0.4"],
+        ["Navigation system", "TNQ (tank navigation)", "TNQ, GPS, GLONASS (open codes)"],
+        ["Ballistic calculator", "Analog", "Digital"],
+        ["External target data (automated)", "—", "Yes"],
+      ],
+    },
   },
   {
-    id: 7, name: "XB-30", category: "Combat Modules", image: productXb30, icon: Crosshair,
+    id: 7,
+    name: "XB-30",
+    category: "Combat Modules",
+    image: productXb30,
+    icon: Crosshair,
     subtitle: "Remote Weapon Station with 30mm Cannon",
-    description: "Advanced unmanned turret featuring a 30×173mm GTS-30/N automatic cannon, 7.62mm coaxial MG, and 902V smoke grenades. Integrated stabilized optoelectronic suite with thermal imaging and laser rangefinder.",
-    specs: {
-      "Main Gun": "30×173mm GTS-30/N",
-      "Coaxial MG": "7.62mm FN Herstal",
-      "Smoke Grenades": "6× 902V Tucha",
-      "Thermal Imager": "640×512 / 8–12µm",
-      "LRF Range": "6 km (max)",
-      "Stabilization": "2-axis Digital",
-      "Day Camera": "CMOS 1.3\"",
-      "Detection": "8 km (tank)",
-    },
-    features: [
-      "30×173mm automatic cannon GTS-30/N",
-      "7.62×51mm FN Herstal coaxial machine gun",
-      "6-tube 902V Tucha smoke grenade launchers",
-      "Digital electromechanical 2-axis stabilizer",
-      "Uncooled 640×512 microbolometer thermal imager",
-      "Eye-safe laser rangefinder (λ 1.535µm, Class 1)",
-      "Narrow FOV 2.2°×1.65° + Wide FOV 8°×6° day cameras",
-      "LRF undetectable by MWIR/LWIR sensors",
-      "Fog and smoke penetration capability",
-      "Operator console with video monitor",
-    ],
+    description: "Advanced unmanned turret featuring a 30×173mm GTS-30/N automatic cannon, 7.62mm FN Herstal coaxial MG, and 902V Tucha smoke grenades. Integrated stabilized optoelectronic suite with thermal imaging and eye-safe laser rangefinder.",
+    quickSpecs: ["30×173mm Cannon", "Thermal Imaging", "6 km LRF"],
     gallery: [productXb30],
+    specSections: [
+      {
+        title: "Armament",
+        rows: [
+          ["Main Gun", "30×173 mm Automatic Cannon GTS-30/N"],
+          ["Coaxial MG", "7.62×51 mm FN HERSTAL machine gun"],
+          ["Smoke Grenades", "902V 'Tucha' system (6 mortars, 3 per side)"],
+        ],
+      },
+      {
+        title: "Weapon Control System",
+        rows: [
+          ["Stabilizer", "Digital, electromechanical, 2-axis"],
+          ["Drives", "Vertical and horizontal actuators with electromagnetic travel locks"],
+          ["Control Units", "Equipped"],
+          ["Operator Monitor", "Video monitor"],
+          ["Operator Console", "Equipped"],
+        ],
+      },
+      {
+        title: "Thermal Imaging Channel (ONYX)",
+        rows: [
+          ["Sensor Resolution", "640 × 512 pixels"],
+          ["Wavelength Range", "8–12 µm"],
+          ["Type", "Uncooled microbolometer"],
+          ["Field of View (FOV)", "4.4° × 3.5°"],
+          ["Capability", "Observation through fog, smoke; day and night operation"],
+        ],
+      },
+      {
+        title: "Laser Rangefinder (LRF)",
+        rows: [
+          ["Wavelength", "λ — 1.535 µm (eye-safe)"],
+          ["Laser Class", "1"],
+          ["Beam Divergence", "≤ 1 × 1 mrad"],
+          ["Measurement Frequency", "1–5 Hz"],
+          ["Max Range", "6 km"],
+          ["Tank Detection", "4.5 km (target 2.3 × 2.3 m)"],
+          ["Stealth", "Undetectable by MWIR (3–5 µm) and LWIR (8–12 µm) thermal imagers"],
+        ],
+      },
+      {
+        title: "Day Channel",
+        rows: [
+          ["Narrow FOV", "2.2° (horizontal) × 1.65° (vertical)"],
+          ["Wide FOV", "8.0° (horizontal) × 6.0° (vertical)"],
+          ["Sensor Type", "CMOS, 1.3\" sensor"],
+          ["Resolution", "720 × 576 pixels"],
+          ["Detection (man)", "8 km"],
+          ["Recognition (tank)", "2.2 km"],
+        ],
+      },
+    ],
   },
 ];
 
-type Product = typeof products[0];
-
+/* ──── TiltCard ──── */
 const TiltCard = ({ children, className }: { children: React.ReactNode; className?: string }) => {
   const ref = useRef<HTMLDivElement>(null);
   const rotateX = useSpring(0, { stiffness: 200, damping: 20 });
   const rotateY = useSpring(0, { stiffness: 200, damping: 20 });
-
   const handleMouse = (e: React.MouseEvent) => {
     if (!ref.current) return;
     const rect = ref.current.getBoundingClientRect();
-    const px = (e.clientX - rect.left) / rect.width - 0.5;
-    const py = (e.clientY - rect.top) / rect.height - 0.5;
-    rotateX.set(py * -6);
-    rotateY.set(px * 6);
+    rotateX.set(((e.clientY - rect.top) / rect.height - 0.5) * -6);
+    rotateY.set(((e.clientX - rect.left) / rect.width - 0.5) * 6);
   };
-
   return (
-    <motion.div
-      ref={ref}
-      onMouseMove={handleMouse}
-      onMouseLeave={() => { rotateX.set(0); rotateY.set(0); }}
-      style={{ rotateX, rotateY, transformPerspective: 800 }}
-      className={className}
-    >
+    <motion.div ref={ref} onMouseMove={handleMouse} onMouseLeave={() => { rotateX.set(0); rotateY.set(0); }}
+      style={{ rotateX, rotateY, transformPerspective: 800 }} className={className}>
       {children}
     </motion.div>
   );
 };
 
+/* ──── Collapsible Spec Section ──── */
+const SpecBlock = ({ section, index }: { section: SpecSection; index: number }) => {
+  const [open, setOpen] = useState(index < 2);
+  return (
+    <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: index * 0.04 }}
+      className="border border-border overflow-hidden">
+      <button onClick={() => setOpen(!open)}
+        className="w-full flex items-center justify-between px-5 py-3.5 bg-background hover:bg-primary/5 transition-colors">
+        <span className="font-heading text-xs tracking-[0.2em] uppercase text-foreground font-bold">{section.title}</span>
+        <ChevronDown className={`w-4 h-4 text-primary transition-transform duration-300 ${open ? "rotate-180" : ""}`} />
+      </button>
+      <AnimatePresence initial={false}>
+        {open && (
+          <motion.div initial={{ height: 0, opacity: 0 }} animate={{ height: "auto", opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }} transition={{ duration: 0.3 }}>
+            <div className="divide-y divide-border/50">
+              {section.rows.map(([label, value], ri) => (
+                <div key={ri} className={`flex items-start px-5 py-2.5 text-sm ${ri % 2 === 0 ? "bg-card" : "bg-background"}`}>
+                  <span className="w-2/5 text-muted-foreground flex-shrink-0 text-xs tracking-wider">{label}</span>
+                  <span className="text-foreground font-medium text-xs">{value}</span>
+                </div>
+              ))}
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </motion.div>
+  );
+};
+
+/* ──── Product Modal ──── */
 const ProductModal = ({ product, onClose }: { product: Product; onClose: () => void }) => {
   const [galleryIndex, setGalleryIndex] = useState(0);
   const Icon = product.icon;
 
   return (
-    <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
+    <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
       className="fixed inset-0 z-[60] bg-background/90 backdrop-blur-md flex items-start justify-center overflow-y-auto py-20 px-4"
-      onClick={onClose}
-    >
-      <motion.div
-        initial={{ opacity: 0, y: 40, scale: 0.95 }}
-        animate={{ opacity: 1, y: 0, scale: 1 }}
-        exit={{ opacity: 0, y: 40, scale: 0.95 }}
-        transition={{ duration: 0.4 }}
-        onClick={(e) => e.stopPropagation()}
-        className="w-full max-w-5xl bg-card border border-border relative"
-      >
-        <button onClick={onClose} className="absolute top-4 right-4 z-10 w-10 h-10 flex items-center justify-center bg-background/80 border border-border hover:border-primary text-foreground hover:text-primary transition-colors">
+      onClick={onClose}>
+      <motion.div initial={{ opacity: 0, y: 40, scale: 0.95 }} animate={{ opacity: 1, y: 0, scale: 1 }}
+        exit={{ opacity: 0, y: 40, scale: 0.95 }} transition={{ duration: 0.4 }}
+        onClick={(e) => e.stopPropagation()} className="w-full max-w-5xl bg-card border border-border relative">
+
+        <button onClick={onClose}
+          className="absolute top-4 right-4 z-10 w-10 h-10 flex items-center justify-center bg-background/80 border border-border hover:border-primary text-foreground hover:text-primary transition-colors">
           <X className="w-5 h-5" />
         </button>
 
         {/* Gallery */}
         <div className="relative aspect-[16/9] overflow-hidden">
           <AnimatePresence mode="wait">
-            <motion.img
-              key={galleryIndex}
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              src={product.gallery[galleryIndex]}
-              alt={product.name}
-              className="w-full h-full object-cover"
-            />
+            <motion.img key={galleryIndex} initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
+              src={product.gallery[galleryIndex]} alt={product.name} className="w-full h-full object-cover" />
           </AnimatePresence>
           {product.gallery.length > 1 && (
             <>
-              <button onClick={() => setGalleryIndex((p) => (p - 1 + product.gallery.length) % product.gallery.length)} className="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 flex items-center justify-center bg-background/80 border border-border hover:border-primary text-foreground hover:text-primary transition-colors">
+              <button onClick={() => setGalleryIndex((p) => (p - 1 + product.gallery.length) % product.gallery.length)}
+                className="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 flex items-center justify-center bg-background/80 border border-border hover:border-primary text-foreground hover:text-primary transition-colors">
                 <ChevronLeft className="w-5 h-5" />
               </button>
-              <button onClick={() => setGalleryIndex((p) => (p + 1) % product.gallery.length)} className="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 flex items-center justify-center bg-background/80 border border-border hover:border-primary text-foreground hover:text-primary transition-colors">
+              <button onClick={() => setGalleryIndex((p) => (p + 1) % product.gallery.length)}
+                className="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 flex items-center justify-center bg-background/80 border border-border hover:border-primary text-foreground hover:text-primary transition-colors">
                 <ChevronRight className="w-5 h-5" />
               </button>
             </>
@@ -289,94 +655,127 @@ const ProductModal = ({ product, onClose }: { product: Product; onClose: () => v
         </div>
 
         <div className="p-8 lg:p-12">
+          {/* Header */}
           <div className="flex items-center gap-3 mb-2">
             <Icon className="w-6 h-6 text-primary" />
             <span className="text-primary text-xs tracking-[0.3em] uppercase">{product.category}</span>
           </div>
           <h2 className="font-heading text-4xl lg:text-5xl font-bold text-foreground mb-1">{product.name}</h2>
           <p className="text-primary/70 text-sm tracking-wider mb-4">{product.subtitle}</p>
-          <p className="text-muted-foreground text-lg leading-relaxed mb-8 max-w-2xl">{product.description}</p>
+          <p className="text-muted-foreground text-base leading-relaxed mb-10 max-w-3xl">{product.description}</p>
 
-          {/* Specs Grid */}
-          <h3 className="font-heading text-sm font-bold text-foreground tracking-wider uppercase mb-4">Technical Specifications</h3>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-10">
-            {Object.entries(product.specs).map(([key, value], i) => (
-              <motion.div
-                key={key}
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: i * 0.05 }}
-                className="p-4 border border-border bg-background"
-              >
-                <div className="text-muted-foreground text-[10px] tracking-wider uppercase mb-1">{key}</div>
-                <div className="font-heading text-sm font-bold text-foreground">{value}</div>
-              </motion.div>
+          {/* Spec Sections (accordion) */}
+          <h3 className="font-heading text-sm font-bold text-foreground tracking-wider uppercase mb-4">
+            Technical Specifications
+          </h3>
+          <div className="space-y-1 mb-10">
+            {product.specSections.map((sec, i) => (
+              <SpecBlock key={sec.title} section={sec} index={i} />
             ))}
           </div>
 
-          {/* Features */}
-          <h3 className="font-heading text-sm font-bold text-foreground tracking-wider uppercase mb-4">Key Features & Capabilities</h3>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-            {product.features.map((f, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, x: -10 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: i * 0.03 }}
-                className="flex items-start gap-3 py-2"
-              >
-                <div className="w-1.5 h-1.5 bg-primary flex-shrink-0 mt-1.5" />
-                <span className="text-muted-foreground text-sm">{f}</span>
-              </motion.div>
-            ))}
-          </div>
+          {/* Comparison Table (ZSU) */}
+          {product.comparisonTable && (
+            <>
+              <h3 className="font-heading text-sm font-bold text-foreground tracking-wider uppercase mb-4">
+                Comparative Characteristics — Old vs Modernized
+              </h3>
+              <div className="overflow-x-auto mb-10 border border-border">
+                <table className="w-full text-sm">
+                  <thead>
+                    <tr className="bg-primary/10">
+                      {product.comparisonTable.header.map((h, i) => (
+                        <th key={i} className="px-4 py-3 text-left text-xs tracking-wider uppercase font-heading text-foreground font-bold">{h}</th>
+                      ))}
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {product.comparisonTable.rows.map((row, ri) => (
+                      <tr key={ri} className={ri % 2 === 0 ? "bg-card" : "bg-background"}>
+                        {row.map((cell, ci) => (
+                          <td key={ci} className={`px-4 py-2.5 text-xs ${ci === 0 ? "text-muted-foreground" : ci === 2 ? "text-primary font-medium" : "text-foreground"}`}>
+                            {cell}
+                          </td>
+                        ))}
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </>
+          )}
+
+          {/* Advantages */}
+          {product.advantages && product.advantages.length > 0 && (
+            <>
+              <h3 className="font-heading text-sm font-bold text-foreground tracking-wider uppercase mb-4">
+                Advantages of Modernization
+              </h3>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 mb-10">
+                {product.advantages.map((a, i) => (
+                  <motion.div key={i} initial={{ opacity: 0, x: -10 }} animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: i * 0.03 }} className="flex items-start gap-3 py-2">
+                    <div className="w-1.5 h-1.5 bg-primary flex-shrink-0 mt-1.5" />
+                    <span className="text-muted-foreground text-sm">{a}</span>
+                  </motion.div>
+                ))}
+              </div>
+            </>
+          )}
+
+          {/* Options */}
+          {product.options && product.options.length > 0 && (
+            <>
+              <h3 className="font-heading text-sm font-bold text-foreground tracking-wider uppercase mb-4">
+                Available Options
+              </h3>
+              <div className="space-y-2 mb-6">
+                {product.options.map((o, i) => (
+                  <motion.div key={i} initial={{ opacity: 0, x: -10 }} animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: i * 0.03 }} className="flex items-start gap-3 py-1">
+                    <div className="w-1.5 h-1.5 bg-primary/60 flex-shrink-0 mt-1.5" />
+                    <span className="text-muted-foreground text-sm">{o}</span>
+                  </motion.div>
+                ))}
+              </div>
+            </>
+          )}
         </div>
       </motion.div>
     </motion.div>
   );
 };
 
+/* ──── Page ──── */
 const ProductsPage = () => {
   const [activeCategory, setActiveCategory] = useState("All");
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
-
   const filtered = activeCategory === "All" ? products : products.filter((p) => p.category === activeCategory);
 
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
-      <PageHeader
-        subtitle="Defence Technology"
-        title="OUR"
-        titleAccent="PRODUCTS"
-        description="Combat-proven military platforms, modernization packages, and weapon systems for modern armed forces."
-      />
+      <PageHeader subtitle="Defence Technology" title="OUR" titleAccent="PRODUCTS"
+        description="Combat-proven military platforms, modernization packages, and weapon systems — complete technical specifications from official documentation." />
 
       <section className="py-20 lg:py-28 bg-background bg-noise">
         <div className="container mx-auto px-6 lg:px-12">
           {/* Filter Bar */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="flex items-center gap-3 mb-12 overflow-x-auto pb-4"
-          >
+          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}
+            className="flex items-center gap-3 mb-12 overflow-x-auto pb-4">
             <Filter className="w-4 h-4 text-muted-foreground flex-shrink-0" />
             {categories.map((cat) => (
-              <button
-                key={cat}
-                onClick={() => setActiveCategory(cat)}
+              <button key={cat} onClick={() => setActiveCategory(cat)}
                 className={`px-5 py-2.5 font-heading text-xs tracking-wider uppercase whitespace-nowrap transition-all duration-300 ${
                   activeCategory === cat
                     ? "bg-primary text-primary-foreground"
                     : "border border-border text-muted-foreground hover:border-primary/30 hover:text-foreground"
-                }`}
-              >
+                }`}>
                 {cat}
               </button>
             ))}
           </motion.div>
 
-          {/* Count */}
           <p className="text-muted-foreground text-xs tracking-wider uppercase mb-8">
             Showing {filtered.length} of {products.length} products
           </p>
@@ -387,15 +786,10 @@ const ProductsPage = () => {
               {filtered.map((product, index) => {
                 const Icon = product.icon;
                 return (
-                  <motion.div
-                    key={product.id}
-                    layout
-                    initial={{ opacity: 0, scale: 0.95 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    exit={{ opacity: 0, scale: 0.95 }}
-                    transition={{ duration: 0.3, delay: index * 0.05 }}
-                    onClick={() => setSelectedProduct(product)}
-                  >
+                  <motion.div key={product.id} layout
+                    initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }}
+                    exit={{ opacity: 0, scale: 0.95 }} transition={{ duration: 0.3, delay: index * 0.05 }}
+                    onClick={() => setSelectedProduct(product)}>
                     <TiltCard className="group cursor-pointer bg-card border border-border hover:border-primary/40 hover:shadow-[0_0_30px_-10px_hsl(var(--primary)/0.2)] transition-all duration-500 overflow-hidden h-full">
                       <div className="aspect-[16/10] overflow-hidden relative">
                         <img src={product.image} alt={product.name} loading="lazy" width={1024} height={640}
@@ -410,18 +804,15 @@ const ProductsPage = () => {
                         <h3 className="font-heading text-xl font-bold text-foreground mb-1">{product.name}</h3>
                         <p className="text-primary/60 text-xs tracking-wider mb-3">{product.subtitle}</p>
                         <p className="text-muted-foreground text-sm leading-relaxed mb-4 line-clamp-2">{product.description}</p>
-
-                        {/* Quick specs */}
                         <div className="flex flex-wrap gap-1.5 mb-4">
-                          {Object.entries(product.specs).slice(0, 3).map(([k, v]) => (
-                            <span key={k} className="px-2 py-1 border border-border text-[10px] tracking-wider text-muted-foreground group-hover:border-primary/30 transition-colors">
-                              {v}
+                          {product.quickSpecs.map((s) => (
+                            <span key={s} className="px-2 py-1 border border-border text-[10px] tracking-wider text-muted-foreground group-hover:border-primary/30 transition-colors">
+                              {s}
                             </span>
                           ))}
                         </div>
-
                         <span className="inline-flex items-center gap-2 text-primary text-sm tracking-wider uppercase font-body group-hover:gap-3 transition-all">
-                          View Details <ArrowRight className="w-4 h-4" />
+                          View Full Specs <ArrowRight className="w-4 h-4" />
                         </span>
                       </div>
                     </TiltCard>
@@ -433,11 +824,8 @@ const ProductsPage = () => {
         </div>
       </section>
 
-      {/* Product Modal */}
       <AnimatePresence>
-        {selectedProduct && (
-          <ProductModal product={selectedProduct} onClose={() => setSelectedProduct(null)} />
-        )}
+        {selectedProduct && <ProductModal product={selectedProduct} onClose={() => setSelectedProduct(null)} />}
       </AnimatePresence>
 
       <FooterSection />
