@@ -96,18 +96,18 @@ html {
   width: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: hsl(216 30% 7%);
+  background: hsl(222 47% 8%);
 }
 ::-webkit-scrollbar-thumb {
-  background: hsl(215 12% 28%);
+  background: hsl(222 20% 25%);
   border-radius: 3px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: hsl(213 80% 55%);
+  background: hsl(217 75% 55%);
 }
 
 /* Selection color */
 ::selection {
-  background: hsl(213 80% 55% / 0.3);
+  background: hsl(217 75% 55% / 0.3);
   color: hsl(210 20% 95%);
 }
