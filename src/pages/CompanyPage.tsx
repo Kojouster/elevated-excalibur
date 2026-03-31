@@ -7,16 +7,6 @@ import PageHeader from "@/components/PageHeader";
 import factoryImg from "@/assets/factory.jpg";
 import headquartersImg from "@/assets/headquarters.jpg";
 
-const timeline = [
-  { year: "1995", title: "Company Founded", description: "Excalibur Army established in Šternberk, Czech Republic, as a military vehicle repair facility." },
-  { year: "2000", title: "First Export Contract", description: "Secured first international contract, delivering modernized vehicles to a NATO partner nation." },
-  { year: "2005", title: "Product Development", description: "Launched own product line including upgraded T-72 variants and wheeled armoured vehicles." },
-  { year: "2010", title: "Global Expansion", description: "Expanded operations to serve over 40 countries across Europe, Asia, Africa, and the Middle East." },
-  { year: "2015", title: "DANA M2 Launch", description: "Unveiled the DANA M2 self-propelled howitzer, the most advanced variant of the 152mm platform." },
-  { year: "2020", title: "PATRIOT Programme", description: "Introduced the PATRIOT multi-purpose platform, setting new standards in crew protection." },
-  { year: "2024", title: "Strategic Growth", description: "Surpassed 60 countries served with over 1,000 vehicles delivered worldwide." },
-];
-
 const values = [
   { icon: Eye, title: "Innovation", description: "Continuously pushing boundaries in defence technology to deliver cutting-edge solutions." },
   { icon: Award, title: "Excellence", description: "Maintaining the highest quality standards across all products and services." },
