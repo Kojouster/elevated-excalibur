@@ -223,15 +223,7 @@ const useProducts = (): Product[] => {
         ],
       },
     ],
-    options: [
-      "Installation of air conditioning system",
-      "Installation of additional power unit to power armament and vehicle",
-      "Front and rear parking cameras for driver (day-night)",
-      "Installation of GPS navigation",
-      "Additional armouring of the vehicle bottom",
-      "Energy absorbing seats based on advanced technologies",
-      "Perforated add-on armor protects against 7.62×54 mm (790 kg), 12.7×108 mm (1,024 kg) and 14.5×114 mm (1,144 kg), B32 rounds in all projections",
-    ],
+    options: t("productsPage.btr70Options") as unknown as string[],
   },
   {
     id: 3,
