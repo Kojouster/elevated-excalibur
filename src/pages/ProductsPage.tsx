@@ -19,6 +19,16 @@ interface SpecSection {
   rows: [string, string][];
 }
 
+interface ProductVariant {
+  name: string;
+  subtitle: string;
+  description: string;
+  quickSpecs: string[];
+  specSections: SpecSection[];
+  advantages?: string[];
+  options?: string[];
+}
+
 interface Product {
   id: number;
   name: string;
@@ -33,6 +43,7 @@ interface Product {
   options?: string[];
   gallery: string[];
   comparisonTable?: { header: string[]; rows: string[][] };
+  variants?: ProductVariant[];
 }
 
 const categories = ["All", "Armoured Vehicles", "Rocket Launchers", "Air Defence", "Combat Modules", "Reconnaissance"];
