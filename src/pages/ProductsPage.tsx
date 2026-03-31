@@ -331,9 +331,7 @@ const useProducts = (): Product[] => {
         ],
       },
     ],
-    options: [
-      "Energy absorbing seats based on advanced technologies",
-    ],
+    options: t("productsPage.mtlbOptions") as unknown as string[],
   },
   {
     id: 5,
