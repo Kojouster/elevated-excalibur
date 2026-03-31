@@ -7,6 +7,7 @@ import FooterSection from "@/components/FooterSection";
 import BackToTop from "@/components/BackToTop";
 import PageHeader from "@/components/PageHeader";
 import productVlra from "@/assets/product-vlra-mr24-hero.jpg";
+import productsHero from "@/assets/product-mangust-hero.jpg";
 import productMtlb from "@/assets/product-mt-lb-hero.jpg";
 import productZsu from "@/assets/product-zsu-hero.jpg";
 import productMangust from "@/assets/product-mangust-hero.jpg";
@@ -907,7 +908,7 @@ const ProductsPage = () => {
     <div className="min-h-screen bg-background">
       <Navbar />
       <PageHeader subtitle={t("productsPage.subtitle")} title={t("productsPage.title")} titleAccent={t("productsPage.titleAccent")}
-        description={t("productsPage.description")} />
+        description={t("productsPage.description")} backgroundImage={productsHero} />
 
       <section className="py-20 lg:py-28 bg-background bg-noise">
         <div className="container mx-auto px-6 lg:px-12">
