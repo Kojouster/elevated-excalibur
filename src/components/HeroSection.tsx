@@ -2,10 +2,10 @@ import { useState, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight, ChevronUp, ChevronDown, Shield, Crosshair, Rocket, Radar, type LucideIcon } from "lucide-react";
 import { useLanguage } from "@/i18n/LanguageContext";
-import productMangust from "@/assets/product-mangust-hero.png";
-import productVlra from "@/assets/product-vlra-mr24-hero.jpg";
-import productZsu from "@/assets/product-zsu-hero.png";
-import productXb30 from "@/assets/product-xb30-hero.png";
+import heroImage from "@/assets/hero-military.jpg";
+import productTank from "@/assets/product-tank.jpg";
+import productHowitzer from "@/assets/product-howitzer.jpg";
+import productRocket from "@/assets/product-rocket.jpg";
 
 interface HeroSlide {
   name: string;
