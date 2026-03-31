@@ -19,6 +19,16 @@ interface SpecSection {
   rows: [string, string][];
 }
 
+interface ProductVariant {
+  name: string;
+  subtitle: string;
+  description: string;
+  quickSpecs: string[];
+  specSections: SpecSection[];
+  advantages?: string[];
+  options?: string[];
+}
+
 interface Product {
   id: number;
   name: string;
@@ -33,6 +43,7 @@ interface Product {
   options?: string[];
   gallery: string[];
   comparisonTable?: { header: string[]; rows: string[][] };
+  variants?: ProductVariant[];
 }
 
 const categories = ["All", "Armoured Vehicles", "Rocket Launchers", "Air Defence", "Combat Modules", "Reconnaissance"];
@@ -564,6 +575,134 @@ const products: Product[] = [
         ],
       },
     ],
+    variants: [
+      {
+        name: "GTS-30/N",
+        subtitle: "Remote Weapon Station with 30×173mm GTS-30/N Cannon",
+        description: "Advanced unmanned turret featuring a 30×173mm GTS-30/N automatic cannon, 7.62mm FN Herstal coaxial MG, and 902V Tucha smoke grenades. Integrated stabilized optoelectronic suite with thermal imaging and eye-safe laser rangefinder.",
+        quickSpecs: ["30×173mm Cannon", "Thermal Imaging", "6 km LRF"],
+        specSections: [
+          {
+            title: "Armament",
+            rows: [
+              ["Main Gun", "30×173 mm Automatic Cannon GTS-30/N"],
+              ["Coaxial MG", "7.62×51 mm FN HERSTAL machine gun"],
+              ["Smoke Grenades", "902V 'Tucha' system (6 mortars, 3 per side)"],
+            ],
+          },
+          {
+            title: "Weapon Control System",
+            rows: [
+              ["Stabilizer", "Digital, electromechanical, 2-axis"],
+              ["Drives", "Vertical and horizontal actuators with electromagnetic travel locks"],
+              ["Control Units", "Equipped"],
+              ["Operator Monitor", "Video monitor"],
+              ["Operator Console", "Equipped"],
+            ],
+          },
+          {
+            title: "Thermal Imaging Channel (ONYX)",
+            rows: [
+              ["Sensor Resolution", "640 × 512 pixels"],
+              ["Wavelength Range", "8–12 µm"],
+              ["Type", "Uncooled microbolometer"],
+              ["Field of View (FOV)", "4.4° × 3.5°"],
+              ["Capability", "Observation through fog, smoke; day and night operation"],
+            ],
+          },
+          {
+            title: "Laser Rangefinder (LRF)",
+            rows: [
+              ["Wavelength", "λ — 1.535 µm (eye-safe)"],
+              ["Laser Class", "1"],
+              ["Beam Divergence", "≤ 1 × 1 mrad"],
+              ["Measurement Frequency", "1–5 Hz"],
+              ["Max Range", "6 km"],
+              ["Tank Detection", "4.5 km (target 2.3 × 2.3 m)"],
+              ["Stealth", "Undetectable by MWIR (3–5 µm) and LWIR (8–12 µm) thermal imagers"],
+            ],
+          },
+          {
+            title: "Day Channel",
+            rows: [
+              ["Narrow FOV", "2.2° (horizontal) × 1.65° (vertical)"],
+              ["Wide FOV", "8.0° (horizontal) × 6.0° (vertical)"],
+              ["Sensor Type", "CMOS, 1.3\" sensor"],
+              ["Resolution", "720 × 576 pixels"],
+              ["Detection (man)", "8 km"],
+              ["Recognition (tank)", "2.2 km"],
+            ],
+          },
+        ],
+      },
+      {
+        name: "2A42",
+        subtitle: "Remote Weapon Station with 30mm 2A42 Automatic Cannon",
+        description: "Combat module armed with a 30mm 2A42 automatic cannon, 7.62mm PKT coaxial machine gun, and 902V Tucha smoke grenade launcher system. Features digital electromechanical 2-axis stabilizer, ONYX uncooled thermal imager, and eye-safe laser rangefinder.",
+        quickSpecs: ["30mm 2A42 Cannon", "475 rds Loaded", "ONYX Thermal"],
+        specSections: [
+          {
+            title: "Armament",
+            rows: [
+              ["Main Gun", "30 mm Automatic Cannon 2A42"],
+              ["Coaxial MG", "7.62 mm PKT machine gun"],
+              ["Smoke Grenades", "902V 'Tucha' system (6 mortars, 3 per side)"],
+              ["30mm Ammo (loaded)", "475 rounds"],
+              ["7.62mm Ammo (loaded)", "2,100 rounds (350 loaded)"],
+            ],
+          },
+          {
+            title: "Weapon Control System",
+            rows: [
+              ["Stabilizer", "Digital, electromechanical, 2-axis"],
+              ["Drives", "Vertical and horizontal actuators with electromagnetic travel locks"],
+              ["Control Units", "Equipped"],
+              ["Operator Monitor", "Video monitor"],
+              ["Operator Console", "Equipped"],
+            ],
+          },
+          {
+            title: "Observation & Targeting",
+            rows: [
+              ["Optoelectronic Module", "Wide-angle and narrow-angle cameras"],
+              ["Thermal Imager", "Uncooled"],
+              ["Laser Rangefinder", "Equipped"],
+            ],
+          },
+          {
+            title: "Thermal Imaging Channel (ONYX)",
+            rows: [
+              ["Sensor Resolution", "640 × 512 pixels"],
+              ["Wavelength Range", "8–12 µm"],
+              ["Type", "Uncooled microbolometer"],
+              ["Field of View (FOV)", "4.4° × 3.5°"],
+              ["Capability", "Observation through fog, smoke; day and night operation"],
+            ],
+          },
+          {
+            title: "Laser Rangefinder (LRF)",
+            rows: [
+              ["Wavelength", "λ — 1.535 µm"],
+              ["Laser Class", "1"],
+              ["Beam Divergence", "≤ 1 × 1 mrad"],
+              ["Measurement Frequency", "1–5 Hz"],
+              ["Stealth", "Undetectable by MWIR (3–5 µm) and LWIR (8–12 µm) thermal imagers"],
+            ],
+          },
+          {
+            title: "Day Channel",
+            rows: [
+              ["Narrow FOV", "2.2° (horizontal) × 1.65° (vertical)"],
+              ["Wide FOV", "8.0° (horizontal) × 6.0° (vertical)"],
+              ["Sensor Type", "CMOS, 1.3\" sensor"],
+              ["Resolution", "720 × 576 pixels"],
+              ["Detection (man)", "8 km"],
+              ["Recognition (tank)", "2.2 km"],
+            ],
+          },
+        ],
+      },
+    ],
   },
 ];
 
@@ -619,8 +758,13 @@ const SpecBlock = ({ section, index }: { section: SpecSection; index: number }) 
 /* ──── Product Modal ──── */
 const ProductModal = ({ product, onClose }: { product: Product; onClose: () => void }) => {
   const [galleryIndex, setGalleryIndex] = useState(0);
+  const [activeVariant, setActiveVariant] = useState(0);
   const Icon = product.icon;
   const { t } = useLanguage();
+
+  // Use variant data if available, otherwise use base product data
+  const hasVariants = product.variants && product.variants.length > 0;
+  const currentData = hasVariants ? product.variants![activeVariant] : product;
 
   return (
     <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
@@ -663,15 +807,36 @@ const ProductModal = ({ product, onClose }: { product: Product; onClose: () => v
             <span className="text-primary text-xs tracking-[0.3em] uppercase">{product.category}</span>
           </div>
           <h2 className="font-heading text-4xl lg:text-5xl font-bold text-foreground mb-1">{product.name}</h2>
-          <p className="text-primary/70 text-sm tracking-wider mb-4">{product.subtitle}</p>
-          <p className="text-muted-foreground text-base leading-relaxed mb-10 max-w-3xl">{product.description}</p>
+
+          {/* Variant Switcher */}
+          {hasVariants && (
+            <div className="flex items-center gap-2 my-5">
+              <span className="text-muted-foreground text-xs tracking-wider uppercase mr-2">Variant:</span>
+              {product.variants!.map((v, i) => (
+                <button
+                  key={v.name}
+                  onClick={() => setActiveVariant(i)}
+                  className={`px-5 py-2.5 text-xs font-heading tracking-wider uppercase transition-all duration-300 border ${
+                    activeVariant === i
+                      ? "bg-primary text-primary-foreground border-primary"
+                      : "border-border text-muted-foreground hover:border-primary/40 hover:text-foreground"
+                  }`}
+                >
+                  {v.name}
+                </button>
+              ))}
+            </div>
+          )}
+
+          <p className="text-primary/70 text-sm tracking-wider mb-4">{currentData.subtitle}</p>
+          <p className="text-muted-foreground text-base leading-relaxed mb-10 max-w-3xl">{currentData.description}</p>
 
           <h3 className="font-heading text-sm font-bold text-foreground tracking-wider uppercase mb-4">
             {t("productsPage.technicalSpecs")}
           </h3>
           <div className="space-y-1 mb-10">
-            {product.specSections.map((sec, i) => (
-              <SpecBlock key={sec.title} section={sec} index={i} />
+            {currentData.specSections.map((sec, i) => (
+              <SpecBlock key={`${activeVariant}-${sec.title}`} section={sec} index={i} />
             ))}
           </div>
 
