@@ -1,12 +1,14 @@
 import { Mail, Phone, MapPin } from "lucide-react";
 import { Link } from "react-router-dom";
+import { useLanguage } from "@/i18n/LanguageContext";
 
 const FooterSection = () => {
+  const { t } = useLanguage();
+
   return (
     <footer id="contact" className="bg-card border-t border-border">
       <div className="container mx-auto px-6 lg:px-12 py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
-          {/* Brand */}
           <div>
             <Link to="/" className="flex items-center gap-3 mb-6">
               <div className="w-10 h-10 border-2 border-primary flex items-center justify-center">
@@ -17,63 +19,42 @@ const FooterSection = () => {
                 <div className="text-xs tracking-[0.3em] text-foreground leading-none mt-0.5">ARMY</div>
               </div>
             </Link>
-            <p className="text-muted-foreground text-sm leading-relaxed">
-              Leading European defence company specializing in military technology and lifecycle support.
-            </p>
+            <p className="text-muted-foreground text-sm leading-relaxed">{t("footer.description")}</p>
           </div>
-
-          {/* Products */}
           <div>
-            <h4 className="font-heading text-sm font-bold tracking-wider text-foreground uppercase mb-4">Products</h4>
+            <h4 className="font-heading text-sm font-bold tracking-wider text-foreground uppercase mb-4">{t("footer.productsTitle")}</h4>
             <ul className="space-y-3 text-sm text-muted-foreground">
-              <li><Link to="/products" className="hover:text-primary transition-colors">Armoured Vehicles</Link></li>
-              <li><Link to="/products" className="hover:text-primary transition-colors">Main Battle Tanks</Link></li>
-              <li><Link to="/products" className="hover:text-primary transition-colors">Self-Propelled Howitzers</Link></li>
-              <li><Link to="/products" className="hover:text-primary transition-colors">Rocket Launchers</Link></li>
+              <li><Link to="/products" className="hover:text-primary transition-colors">{t("footer.armouredVehicles")}</Link></li>
+              <li><Link to="/products" className="hover:text-primary transition-colors">{t("footer.mainBattleTanks")}</Link></li>
+              <li><Link to="/products" className="hover:text-primary transition-colors">{t("footer.selfPropelledHowitzers")}</Link></li>
+              <li><Link to="/products" className="hover:text-primary transition-colors">{t("footer.rocketLaunchers")}</Link></li>
             </ul>
           </div>
-
-          {/* Company */}
           <div>
-            <h4 className="font-heading text-sm font-bold tracking-wider text-foreground uppercase mb-4">Company</h4>
+            <h4 className="font-heading text-sm font-bold tracking-wider text-foreground uppercase mb-4">{t("footer.companyTitle")}</h4>
             <ul className="space-y-3 text-sm text-muted-foreground">
-              <li><Link to="/company" className="hover:text-primary transition-colors">About Us</Link></li>
-              <li><Link to="/company" className="hover:text-primary transition-colors">Our Mission</Link></li>
-              <li><Link to="/services" className="hover:text-primary transition-colors">Services</Link></li>
-              <li><Link to="/contact" className="hover:text-primary transition-colors">Contact</Link></li>
+              <li><Link to="/company" className="hover:text-primary transition-colors">{t("footer.aboutUs")}</Link></li>
+              <li><Link to="/company" className="hover:text-primary transition-colors">{t("footer.ourMission")}</Link></li>
+              <li><Link to="/services" className="hover:text-primary transition-colors">{t("footer.services")}</Link></li>
+              <li><Link to="/contact" className="hover:text-primary transition-colors">{t("footer.contact")}</Link></li>
             </ul>
           </div>
-
-          {/* Contact */}
           <div>
-            <h4 className="font-heading text-sm font-bold tracking-wider text-foreground uppercase mb-4">Contact</h4>
+            <h4 className="font-heading text-sm font-bold tracking-wider text-foreground uppercase mb-4">{t("footer.contactTitle")}</h4>
             <ul className="space-y-3 text-sm text-muted-foreground">
-              <li className="flex items-center gap-3">
-                <MapPin className="w-4 h-4 text-primary flex-shrink-0" />
-                Šternberk, Czech Republic
-              </li>
-              <li className="flex items-center gap-3">
-                <Phone className="w-4 h-4 text-primary flex-shrink-0" />
-                +420 585 085 111
-              </li>
-              <li className="flex items-center gap-3">
-                <Mail className="w-4 h-4 text-primary flex-shrink-0" />
-                info@excaliburarmy.com
-              </li>
+              <li className="flex items-center gap-3"><MapPin className="w-4 h-4 text-primary flex-shrink-0" />Šternberk, Czech Republic</li>
+              <li className="flex items-center gap-3"><Phone className="w-4 h-4 text-primary flex-shrink-0" />+420 585 085 111</li>
+              <li className="flex items-center gap-3"><Mail className="w-4 h-4 text-primary flex-shrink-0" />info@excaliburarmy.com</li>
             </ul>
           </div>
         </div>
       </div>
-
-      {/* Bottom Bar */}
       <div className="border-t border-border">
         <div className="container mx-auto px-6 lg:px-12 py-6 flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="text-muted-foreground text-xs">
-            © 2026 Excalibur Army. All rights reserved.
-          </p>
+          <p className="text-muted-foreground text-xs">{t("footer.copyright")}</p>
           <div className="flex gap-6 text-xs text-muted-foreground">
-            <a href="#" className="hover:text-primary transition-colors">Privacy Policy</a>
-            <a href="#" className="hover:text-primary transition-colors">Terms of Use</a>
+            <a href="#" className="hover:text-primary transition-colors">{t("footer.privacyPolicy")}</a>
+            <a href="#" className="hover:text-primary transition-colors">{t("footer.termsOfUse")}</a>
           </div>
         </div>
       </div>

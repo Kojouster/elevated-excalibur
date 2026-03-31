@@ -1,6 +1,7 @@
 import { motion, AnimatePresence, useSpring } from "framer-motion";
 import { useState, useRef } from "react";
 import { ArrowRight, Shield, Crosshair, Rocket, X, ChevronLeft, ChevronRight, Filter, Radar, Truck, Eye, ChevronDown } from "lucide-react";
+import { useLanguage } from "@/i18n/LanguageContext";
 import Navbar from "@/components/Navbar";
 import FooterSection from "@/components/FooterSection";
 import BackToTop from "@/components/BackToTop";
@@ -619,6 +620,7 @@ const SpecBlock = ({ section, index }: { section: SpecSection; index: number }) 
 const ProductModal = ({ product, onClose }: { product: Product; onClose: () => void }) => {
   const [galleryIndex, setGalleryIndex] = useState(0);
   const Icon = product.icon;
+  const { t } = useLanguage();
 
   return (
     <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
@@ -664,9 +666,8 @@ const ProductModal = ({ product, onClose }: { product: Product; onClose: () => v
           <p className="text-primary/70 text-sm tracking-wider mb-4">{product.subtitle}</p>
           <p className="text-muted-foreground text-base leading-relaxed mb-10 max-w-3xl">{product.description}</p>
 
-          {/* Spec Sections (accordion) */}
           <h3 className="font-heading text-sm font-bold text-foreground tracking-wider uppercase mb-4">
-            Technical Specifications
+            {t("productsPage.technicalSpecs")}
           </h3>
           <div className="space-y-1 mb-10">
             {product.specSections.map((sec, i) => (
@@ -678,7 +679,7 @@ const ProductModal = ({ product, onClose }: { product: Product; onClose: () => v
           {product.comparisonTable && (
             <>
               <h3 className="font-heading text-sm font-bold text-foreground tracking-wider uppercase mb-4">
-                Comparative Characteristics — Old vs Modernized
+                {t("productsPage.comparisonTitle")}
               </h3>
               <div className="overflow-x-auto mb-10 border border-border">
                 <table className="w-full text-sm">
@@ -709,7 +710,7 @@ const ProductModal = ({ product, onClose }: { product: Product; onClose: () => v
           {product.advantages && product.advantages.length > 0 && (
             <>
               <h3 className="font-heading text-sm font-bold text-foreground tracking-wider uppercase mb-4">
-                Advantages of Modernization
+                {t("productsPage.advantagesTitle")}
               </h3>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 mb-10">
                 {product.advantages.map((a, i) => (
@@ -727,7 +728,7 @@ const ProductModal = ({ product, onClose }: { product: Product; onClose: () => v
           {product.options && product.options.length > 0 && (
             <>
               <h3 className="font-heading text-sm font-bold text-foreground tracking-wider uppercase mb-4">
-                Available Options
+                {t("productsPage.optionsTitle")}
               </h3>
               <div className="space-y-2 mb-6">
                 {product.options.map((o, i) => (
@@ -751,12 +752,22 @@ const ProductsPage = () => {
   const [activeCategory, setActiveCategory] = useState("All");
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
   const filtered = activeCategory === "All" ? products : products.filter((p) => p.category === activeCategory);
+  const { t } = useLanguage();
+
+  const categoryLabels: Record<string, string> = {
+    "All": t("productsPage.all"),
+    "Armoured Vehicles": t("productsPage.armouredVehicles"),
+    "Rocket Launchers": t("productsPage.rocketLaunchers"),
+    "Air Defence": t("productsPage.airDefence"),
+    "Combat Modules": t("productsPage.combatModules"),
+    "Reconnaissance": t("productsPage.reconnaissance"),
+  };
 
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
-      <PageHeader subtitle="Defence Technology" title="OUR" titleAccent="PRODUCTS"
-        description="Combat-proven military platforms, modernization packages, and weapon systems — complete technical specifications from official documentation." />
+      <PageHeader subtitle={t("productsPage.subtitle")} title={t("productsPage.title")} titleAccent={t("productsPage.titleAccent")}
+        description={t("productsPage.description")} />
 
       <section className="py-20 lg:py-28 bg-background bg-noise">
         <div className="container mx-auto px-6 lg:px-12">
@@ -771,13 +782,13 @@ const ProductsPage = () => {
                     ? "bg-primary text-primary-foreground"
                     : "border border-border text-muted-foreground hover:border-primary/30 hover:text-foreground"
                 }`}>
-                {cat}
+                {categoryLabels[cat] || cat}
               </button>
             ))}
           </motion.div>
 
           <p className="text-muted-foreground text-xs tracking-wider uppercase mb-8">
-            Showing {filtered.length} of {products.length} products
+            {t("productsPage.showing")} {filtered.length} {t("productsPage.of")} {products.length} {t("productsPage.products")}
           </p>
 
           {/* Products Grid */}
@@ -812,7 +823,7 @@ const ProductsPage = () => {
                           ))}
                         </div>
                         <span className="inline-flex items-center gap-2 text-primary text-sm tracking-wider uppercase font-body group-hover:gap-3 transition-all">
-                          View Full Specs <ArrowRight className="w-4 h-4" />
+                          {t("productsPage.viewFullSpecs")} <ArrowRight className="w-4 h-4" />
                         </span>
                       </div>
                     </TiltCard>

@@ -4,73 +4,49 @@ import Navbar from "@/components/Navbar";
 import FooterSection from "@/components/FooterSection";
 import BackToTop from "@/components/BackToTop";
 import PageHeader from "@/components/PageHeader";
+import { useLanguage } from "@/i18n/LanguageContext";
 import factoryImg from "@/assets/factory.jpg";
 import headquartersImg from "@/assets/headquarters.jpg";
 
-const values = [
-  { icon: Eye, title: "Innovation", description: "Continuously pushing boundaries in defence technology to deliver cutting-edge solutions." },
-  { icon: Award, title: "Excellence", description: "Maintaining the highest quality standards across all products and services." },
-  { icon: Users, title: "Partnership", description: "Building long-term relationships based on trust, transparency, and mutual respect." },
-  { icon: Globe, title: "Responsibility", description: "Operating with integrity and commitment to global peace and security." },
-];
-
 const leadership = [
-  { name: "Martin Koller", role: "Chief Executive Officer", initial: "MK" },
-  { name: "Jan Dvořák", role: "Chief Technology Officer", initial: "JD" },
-  { name: "Petr Novák", role: "VP of Global Sales", initial: "PN" },
-  { name: "Eva Svobodová", role: "VP of Operations", initial: "ES" },
-  { name: "Tomáš Havel", role: "Chief Financial Officer", initial: "TH" },
-  { name: "Karel Procházka", role: "VP of Engineering", initial: "KP" },
+  { name: "Martin Koller", role: { en: "Chief Executive Officer", sk: "Generálny riaditeľ" }, initial: "MK" },
+  { name: "Jan Dvořák", role: { en: "Chief Technology Officer", sk: "Technický riaditeľ" }, initial: "JD" },
+  { name: "Petr Novák", role: { en: "VP of Global Sales", sk: "VP globálneho predaja" }, initial: "PN" },
+  { name: "Eva Svobodová", role: { en: "VP of Operations", sk: "VP prevádzky" }, initial: "ES" },
+  { name: "Tomáš Havel", role: { en: "Chief Financial Officer", sk: "Finančný riaditeľ" }, initial: "TH" },
+  { name: "Karel Procházka", role: { en: "VP of Engineering", sk: "VP inžinierstva" }, initial: "KP" },
 ];
 
 const CompanyPage = () => {
+  const { language, t } = useLanguage();
 
+  const values = [
+    { icon: Eye, title: t("company.innovationTitle"), description: t("company.innovationDesc") },
+    { icon: Award, title: t("company.excellenceTitle"), description: t("company.excellenceDesc") },
+    { icon: Users, title: t("company.partnershipTitle"), description: t("company.partnershipDesc") },
+    { icon: Globe, title: t("company.responsibilityTitle"), description: t("company.responsibilityDesc") },
+  ];
 
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
-      <PageHeader
-        subtitle="About Us"
-        title="EXCALIBUR"
-        titleAccent="ARMY"
-        description="A leading European defence company with over 30 years of experience in military technology, modernization, and lifecycle support."
-        backgroundImage={headquartersImg}
-      />
+      <PageHeader subtitle={t("company.subtitle")} title={t("company.title")} titleAccent={t("company.titleAccent")} description={t("company.description")} backgroundImage={headquartersImg} />
 
       {/* Mission & Vision */}
       <section className="py-20 lg:py-28 bg-background bg-noise">
         <div className="container mx-auto px-6 lg:px-12">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="relative p-8 lg:p-10 border border-border bg-card group hover:border-primary/30 transition-all duration-500"
-            >
+            <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="relative p-8 lg:p-10 border border-border bg-card group hover:border-primary/30 transition-all duration-500">
               <motion.div initial={{ scaleX: 0 }} whileInView={{ scaleX: 1 }} viewport={{ once: true }} className="absolute top-0 left-0 right-0 h-0.5 bg-primary origin-left" transition={{ duration: 0.8 }} />
               <Heart className="w-8 h-8 text-primary mb-4" />
-              <h2 className="font-heading text-2xl font-bold text-foreground mb-4">OUR MISSION</h2>
-              <p className="text-muted-foreground leading-relaxed">
-                To protect nations and their people by delivering reliable, innovative defence solutions.
-                We are committed to ensuring freedom and security through superior military technology,
-                comprehensive lifecycle support, and unwavering partnership with our customers.
-              </p>
+              <h2 className="font-heading text-2xl font-bold text-foreground mb-4">{t("company.missionTitle")}</h2>
+              <p className="text-muted-foreground leading-relaxed">{t("company.missionText")}</p>
             </motion.div>
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.15 }}
-              className="relative p-8 lg:p-10 border border-border bg-card group hover:border-primary/30 transition-all duration-500"
-            >
+            <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.15 }} className="relative p-8 lg:p-10 border border-border bg-card group hover:border-primary/30 transition-all duration-500">
               <motion.div initial={{ scaleX: 0 }} whileInView={{ scaleX: 1 }} viewport={{ once: true }} className="absolute top-0 left-0 right-0 h-0.5 bg-primary origin-left" transition={{ duration: 0.8, delay: 0.15 }} />
               <Zap className="w-8 h-8 text-primary mb-4" />
-              <h2 className="font-heading text-2xl font-bold text-foreground mb-4">OUR VISION</h2>
-              <p className="text-muted-foreground leading-relaxed">
-                To be the world's most trusted defence partner — recognized for engineering excellence,
-                innovation, and the ability to deliver complete solutions that meet the evolving
-                challenges of modern defence.
-              </p>
+              <h2 className="font-heading text-2xl font-bold text-foreground mb-4">{t("company.visionTitle")}</h2>
+              <p className="text-muted-foreground leading-relaxed">{t("company.visionText")}</p>
             </motion.div>
           </div>
         </div>
@@ -81,41 +57,28 @@ const CompanyPage = () => {
         <img src={factoryImg} alt="Manufacturing facility" className="w-full h-full object-cover" loading="lazy" width={1200} height={600} />
         <div className="absolute inset-0 bg-background/50" />
         <div className="absolute inset-0 flex items-center justify-center">
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            className="text-center"
-          >
+          <motion.div initial={{ opacity: 0, scale: 0.9 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} className="text-center">
             <Building className="w-12 h-12 text-primary mx-auto mb-4" />
             <p className="font-heading text-3xl md:text-4xl font-bold text-foreground">
-              150,000 m² <span className="text-primary">Production Facility</span>
+              150,000 m² <span className="text-primary">{t("company.factoryStat")}</span>
             </p>
-            <p className="text-muted-foreground mt-2">Šternberk, Czech Republic</p>
+            <p className="text-muted-foreground mt-2">{t("company.factoryLocation")}</p>
           </motion.div>
         </div>
       </section>
-
 
       {/* Values */}
       <section className="py-20 lg:py-28 bg-background bg-noise">
         <div className="container mx-auto px-6 lg:px-12">
           <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-16">
-            <p className="text-primary tracking-[0.5em] text-sm uppercase mb-4">What Drives Us</p>
-            <h2 className="font-heading text-4xl md:text-5xl font-bold text-foreground">OUR VALUES</h2>
+            <p className="text-primary tracking-[0.5em] text-sm uppercase mb-4">{t("company.valuesSubtitle")}</p>
+            <h2 className="font-heading text-4xl md:text-5xl font-bold text-foreground">{t("company.valuesTitle")}</h2>
           </motion.div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {values.map((v, i) => {
               const Icon = v.icon;
               return (
-                <motion.div
-                  key={v.title}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: i * 0.1 }}
-                  className="group p-8 border border-border bg-card hover:border-primary/40 hover:shadow-[0_0_30px_-10px_hsl(43_52%_54%/0.2)] transition-all duration-500 text-center"
-                >
+                <motion.div key={i} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1 }} className="group p-8 border border-border bg-card hover:border-primary/40 hover:shadow-[0_0_30px_-10px_hsl(43_52%_54%/0.2)] transition-all duration-500 text-center">
                   <div className="w-14 h-14 mx-auto flex items-center justify-center border border-border group-hover:border-primary/40 group-hover:bg-primary/10 transition-all duration-500 mb-5">
                     <Icon className="w-6 h-6 text-primary" />
                   </div>
@@ -132,24 +95,17 @@ const CompanyPage = () => {
       <section className="py-20 lg:py-28 bg-surface-elevated">
         <div className="container mx-auto px-6 lg:px-12">
           <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mb-16">
-            <p className="text-primary tracking-[0.5em] text-sm uppercase mb-4">Leadership</p>
-            <h2 className="font-heading text-4xl md:text-5xl font-bold text-foreground">OUR TEAM</h2>
+            <p className="text-primary tracking-[0.5em] text-sm uppercase mb-4">{t("company.leadershipSubtitle")}</p>
+            <h2 className="font-heading text-4xl md:text-5xl font-bold text-foreground">{t("company.leadershipTitle")}</h2>
           </motion.div>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
             {leadership.map((person, i) => (
-              <motion.div
-                key={person.name}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.08 }}
-                className="group text-center p-6 border border-border bg-card hover:border-primary/30 transition-all duration-500"
-              >
+              <motion.div key={person.name} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.08 }} className="group text-center p-6 border border-border bg-card hover:border-primary/30 transition-all duration-500">
                 <div className="w-16 h-16 mx-auto mb-4 border-2 border-border group-hover:border-primary transition-colors duration-500 flex items-center justify-center">
                   <span className="font-heading text-xl font-bold text-primary">{person.initial}</span>
                 </div>
                 <h4 className="font-heading text-sm font-bold text-foreground">{person.name}</h4>
-                <p className="text-muted-foreground text-xs mt-1">{person.role}</p>
+                <p className="text-muted-foreground text-xs mt-1">{person.role[language]}</p>
               </motion.div>
             ))}
           </div>
