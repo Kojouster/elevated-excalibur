@@ -64,7 +64,8 @@ const TiltCard = ({ children, className }: { children: React.ReactNode; classNam
 };
 
 const ProductsSection = () => {
-  const { language, t } = useLanguage();
+  const { t } = useLanguage();
+  const products = useProducts();
 
   return (
     <section id="products" className="py-24 lg:py-32 bg-background bg-noise relative">
