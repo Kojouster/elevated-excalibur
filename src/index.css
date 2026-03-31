@@ -43,12 +43,12 @@
     --sidebar-accent: 222 30% 14%;
     --sidebar-accent-foreground: 220 15% 88%;
     --sidebar-border: 222 15% 20%;
-    --sidebar-ring: 220 15% 75%;
+    --sidebar-ring: 210 20% 82%;
 
     /* Custom tokens */
-    --gold: 220 15% 75%;
-    --gold-light: 220 18% 82%;
-    --gold-dark: 220 12% 60%;
+    --gold: 210 20% 82%;
+    --gold-light: 210 25% 90%;
+    --gold-dark: 210 15% 65%;
     --olive: 222 30% 12%;
     --surface-elevated: 222 35% 13%;
   }
