@@ -25,7 +25,7 @@ const Navbar = () => {
           <Link to="/" className="flex items-center gap-3">
             <img src={palvanLogo} alt="PALVAN" className="h-14 w-auto invert mix-blend-screen" />
             <div className="font-heading text-foreground">
-              <div className="text-sm font-bold tracking-[0.3em] leading-none">PALVAN</div>
+              <div className="text-sm font-bold tracking-[0.3em] leading-none"></div>
             </div>
           </Link>
 
