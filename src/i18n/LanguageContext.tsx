@@ -13,7 +13,18 @@ interface LanguageContextType {
 
 const translations: Record<Language, Translations> = { en, sk };
 
-const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
+const defaultT = (key: string): string => {
+  const keys = key.split(".");
+  let val: any = translations.en;
+  for (const k of keys) val = val?.[k];
+  return typeof val === "string" ? val : key;
+};
+
+const LanguageContext = createContext<LanguageContextType>({
+  language: "en",
+  setLanguage: () => {},
+  t: defaultT,
+});
 
 export const LanguageProvider = ({ children }: { children: ReactNode }) => {
   const [language, setLang] = useState<Language>(() => {
