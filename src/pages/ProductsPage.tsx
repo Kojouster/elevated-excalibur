@@ -679,7 +679,7 @@ const ProductModal = ({ product, onClose }: { product: Product; onClose: () => v
           {product.comparisonTable && (
             <>
               <h3 className="font-heading text-sm font-bold text-foreground tracking-wider uppercase mb-4">
-                Comparative Characteristics — Old vs Modernized
+                {t("productsPage.comparisonTitle")}
               </h3>
               <div className="overflow-x-auto mb-10 border border-border">
                 <table className="w-full text-sm">
