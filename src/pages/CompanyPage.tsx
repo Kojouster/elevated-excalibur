@@ -1,6 +1,5 @@
 import { motion } from "framer-motion";
-import { useState } from "react";
-import { Eye, Award, Users, Globe, ChevronRight, Building, Zap, Heart } from "lucide-react";
+import { Eye, Award, Users, Globe, Building, Zap, Heart } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import FooterSection from "@/components/FooterSection";
 import BackToTop from "@/components/BackToTop";
