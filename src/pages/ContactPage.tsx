@@ -36,7 +36,7 @@ const ContactPage = () => {
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
-      <PageHeader subtitle={t("contactPage.subtitle")} title={t("contactPage.title")} titleAccent={t("contactPage.titleAccent")} description={t("contactPage.description")} />
+      <PageHeader subtitle={t("contactPage.subtitle")} title={t("contactPage.title")} titleAccent={t("contactPage.titleAccent")} description={t("contactPage.description")} backgroundImage={headquartersImg} />
 
       {/* Contact Info Cards */}
       <section className="py-16 bg-surface-elevated">
