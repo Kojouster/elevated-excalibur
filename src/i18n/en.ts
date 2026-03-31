@@ -111,7 +111,7 @@ export const en = {
     services: "Services",
     contact: "Contact",
     contactTitle: "Contact",
-    copyright: "© 2026 Excalibur Army. All rights reserved.",
+    copyright: "© 2026 PALVAN. All rights reserved.",
     privacyPolicy: "Privacy Policy",
     termsOfUse: "Terms of Use",
   },
