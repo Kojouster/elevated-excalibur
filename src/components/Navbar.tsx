@@ -1,18 +1,20 @@
 import { useState } from "react";
 import { useLocation, Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, ChevronDown } from "lucide-react";
-
-const navItems = [
-  { label: "Company", href: "/company" },
-  { label: "Products", href: "/products" },
-  { label: "Services", href: "/services" },
-  { label: "Contact", href: "/contact" },
-];
+import { Menu, X } from "lucide-react";
+import { useLanguage } from "@/i18n/LanguageContext";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
+  const { language, setLanguage, t } = useLanguage();
+
+  const navItems = [
+    { label: t("nav.company"), href: "/company" },
+    { label: t("nav.products"), href: "/products" },
+    { label: t("nav.services"), href: "/services" },
+    { label: t("nav.contact"), href: "/contact" },
+  ];
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-xl border-b border-border">
@@ -35,7 +37,7 @@ const Navbar = () => {
               const isActive = location.pathname === item.href;
               return (
                 <Link
-                  key={item.label}
+                  key={item.href}
                   to={item.href}
                   className={`relative text-sm font-body tracking-wider uppercase transition-colors ${
                     isActive ? "text-primary" : "text-muted-foreground hover:text-primary"
@@ -52,9 +54,28 @@ const Navbar = () => {
                 </Link>
               );
             })}
-            <div className="flex items-center gap-2 text-sm text-muted-foreground">
-              <span className="text-primary font-medium">EN</span>
-              <ChevronDown className="w-3 h-3" />
+            {/* Language Switcher */}
+            <div className="flex items-center border border-border overflow-hidden">
+              <button
+                onClick={() => setLanguage("en")}
+                className={`px-3 py-1.5 text-xs font-heading tracking-wider transition-all duration-300 ${
+                  language === "en"
+                    ? "bg-primary text-primary-foreground"
+                    : "text-muted-foreground hover:text-foreground"
+                }`}
+              >
+                EN
+              </button>
+              <button
+                onClick={() => setLanguage("sk")}
+                className={`px-3 py-1.5 text-xs font-heading tracking-wider transition-all duration-300 ${
+                  language === "sk"
+                    ? "bg-primary text-primary-foreground"
+                    : "text-muted-foreground hover:text-foreground"
+                }`}
+              >
+                SK
+              </button>
             </div>
           </div>
 
@@ -82,7 +103,7 @@ const Navbar = () => {
             <div className="px-6 py-6 space-y-4">
               {navItems.map((item) => (
                 <Link
-                  key={item.label}
+                  key={item.href}
                   to={item.href}
                   onClick={() => setIsOpen(false)}
                   className={`block text-lg font-heading tracking-wider uppercase transition-colors ${
@@ -92,6 +113,25 @@ const Navbar = () => {
                   {item.label}
                 </Link>
               ))}
+              {/* Mobile Language Switcher */}
+              <div className="flex items-center gap-2 pt-4 border-t border-border">
+                <button
+                  onClick={() => setLanguage("en")}
+                  className={`px-4 py-2 text-sm font-heading tracking-wider transition-all ${
+                    language === "en" ? "bg-primary text-primary-foreground" : "border border-border text-muted-foreground"
+                  }`}
+                >
+                  EN
+                </button>
+                <button
+                  onClick={() => setLanguage("sk")}
+                  className={`px-4 py-2 text-sm font-heading tracking-wider transition-all ${
+                    language === "sk" ? "bg-primary text-primary-foreground" : "border border-border text-muted-foreground"
+                  }`}
+                >
+                  SK
+                </button>
+              </div>
             </div>
           </motion.div>
         )}
