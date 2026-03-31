@@ -752,12 +752,22 @@ const ProductsPage = () => {
   const [activeCategory, setActiveCategory] = useState("All");
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
   const filtered = activeCategory === "All" ? products : products.filter((p) => p.category === activeCategory);
+  const { t } = useLanguage();
+
+  const categoryLabels: Record<string, string> = {
+    "All": t("productsPage.all"),
+    "Armoured Vehicles": t("productsPage.armouredVehicles"),
+    "Rocket Launchers": t("productsPage.rocketLaunchers"),
+    "Air Defence": t("productsPage.airDefence"),
+    "Combat Modules": t("productsPage.combatModules"),
+    "Reconnaissance": t("productsPage.reconnaissance"),
+  };
 
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
-      <PageHeader subtitle="Defence Technology" title="OUR" titleAccent="PRODUCTS"
-        description="Combat-proven military platforms, modernization packages, and weapon systems — complete technical specifications from official documentation." />
+      <PageHeader subtitle={t("productsPage.subtitle")} title={t("productsPage.title")} titleAccent={t("productsPage.titleAccent")}
+        description={t("productsPage.description")} />
 
       <section className="py-20 lg:py-28 bg-background bg-noise">
         <div className="container mx-auto px-6 lg:px-12">
@@ -772,13 +782,13 @@ const ProductsPage = () => {
                     ? "bg-primary text-primary-foreground"
                     : "border border-border text-muted-foreground hover:border-primary/30 hover:text-foreground"
                 }`}>
-                {cat}
+                {categoryLabels[cat] || cat}
               </button>
             ))}
           </motion.div>
 
           <p className="text-muted-foreground text-xs tracking-wider uppercase mb-8">
-            Showing {filtered.length} of {products.length} products
+            {t("productsPage.showing")} {filtered.length} {t("productsPage.of")} {products.length} {t("productsPage.products")}
           </p>
 
           {/* Products Grid */}
