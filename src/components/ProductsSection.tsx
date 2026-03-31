@@ -98,7 +98,7 @@ const ProductsSection = () => {
                       <p className="text-primary text-xs tracking-[0.3em] uppercase">{product.category}</p>
                     </div>
                     <h3 className="font-heading text-2xl lg:text-3xl font-bold text-foreground mb-3 group-hover:text-gradient-gold transition-all duration-500">{product.name}</h3>
-                    <p className="text-muted-foreground text-sm leading-relaxed mb-5">{product.description[language]}</p>
+                    <p className="text-muted-foreground text-sm leading-relaxed mb-5">{product.description}</p>
                     <div className="flex flex-wrap gap-2 mb-5">
                       {product.specs.map((spec, si) => (
                         <motion.span key={spec} initial={{ opacity: 0, x: -10 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ delay: index * 0.12 + si * 0.08 }} className="px-3 py-1.5 border border-border text-muted-foreground text-[11px] tracking-wider group-hover:border-primary/30 group-hover:text-foreground transition-all duration-500">
