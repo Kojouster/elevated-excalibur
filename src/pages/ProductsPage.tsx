@@ -807,15 +807,36 @@ const ProductModal = ({ product, onClose }: { product: Product; onClose: () => v
             <span className="text-primary text-xs tracking-[0.3em] uppercase">{product.category}</span>
           </div>
           <h2 className="font-heading text-4xl lg:text-5xl font-bold text-foreground mb-1">{product.name}</h2>
-          <p className="text-primary/70 text-sm tracking-wider mb-4">{product.subtitle}</p>
-          <p className="text-muted-foreground text-base leading-relaxed mb-10 max-w-3xl">{product.description}</p>
+
+          {/* Variant Switcher */}
+          {hasVariants && (
+            <div className="flex items-center gap-2 my-5">
+              <span className="text-muted-foreground text-xs tracking-wider uppercase mr-2">Variant:</span>
+              {product.variants!.map((v, i) => (
+                <button
+                  key={v.name}
+                  onClick={() => setActiveVariant(i)}
+                  className={`px-5 py-2.5 text-xs font-heading tracking-wider uppercase transition-all duration-300 border ${
+                    activeVariant === i
+                      ? "bg-primary text-primary-foreground border-primary"
+                      : "border-border text-muted-foreground hover:border-primary/40 hover:text-foreground"
+                  }`}
+                >
+                  {v.name}
+                </button>
+              ))}
+            </div>
+          )}
+
+          <p className="text-primary/70 text-sm tracking-wider mb-4">{currentData.subtitle}</p>
+          <p className="text-muted-foreground text-base leading-relaxed mb-10 max-w-3xl">{currentData.description}</p>
 
           <h3 className="font-heading text-sm font-bold text-foreground tracking-wider uppercase mb-4">
             {t("productsPage.technicalSpecs")}
           </h3>
           <div className="space-y-1 mb-10">
-            {product.specSections.map((sec, i) => (
-              <SpecBlock key={sec.title} section={sec} index={i} />
+            {currentData.specSections.map((sec, i) => (
+              <SpecBlock key={`${activeVariant}-${sec.title}`} section={sec} index={i} />
             ))}
           </div>
 
