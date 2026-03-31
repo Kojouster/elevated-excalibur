@@ -1,34 +1,50 @@
 import { useState, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ArrowRight, ChevronUp, ChevronDown, Shield, Target, Crosshair, Rocket } from "lucide-react";
+import { ArrowRight, ChevronUp, ChevronDown, Shield, Crosshair, Rocket, Radar, type LucideIcon } from "lucide-react";
 import { useLanguage } from "@/i18n/LanguageContext";
-import productApc from "@/assets/product-apc.jpg";
-import productHowitzer from "@/assets/product-howitzer.jpg";
-import productTank from "@/assets/product-tank.jpg";
-import productRocket from "@/assets/product-rocket.jpg";
-import heroImage from "@/assets/hero-military.jpg";
+import productMangust from "@/assets/product-mangust-hero.png";
+import productVlra from "@/assets/product-vlra-mr24-hero.jpg";
+import productZsu from "@/assets/product-zsu-hero.png";
+import productXb30 from "@/assets/product-xb30-hero.png";
 
-const slides = [
-  { name: "PATRIOT I", categoryKey: "Armoured Vehicles", image: heroImage, icon: Shield, descKey: "slide1" },
-  { name: "T-72 EA", categoryKey: "Main Battle Tanks", image: productTank, icon: Crosshair, descKey: "slide2" },
-  { name: "DANA M2", categoryKey: "Self-Propelled Howitzers", image: productHowitzer, icon: Target, descKey: "slide3" },
-  { name: "RM-70 M1", categoryKey: "Rocket Launchers", image: productRocket, icon: Rocket, descKey: "slide4" },
+interface HeroSlide {
+  name: string;
+  category: string;
+  image: string;
+  icon: LucideIcon;
+  description: string;
+}
+
+const useSlides = (t: (key: string) => string): HeroSlide[] => [
+  {
+    name: "BTR MANGUST",
+    category: t("productsPage.armouredVehicles"),
+    image: productMangust,
+    icon: Shield,
+    description: t("productsPage.mangustDescription"),
+  },
+  {
+    name: "VLRA MR-24",
+    category: t("productsPage.rocketLaunchers"),
+    image: productVlra,
+    icon: Rocket,
+    description: t("productsPage.vlraDescription"),
+  },
+  {
+    name: "ZSU 23-4M-A1",
+    category: t("productsPage.airDefence"),
+    image: productZsu,
+    icon: Radar,
+    description: t("productsPage.zsuDescription"),
+  },
+  {
+    name: "XB-30",
+    category: t("productsPage.combatModules"),
+    image: productXb30,
+    icon: Crosshair,
+    description: t("productsPage.xb30Description"),
+  },
 ];
-
-const slideDescriptions: Record<string, Record<string, string>> = {
-  en: {
-    slide1: "Multi-purpose platform featuring superior off-road mobility and advanced crew protection.",
-    slide2: "Renowned tank with extensive logistic support and crew safety enhancement potential.",
-    slide3: "The most advanced 152mm self-propelled gun howitzer with greater accuracy.",
-    slide4: "Mobile artillery providing concentrated fire support with 80 carried rockets.",
-  },
-  sk: {
-    slide1: "Viacúčelová platforma s vynikajúcou terénnou mobilitou a pokročilou ochranou posádky.",
-    slide2: "Uznávaný tank s rozsiahlou logistickou podporou a potenciálom zvýšenia bezpečnosti posádky.",
-    slide3: "Najmodernejšia 152mm samohybná kanónová húfnica s vyššou presnosťou.",
-    slide4: "Mobilné delostrelectvo poskytujúce koncentrovanú palebnú podporu s 80 nesenými raketami.",
-  },
-};
 
 const DotGrid = () => (
   <div className="absolute left-0 top-0 bottom-0 w-1/2 pointer-events-none overflow-hidden">
@@ -46,7 +62,8 @@ const DotGrid = () => (
 const HeroSection = () => {
   const [current, setCurrent] = useState(0);
   const [direction, setDirection] = useState(1);
-  const { language, t } = useLanguage();
+  const { t } = useLanguage();
+  const slides = useSlides(t);
 
   const goTo = useCallback((index: number) => {
     setDirection(index > current ? 1 : -1);
@@ -56,12 +73,12 @@ const HeroSection = () => {
   const next = useCallback(() => {
     setDirection(1);
     setCurrent((p) => (p + 1) % slides.length);
-  }, []);
+  }, [slides.length]);
 
   const prev = useCallback(() => {
     setDirection(-1);
     setCurrent((p) => (p - 1 + slides.length) % slides.length);
-  }, []);
+  }, [slides.length]);
 
   useEffect(() => {
     const timer = setInterval(next, 6000);
@@ -101,9 +118,9 @@ const HeroSection = () => {
         <AnimatePresence mode="wait">
           <motion.div key={current} initial={{ opacity: 0, y: direction * 40 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: direction * -40 }} transition={{ duration: 0.6 }} className="w-full p-12 pb-32">
             <div className="border-l-2 border-primary pl-6">
-              <p className="text-primary text-xs tracking-[0.3em] uppercase mb-2">{slide.categoryKey}</p>
+              <p className="text-primary text-xs tracking-[0.3em] uppercase mb-2">{slide.category}</p>
               <h3 className="font-heading text-3xl font-bold text-foreground mb-3">{slide.name}</h3>
-              <p className="text-muted-foreground text-sm leading-relaxed mb-6">{slideDescriptions[language][slide.descKey]}</p>
+              <p className="text-muted-foreground text-sm leading-relaxed mb-6">{slide.description}</p>
               <a href="#products" className="inline-flex items-center gap-2 text-primary text-sm tracking-wider uppercase font-body hover:gap-3 transition-all">
                 {t("hero.discoverMore")} <ArrowRight className="w-4 h-4" />
               </a>
