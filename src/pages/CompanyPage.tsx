@@ -24,7 +24,7 @@ const leadership = [
 ];
 
 const CompanyPage = () => {
-  const [activeTimelineIndex, setActiveTimelineIndex] = useState(timeline.length - 1);
+
 
   return (
     <div className="min-h-screen bg-background">
