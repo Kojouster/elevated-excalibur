@@ -6,7 +6,7 @@ import FooterSection from "@/components/FooterSection";
 import BackToTop from "@/components/BackToTop";
 import PageHeader from "@/components/PageHeader";
 import { useLanguage } from "@/i18n/LanguageContext";
-
+import headquartersImg from "@/assets/headquarters.jpg";
 const offices = [
   { city: "Šternberk", country: "Czech Republic", typeKey: "headquartersProduction", address: "Liechtensteinská 1414/7, 785 01 Šternberk", phone: "+420 585 085 111", email: "info@excaliburarmy.com" },
   { city: "Prague", country: "Czech Republic", typeKey: "businessOffice", address: "Lazarská 13/8, 120 00 Prague 2", phone: "+420 221 595 111", email: "prague@excaliburarmy.com" },
@@ -36,7 +36,7 @@ const ContactPage = () => {
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
-      <PageHeader subtitle={t("contactPage.subtitle")} title={t("contactPage.title")} titleAccent={t("contactPage.titleAccent")} description={t("contactPage.description")} />
+      <PageHeader subtitle={t("contactPage.subtitle")} title={t("contactPage.title")} titleAccent={t("contactPage.titleAccent")} description={t("contactPage.description")} backgroundImage={headquartersImg} />
 
       {/* Contact Info Cards */}
       <section className="py-16 bg-surface-elevated">
