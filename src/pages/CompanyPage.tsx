@@ -1,22 +1,11 @@
 import { motion } from "framer-motion";
-import { useState } from "react";
-import { Eye, Award, Users, Globe, ChevronRight, Building, Zap, Heart } from "lucide-react";
+import { Eye, Award, Users, Globe, Building, Zap, Heart } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import FooterSection from "@/components/FooterSection";
 import BackToTop from "@/components/BackToTop";
 import PageHeader from "@/components/PageHeader";
 import factoryImg from "@/assets/factory.jpg";
 import headquartersImg from "@/assets/headquarters.jpg";
-
-const timeline = [
-  { year: "1995", title: "Company Founded", description: "Excalibur Army established in Šternberk, Czech Republic, as a military vehicle repair facility." },
-  { year: "2000", title: "First Export Contract", description: "Secured first international contract, delivering modernized vehicles to a NATO partner nation." },
-  { year: "2005", title: "Product Development", description: "Launched own product line including upgraded T-72 variants and wheeled armoured vehicles." },
-  { year: "2010", title: "Global Expansion", description: "Expanded operations to serve over 40 countries across Europe, Asia, Africa, and the Middle East." },
-  { year: "2015", title: "DANA M2 Launch", description: "Unveiled the DANA M2 self-propelled howitzer, the most advanced variant of the 152mm platform." },
-  { year: "2020", title: "PATRIOT Programme", description: "Introduced the PATRIOT multi-purpose platform, setting new standards in crew protection." },
-  { year: "2024", title: "Strategic Growth", description: "Surpassed 60 countries served with over 1,000 vehicles delivered worldwide." },
-];
 
 const values = [
   { icon: Eye, title: "Innovation", description: "Continuously pushing boundaries in defence technology to deliver cutting-edge solutions." },
@@ -35,7 +24,7 @@ const leadership = [
 ];
 
 const CompanyPage = () => {
-  const [activeTimelineIndex, setActiveTimelineIndex] = useState(timeline.length - 1);
+
 
   return (
     <div className="min-h-screen bg-background">
@@ -107,54 +96,6 @@ const CompanyPage = () => {
         </div>
       </section>
 
-      {/* Interactive Timeline */}
-      <section className="py-20 lg:py-28 bg-surface-elevated">
-        <div className="container mx-auto px-6 lg:px-12">
-          <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mb-16">
-            <p className="text-primary tracking-[0.5em] text-sm uppercase mb-4">Our Journey</p>
-            <h2 className="font-heading text-4xl md:text-5xl font-bold text-foreground">HISTORY</h2>
-          </motion.div>
-
-          <div className="grid grid-cols-1 lg:grid-cols-[300px_1fr] gap-12">
-            {/* Year selector */}
-            <div className="flex lg:flex-col gap-2 overflow-x-auto lg:overflow-visible pb-4 lg:pb-0">
-              {timeline.map((item, i) => (
-                <button
-                  key={item.year}
-                  onClick={() => setActiveTimelineIndex(i)}
-                  className={`flex items-center gap-3 px-5 py-3 text-left transition-all duration-300 whitespace-nowrap ${
-                    i === activeTimelineIndex
-                      ? "bg-primary/10 border border-primary/40 text-primary"
-                      : "border border-transparent text-muted-foreground hover:text-foreground hover:bg-card"
-                  }`}
-                >
-                  <span className="font-heading text-xl font-bold">{item.year}</span>
-                  <ChevronRight className={`w-4 h-4 hidden lg:block transition-transform ${i === activeTimelineIndex ? "translate-x-1" : ""}`} />
-                </button>
-              ))}
-            </div>
-
-            {/* Content */}
-            <motion.div
-              key={activeTimelineIndex}
-              initial={{ opacity: 0, x: 20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.4 }}
-              className="p-8 lg:p-12 border border-border bg-card"
-            >
-              <div className="font-heading text-6xl lg:text-8xl font-bold text-primary/20 mb-4">
-                {timeline[activeTimelineIndex].year}
-              </div>
-              <h3 className="font-heading text-2xl lg:text-3xl font-bold text-foreground mb-4">
-                {timeline[activeTimelineIndex].title}
-              </h3>
-              <p className="text-muted-foreground text-lg leading-relaxed max-w-xl">
-                {timeline[activeTimelineIndex].description}
-              </p>
-            </motion.div>
-          </div>
-        </div>
-      </section>
 
       {/* Values */}
       <section className="py-20 lg:py-28 bg-background bg-noise">
