@@ -919,6 +919,7 @@ const ProductModal = ({ product, onClose }: { product: Product; onClose: () => v
 const ProductsPage = () => {
   const [activeCategory, setActiveCategory] = useState("All");
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
+  const products = useProducts();
   const filtered = activeCategory === "All" ? products : products.filter((p) => p.category === activeCategory);
   const { t } = useLanguage();
 
