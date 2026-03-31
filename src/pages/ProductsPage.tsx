@@ -610,8 +610,8 @@ const useProducts = (): Product[] => {
       },
       {
         name: "2A42",
-        subtitle: "Remote Weapon Station with 30mm 2A42 Automatic Cannon",
-        description: "Combat module armed with a 30mm 2A42 automatic cannon, 7.62mm PKT coaxial machine gun, and 902V Tucha smoke grenade launcher system. Features digital electromechanical 2-axis stabilizer, ONYX uncooled thermal imager, and eye-safe laser rangefinder.",
+        subtitle: t("productsPage.xb30Variant2Subtitle"),
+        description: t("productsPage.xb30Variant2Description"),
         quickSpecs: ["30mm 2A42 Cannon", "475 rds Loaded", "ONYX Thermal"],
         specSections: [
           {
