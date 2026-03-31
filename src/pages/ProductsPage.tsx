@@ -339,8 +339,8 @@ const useProducts = (): Product[] => {
     category: "Rocket Launchers",
     image: productVlra,
     icon: Rocket,
-    subtitle: "122mm Multiple Launch Rocket System",
-    description: "Mobile 24-tube MLRS on a 4×4 VLRA chassis delivering concentrated rocket fire with 5–40 km range. Features hydraulic launcher drive, remote fire control, and rapid shoot-and-scoot capability with 1,400 km road range.",
+    subtitle: t("productsPage.vlraSubtitle"),
+    description: t("productsPage.vlraDescription"),
     quickSpecs: ["122mm / 24 Tubes", "5–40 km Range", "110 km/h"],
     gallery: [productVlra],
     specSections: [
