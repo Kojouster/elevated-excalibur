@@ -665,9 +665,8 @@ const ProductModal = ({ product, onClose }: { product: Product; onClose: () => v
           <p className="text-primary/70 text-sm tracking-wider mb-4">{product.subtitle}</p>
           <p className="text-muted-foreground text-base leading-relaxed mb-10 max-w-3xl">{product.description}</p>
 
-          {/* Spec Sections (accordion) */}
           <h3 className="font-heading text-sm font-bold text-foreground tracking-wider uppercase mb-4">
-            Technical Specifications
+            {t("productsPage.technicalSpecs")}
           </h3>
           <div className="space-y-1 mb-10">
             {product.specSections.map((sec, i) => (
