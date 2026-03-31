@@ -48,7 +48,9 @@ interface Product {
 
 const categories = ["All", "Armoured Vehicles", "Rocket Launchers", "Air Defence", "Combat Modules", "Reconnaissance"];
 
-const products: Product[] = [
+const useProducts = (): Product[] => {
+  const { t } = useLanguage();
+  return [
   {
     id: 1,
     name: "BTR MANGUST",
