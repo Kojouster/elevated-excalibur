@@ -706,7 +706,8 @@ const useProducts = (): Product[] => {
       },
     ],
   },
-];
+  ];
+};
 
 /* ──── TiltCard ──── */
 const TiltCard = ({ children, className }: { children: React.ReactNode; className?: string }) => {
