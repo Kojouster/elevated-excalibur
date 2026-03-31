@@ -1,3 +1,4 @@
+// HeroSection - updated
 import { useState, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight, ChevronUp, ChevronDown, Shield, Crosshair, Rocket, Radar, type LucideIcon } from "lucide-react";
