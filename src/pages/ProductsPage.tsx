@@ -865,7 +865,7 @@ const ProductModal = ({ product, onClose }: { product: Product; onClose: () => v
           )}
 
           {/* Options */}
-          {product.options && product.options.length > 0 && (
+          {Array.isArray(product.options) && product.options.length > 0 && (
             <>
               <h3 className="font-heading text-sm font-bold text-foreground tracking-wider uppercase mb-4">
                 {t("productsPage.optionsTitle")}
