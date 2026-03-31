@@ -57,8 +57,8 @@ const useProducts = (): Product[] => {
     category: "Armoured Vehicles",
     image: productMangust,
     icon: Shield,
-    subtitle: "6×6 Armoured Personnel Carrier with XB-30 Combat Module",
-    description: "Modern 6×6 monocoque APC featuring Level 1 ballistic protection and Level 3A/2B mine protection. Equipped with XB-30 remote weapon station, 370 HP diesel engine, and automatic transmission for superior battlefield mobility.",
+    subtitle: t("productsPage.mangustSubtitle"),
+    description: t("productsPage.mangustDescription"),
     quickSpecs: ["6×6 Drive", "370 HP", "Level 3A Mine Protection"],
     gallery: [productMangust, productXb30],
     specSections: [
