@@ -12,12 +12,9 @@ const FooterSection = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
           <div>
             <Link to="/" className="flex items-center gap-3 mb-6">
-              <div className="w-10 h-10 border-2 border-primary flex items-center justify-center">
-                <span className="font-heading text-primary font-bold text-lg">EA</span>
-              </div>
+              <img src={palvanLogo} alt="PALVAN" className="h-10 w-auto brightness-0 invert" />
               <div className="font-heading">
-                <div className="text-sm font-bold tracking-[0.3em] text-foreground leading-none">EXCALIBUR</div>
-                <div className="text-xs tracking-[0.3em] text-foreground leading-none mt-0.5">ARMY</div>
+                <div className="text-sm font-bold tracking-[0.3em] text-foreground leading-none">PALVAN</div>
               </div>
             </Link>
             <p className="text-muted-foreground text-sm leading-relaxed">{t("footer.description")}</p>
