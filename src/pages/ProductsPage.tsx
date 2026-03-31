@@ -758,6 +758,13 @@ const SpecBlock = ({ section, index }: { section: SpecSection; index: number }) 
 /* ──── Product Modal ──── */
 const ProductModal = ({ product, onClose }: { product: Product; onClose: () => void }) => {
   const [galleryIndex, setGalleryIndex] = useState(0);
+  const [activeVariant, setActiveVariant] = useState(0);
+  const Icon = product.icon;
+  const { t } = useLanguage();
+
+  // Use variant data if available, otherwise use base product data
+  const hasVariants = product.variants && product.variants.length > 0;
+  const currentData = hasVariants ? product.variants![activeVariant] : product;
   const Icon = product.icon;
   const { t } = useLanguage();
 
