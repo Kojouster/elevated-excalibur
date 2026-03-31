@@ -174,8 +174,8 @@ const useProducts = (): Product[] => {
     category: "Armoured Vehicles",
     image: productBtr70,
     icon: Shield,
-    subtitle: "Modernized 8×8 Amphibious APC — NSN: 2355-61-015-7372",
-    description: "Extensively modernized BTR-70 with new DEUTZ turbocharged diesel engine, 8-gear manual or 6-gear automatic transmission, and enhanced armament suite. Fully amphibious with optional perforated add-on armour.",
+    subtitle: t("productsPage.btr70Subtitle"),
+    description: t("productsPage.btr70Description"),
     quickSpecs: ["12,500 kg GVW", "DEUTZ 7.2L", "Amphibious"],
     gallery: [productBtr70],
     specSections: [
