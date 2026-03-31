@@ -8,40 +8,43 @@ import productVlra from "@/assets/product-vlra-mr24-hero.jpg";
 import productZsu from "@/assets/product-zsu-hero.png";
 import productXb30 from "@/assets/product-xb30-hero.png";
 
-const products = [
-  {
-    name: "BTR MANGUST",
-    category: "Armoured Vehicles",
-    description: { en: "Modern 6×6 APC with Level 1 ballistic and Level 3A/2B mine protection, equipped with XB-30 combat module.", sk: "Moderný 6×6 OT s balistickou ochranou úrovne 1 a protimínovou ochranou úrovne 3A/2B, vybavený bojovým modulom XB-30." },
-    image: productMangust,
-    icon: Shield,
-    specs: ["6×6 Drive", "370 HP", "Level 3A Mine Protection"],
-  },
-  {
-    name: "VLRA MR-24",
-    category: "Rocket Launchers",
-    description: { en: "24-tube 122mm MLRS on 4×4 chassis with 5–40 km range and rapid shoot-and-scoot capability.", sk: "24-trubicový 122mm MLRS na podvozku 4×4 s dostrelom 5–40 km a schopnosťou rýchleho vystreľ a unikni." },
-    image: productVlra,
-    icon: Rocket,
-    specs: ["122mm Calibre", "24 Tubes", "40 km Range"],
-  },
-  {
-    name: "ZSU 23-4M-A1",
-    category: "Air Defence",
-    description: { en: "Modernized SPAAG with 3D digital radar, 25 km detection range, and UAV engagement capability.", sk: "Modernizovaný SPAAG s 3D digitálnym radarom, detekčným dosahom 25 km a schopnosťou zasahovať UAV." },
-    image: productZsu,
-    icon: Radar,
-    specs: ["3D X-band Radar", "25 km Detection", "20 Targets"],
-  },
-  {
-    name: "XB-30",
-    category: "Combat Modules",
-    description: { en: "Unmanned turret with 30×173mm cannon, thermal imager, and eye-safe laser rangefinder.", sk: "Bezposádková veža s 30×173mm kanónom, termovíznym zobrazovačom a laserovým diaľkomerom bezpečným pre oči." },
-    image: productXb30,
-    icon: Crosshair,
-    specs: ["30mm Cannon", "Thermal Imaging", "6 km LRF"],
-  },
-];
+const useProducts = () => {
+  const { t } = useLanguage();
+  return [
+    {
+      name: "BTR MANGUST",
+      category: "Armoured Vehicles",
+      description: t("productsPage.mangustDescription"),
+      image: productMangust,
+      icon: Shield,
+      specs: ["6×6 Drive", "370 HP", "Level 3A Mine Protection"],
+    },
+    {
+      name: "VLRA MR-24",
+      category: "Rocket Launchers",
+      description: t("productsPage.vlraDescription"),
+      image: productVlra,
+      icon: Rocket,
+      specs: ["122mm / 24 Tubes", "5–40 km Range", "110 km/h"],
+    },
+    {
+      name: "ZSU 23-4M-A1",
+      category: "Air Defence",
+      description: t("productsPage.zsuDescription"),
+      image: productZsu,
+      icon: Radar,
+      specs: ["3D X-band Radar", "25 km Detection", "Up to 20 Targets"],
+    },
+    {
+      name: "XB-30",
+      category: "Combat Modules",
+      description: t("productsPage.xb30Description"),
+      image: productXb30,
+      icon: Crosshair,
+      specs: ["30×173mm Cannon", "Thermal Imaging", "6 km LRF"],
+    },
+  ];
+};
 
 const TiltCard = ({ children, className }: { children: React.ReactNode; className?: string }) => {
   const ref = useRef<HTMLDivElement>(null);
@@ -61,7 +64,8 @@ const TiltCard = ({ children, className }: { children: React.ReactNode; classNam
 };
 
 const ProductsSection = () => {
-  const { language, t } = useLanguage();
+  const { t } = useLanguage();
+  const products = useProducts();
 
   return (
     <section id="products" className="py-24 lg:py-32 bg-background bg-noise relative">
@@ -94,7 +98,7 @@ const ProductsSection = () => {
                       <p className="text-primary text-xs tracking-[0.3em] uppercase">{product.category}</p>
                     </div>
                     <h3 className="font-heading text-2xl lg:text-3xl font-bold text-foreground mb-3 group-hover:text-gradient-gold transition-all duration-500">{product.name}</h3>
-                    <p className="text-muted-foreground text-sm leading-relaxed mb-5">{product.description[language]}</p>
+                    <p className="text-muted-foreground text-sm leading-relaxed mb-5">{product.description}</p>
                     <div className="flex flex-wrap gap-2 mb-5">
                       {product.specs.map((spec, si) => (
                         <motion.span key={spec} initial={{ opacity: 0, x: -10 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ delay: index * 0.12 + si * 0.08 }} className="px-3 py-1.5 border border-border text-muted-foreground text-[11px] tracking-wider group-hover:border-primary/30 group-hover:text-foreground transition-all duration-500">
