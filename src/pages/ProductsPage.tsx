@@ -466,20 +466,7 @@ const useProducts = (): Product[] => {
         ],
       },
     ],
-    advantages: [
-      "Increase the detection range of aerial targets up to 30 km",
-      "Sector of simultaneous view: 16° × 16° (azimuth 360°, elevation −4° to +85°)",
-      "Simultaneous determination of three coordinates (azimuth, range, height) and radial velocity",
-      "Detection, tracking and firing of small-scale targets (UAVs and cruise missiles)",
-      "Possibility of choosing the most dangerous target",
-      "High noise immunity",
-      "Real-time location (coordinates) determination of the upgraded ZSU-23-4M",
-      "Improved crew comfort (climate control system)",
-      "Built-in electronic simulator for crew training",
-      "Increased accuracy of target coordinate measurement",
-      "Target classification capability",
-      "Increased range and probability of hitting the target",
-    ],
+    advantages: t("productsPage.zsuAdvantages") as unknown as string[],
     comparisonTable: {
       header: ["Characteristics", "Before Modernization", "After Modernization"],
       rows: [
