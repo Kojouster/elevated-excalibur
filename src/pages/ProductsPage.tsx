@@ -279,13 +279,7 @@ const useProducts = (): Product[] => {
         ],
       },
     ],
-    options: [
-      "Energy-absorbing seats manufactured using modern technologies",
-      "Mounted perforated anti-cumulative protection provides protection against BZ-type ammunition:",
-      "— 7.62×54 mm (790 kg)",
-      "— 12.7×108 mm (1,024 kg)",
-      "— 14.5×114 mm (1,144 kg) on all projections",
-    ],
+    options: t("productsPage.brdmOptions") as unknown as string[],
   },
   {
     id: 4,
