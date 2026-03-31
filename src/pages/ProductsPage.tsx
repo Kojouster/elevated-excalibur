@@ -710,7 +710,7 @@ const ProductModal = ({ product, onClose }: { product: Product; onClose: () => v
           {product.advantages && product.advantages.length > 0 && (
             <>
               <h3 className="font-heading text-sm font-bold text-foreground tracking-wider uppercase mb-4">
-                Advantages of Modernization
+                {t("productsPage.advantagesTitle")}
               </h3>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 mb-10">
                 {product.advantages.map((a, i) => (
