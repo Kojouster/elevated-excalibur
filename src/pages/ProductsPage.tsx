@@ -908,7 +908,7 @@ const ProductsPage = () => {
     <div className="min-h-screen bg-background">
       <Navbar />
       <PageHeader subtitle={t("productsPage.subtitle")} title={t("productsPage.title")} titleAccent={t("productsPage.titleAccent")}
-        description={t("productsPage.description")} />
+        description={t("productsPage.description")} backgroundImage={productsHero} />
 
       <section className="py-20 lg:py-28 bg-background bg-noise">
         <div className="container mx-auto px-6 lg:px-12">
