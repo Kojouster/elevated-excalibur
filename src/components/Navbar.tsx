@@ -3,6 +3,7 @@ import { useLocation, Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { useLanguage } from "@/i18n/LanguageContext";
+import palvanLogo from "@/assets/palvan-logo.jpg";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -22,12 +23,9 @@ const Navbar = () => {
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-3">
-            <div className="w-10 h-10 border-2 border-primary flex items-center justify-center">
-              <span className="font-heading text-primary font-bold text-lg">EA</span>
-            </div>
+            <img src={palvanLogo} alt="PALVAN" className="h-10 w-auto brightness-0 invert" />
             <div className="font-heading text-foreground">
-              <div className="text-sm font-bold tracking-[0.3em] leading-none">EXCALIBUR</div>
-              <div className="text-xs tracking-[0.3em] leading-none mt-0.5">ARMY</div>
+              <div className="text-sm font-bold tracking-[0.3em] leading-none">PALVAN</div>
             </div>
           </Link>
 
