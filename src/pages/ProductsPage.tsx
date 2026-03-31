@@ -491,8 +491,8 @@ const useProducts = (): Product[] => {
     category: "Combat Modules",
     image: productXb30,
     icon: Crosshair,
-    subtitle: "Remote Weapon Station with 30mm Cannon",
-    description: "Advanced unmanned turret featuring a 30×173mm GTS-30/N automatic cannon, 7.62mm FN Herstal coaxial MG, and 902V Tucha smoke grenades. Integrated stabilized optoelectronic suite with thermal imaging and eye-safe laser rangefinder.",
+    subtitle: t("productsPage.xb30Subtitle"),
+    description: t("productsPage.xb30Description"),
     quickSpecs: ["30×173mm Cannon", "Thermal Imaging", "6 km LRF"],
     gallery: [productXb30],
     specSections: [
