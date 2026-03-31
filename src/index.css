@@ -87,7 +87,7 @@ html {
   }
 
   .glow-gold {
-    box-shadow: 0 0 60px -10px hsl(210 20% 85% / 0.35);
+    box-shadow: 0 0 70px -8px hsl(210 25% 90% / 0.4), 0 0 20px -4px hsl(0 0% 100% / 0.15);
   }
 }
 
