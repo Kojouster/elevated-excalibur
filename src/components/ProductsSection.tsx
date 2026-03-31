@@ -1,50 +1,49 @@
 import { motion, useMotionValue, useSpring } from "framer-motion";
-import { ArrowRight, Shield, Target, Crosshair, Rocket } from "lucide-react";
+import { ArrowRight, Shield, Rocket, Radar, Crosshair } from "lucide-react";
 import { useRef } from "react";
-import productApc from "@/assets/product-apc.jpg";
-import productHowitzer from "@/assets/product-howitzer.jpg";
-import productTank from "@/assets/product-tank.jpg";
-import productRocket from "@/assets/product-rocket.jpg";
+import { Link } from "react-router-dom";
+import productMangust from "@/assets/product-mangust-hero.jpg";
+import productVlra from "@/assets/product-vlra-mr24-hero.jpg";
+import productZsu from "@/assets/product-zsu-hero.jpg";
+import productXb30 from "@/assets/product-xb30-hero.jpg";
 
 const products = [
   {
-    name: "PATRIOT I",
+    name: "BTR MANGUST",
     category: "Armoured Vehicles",
-    description: "Multi-purpose platform featuring superior off-road mobility and advanced crew protection systems.",
-    image: productApc,
+    description: "Modern 6×6 APC with Level 1 ballistic and Level 3A/2B mine protection, equipped with XB-30 combat module.",
+    image: productMangust,
     icon: Shield,
-    specs: ["8x8 Configuration", "Level 4 Protection", "450 HP Engine"],
+    specs: ["6×6 Drive", "370 HP", "Level 3A Mine Protection"],
   },
   {
-    name: "DANA M2",
-    category: "Self-Propelled Howitzers",
-    description: "Advanced 152mm self-propelled gun howitzer with fast operation and greater accuracy.",
-    image: productHowitzer,
-    icon: Target,
-    specs: ["152mm Calibre", "39.6 km Range", "6 Rounds/Min"],
-  },
-  {
-    name: "T-72 EA",
-    category: "Main Battle Tanks",
-    description: "Renowned tank with extensive logistic support and potential for powerpack upgrade.",
-    image: productTank,
-    icon: Crosshair,
-    specs: ["125mm Smoothbore", "Composite Armour", "840 HP"],
-  },
-  {
-    name: "RM-70 M1",
+    name: "VLRA MR-24",
     category: "Rocket Launchers",
-    description: "Mobile artillery system providing concentrated fire support with 80 carried rockets.",
-    image: productRocket,
+    description: "24-tube 122mm MLRS on 4×4 chassis with 5–40 km range and rapid shoot-and-scoot capability.",
+    image: productVlra,
     icon: Rocket,
-    specs: ["122mm Rockets", "80 Round Capacity", "20 km Range"],
+    specs: ["122mm Calibre", "24 Tubes", "40 km Range"],
+  },
+  {
+    name: "ZSU 23-4M-A1",
+    category: "Air Defence",
+    description: "Modernized SPAAG with 3D digital radar, 25 km detection range, and UAV engagement capability.",
+    image: productZsu,
+    icon: Radar,
+    specs: ["3D X-band Radar", "25 km Detection", "20 Targets"],
+  },
+  {
+    name: "XB-30",
+    category: "Combat Modules",
+    description: "Unmanned turret with 30×173mm cannon, thermal imager, and eye-safe laser rangefinder.",
+    image: productXb30,
+    icon: Crosshair,
+    specs: ["30mm Cannon", "Thermal Imaging", "6 km LRF"],
   },
 ];
 
 const TiltCard = ({ children, className }: { children: React.ReactNode; className?: string }) => {
   const ref = useRef<HTMLDivElement>(null);
-  const x = useMotionValue(0);
-  const y = useMotionValue(0);
   const rotateX = useSpring(0, { stiffness: 200, damping: 20 });
   const rotateY = useSpring(0, { stiffness: 200, damping: 20 });
 
@@ -57,16 +56,11 @@ const TiltCard = ({ children, className }: { children: React.ReactNode; classNam
     rotateY.set(px * 8);
   };
 
-  const handleLeave = () => {
-    rotateX.set(0);
-    rotateY.set(0);
-  };
-
   return (
     <motion.div
       ref={ref}
       onMouseMove={handleMouse}
-      onMouseLeave={handleLeave}
+      onMouseLeave={() => { rotateX.set(0); rotateY.set(0); }}
       style={{ rotateX, rotateY, transformPerspective: 800 }}
       className={className}
     >
@@ -92,7 +86,7 @@ const ProductsSection = () => {
             </h2>
           </div>
           <p className="text-muted-foreground max-w-md text-sm leading-relaxed">
-            Comprehensive portfolio of combat-proven military platforms designed for modern battlefield requirements.
+            Armoured vehicles, rocket systems, air defence, and combat modules — built and modernized for today's battlefield.
           </p>
         </motion.div>
 
@@ -108,21 +102,19 @@ const ProductsSection = () => {
                 transition={{ delay: index * 0.12, duration: 0.6 }}
               >
                 <TiltCard className="group relative overflow-hidden bg-card border border-border hover:border-primary/40 transition-all duration-500 cursor-pointer">
-                  {/* Glow effect on hover */}
                   <div className="absolute inset-0 bg-gradient-to-br from-primary/0 via-primary/0 to-primary/0 group-hover:from-primary/5 group-hover:via-transparent group-hover:to-primary/5 transition-all duration-700 pointer-events-none" />
-                  
+
                   <div className="aspect-[16/10] overflow-hidden relative">
                     <img
                       src={product.image}
                       alt={product.name}
                       loading="lazy"
-                      width={800}
-                      height={600}
+                      width={1024}
+                      height={640}
                       className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-card via-card/40 to-transparent" />
-                    
-                    {/* Icon badge */}
+
                     <div className="absolute top-4 right-4 w-12 h-12 bg-background/80 backdrop-blur-sm border border-border flex items-center justify-center group-hover:border-primary/50 group-hover:bg-primary/10 transition-all duration-500">
                       <Icon className="w-5 h-5 text-primary" />
                     </div>
@@ -133,7 +125,7 @@ const ProductsSection = () => {
                       <div className="h-px flex-1 bg-border group-hover:bg-primary/30 transition-colors duration-700" />
                       <p className="text-primary text-xs tracking-[0.3em] uppercase">{product.category}</p>
                     </div>
-                    
+
                     <h3 className="font-heading text-2xl lg:text-3xl font-bold text-foreground mb-3 group-hover:text-gradient-gold transition-all duration-500">
                       {product.name}
                     </h3>
@@ -141,7 +133,6 @@ const ProductsSection = () => {
                       {product.description}
                     </p>
 
-                    {/* Specs with animated reveal */}
                     <div className="flex flex-wrap gap-2 mb-5">
                       {product.specs.map((spec, si) => (
                         <motion.span
@@ -157,21 +148,31 @@ const ProductsSection = () => {
                       ))}
                     </div>
 
-                    <span className="inline-flex items-center gap-2 text-primary text-sm tracking-wider uppercase font-body group-hover:gap-4 transition-all duration-500">
+                    <Link to="/products" className="inline-flex items-center gap-2 text-primary text-sm tracking-wider uppercase font-body group-hover:gap-4 transition-all duration-500">
                       Discover More
-                      <motion.span
-                        className="inline-block"
-                        whileHover={{ x: 5 }}
-                      >
-                        <ArrowRight className="w-4 h-4" />
-                      </motion.span>
-                    </span>
+                      <ArrowRight className="w-4 h-4" />
+                    </Link>
                   </div>
                 </TiltCard>
               </motion.div>
             );
           })}
         </div>
+
+        {/* View All CTA */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          className="text-center mt-12"
+        >
+          <Link
+            to="/products"
+            className="inline-flex items-center gap-3 px-8 py-4 border border-primary text-primary font-heading text-sm tracking-wider uppercase hover:bg-primary hover:text-primary-foreground transition-all duration-500"
+          >
+            View All Products <ArrowRight className="w-4 h-4" />
+          </Link>
+        </motion.div>
       </div>
     </section>
   );
