@@ -3,7 +3,7 @@ import { ArrowRight, Shield, Rocket, Radar, Crosshair } from "lucide-react";
 import { useRef } from "react";
 import { Link } from "react-router-dom";
 import { useLanguage } from "@/i18n/LanguageContext";
-import productMangust from "@/assets/product-mangust-hero.jpg";
+import productMangust from "@/assets/product-mangust-hero.png";
 import productVlra from "@/assets/product-vlra-mr24-hero.jpg";
 import productZsu from "@/assets/product-zsu-hero.jpg";
 import productXb30 from "@/assets/product-xb30-hero.jpg";
