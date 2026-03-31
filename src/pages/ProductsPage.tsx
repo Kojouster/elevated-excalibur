@@ -575,6 +575,134 @@ const products: Product[] = [
         ],
       },
     ],
+    variants: [
+      {
+        name: "GTS-30/N",
+        subtitle: "Remote Weapon Station with 30×173mm GTS-30/N Cannon",
+        description: "Advanced unmanned turret featuring a 30×173mm GTS-30/N automatic cannon, 7.62mm FN Herstal coaxial MG, and 902V Tucha smoke grenades. Integrated stabilized optoelectronic suite with thermal imaging and eye-safe laser rangefinder.",
+        quickSpecs: ["30×173mm Cannon", "Thermal Imaging", "6 km LRF"],
+        specSections: [
+          {
+            title: "Armament",
+            rows: [
+              ["Main Gun", "30×173 mm Automatic Cannon GTS-30/N"],
+              ["Coaxial MG", "7.62×51 mm FN HERSTAL machine gun"],
+              ["Smoke Grenades", "902V 'Tucha' system (6 mortars, 3 per side)"],
+            ],
+          },
+          {
+            title: "Weapon Control System",
+            rows: [
+              ["Stabilizer", "Digital, electromechanical, 2-axis"],
+              ["Drives", "Vertical and horizontal actuators with electromagnetic travel locks"],
+              ["Control Units", "Equipped"],
+              ["Operator Monitor", "Video monitor"],
+              ["Operator Console", "Equipped"],
+            ],
+          },
+          {
+            title: "Thermal Imaging Channel (ONYX)",
+            rows: [
+              ["Sensor Resolution", "640 × 512 pixels"],
+              ["Wavelength Range", "8–12 µm"],
+              ["Type", "Uncooled microbolometer"],
+              ["Field of View (FOV)", "4.4° × 3.5°"],
+              ["Capability", "Observation through fog, smoke; day and night operation"],
+            ],
+          },
+          {
+            title: "Laser Rangefinder (LRF)",
+            rows: [
+              ["Wavelength", "λ — 1.535 µm (eye-safe)"],
+              ["Laser Class", "1"],
+              ["Beam Divergence", "≤ 1 × 1 mrad"],
+              ["Measurement Frequency", "1–5 Hz"],
+              ["Max Range", "6 km"],
+              ["Tank Detection", "4.5 km (target 2.3 × 2.3 m)"],
+              ["Stealth", "Undetectable by MWIR (3–5 µm) and LWIR (8–12 µm) thermal imagers"],
+            ],
+          },
+          {
+            title: "Day Channel",
+            rows: [
+              ["Narrow FOV", "2.2° (horizontal) × 1.65° (vertical)"],
+              ["Wide FOV", "8.0° (horizontal) × 6.0° (vertical)"],
+              ["Sensor Type", "CMOS, 1.3\" sensor"],
+              ["Resolution", "720 × 576 pixels"],
+              ["Detection (man)", "8 km"],
+              ["Recognition (tank)", "2.2 km"],
+            ],
+          },
+        ],
+      },
+      {
+        name: "2A42",
+        subtitle: "Remote Weapon Station with 30mm 2A42 Automatic Cannon",
+        description: "Combat module armed with a 30mm 2A42 automatic cannon, 7.62mm PKT coaxial machine gun, and 902V Tucha smoke grenade launcher system. Features digital electromechanical 2-axis stabilizer, ONYX uncooled thermal imager, and eye-safe laser rangefinder.",
+        quickSpecs: ["30mm 2A42 Cannon", "475 rds Loaded", "ONYX Thermal"],
+        specSections: [
+          {
+            title: "Armament",
+            rows: [
+              ["Main Gun", "30 mm Automatic Cannon 2A42"],
+              ["Coaxial MG", "7.62 mm PKT machine gun"],
+              ["Smoke Grenades", "902V 'Tucha' system (6 mortars, 3 per side)"],
+              ["30mm Ammo (loaded)", "475 rounds"],
+              ["7.62mm Ammo (loaded)", "2,100 rounds (350 loaded)"],
+            ],
+          },
+          {
+            title: "Weapon Control System",
+            rows: [
+              ["Stabilizer", "Digital, electromechanical, 2-axis"],
+              ["Drives", "Vertical and horizontal actuators with electromagnetic travel locks"],
+              ["Control Units", "Equipped"],
+              ["Operator Monitor", "Video monitor"],
+              ["Operator Console", "Equipped"],
+            ],
+          },
+          {
+            title: "Observation & Targeting",
+            rows: [
+              ["Optoelectronic Module", "Wide-angle and narrow-angle cameras"],
+              ["Thermal Imager", "Uncooled"],
+              ["Laser Rangefinder", "Equipped"],
+            ],
+          },
+          {
+            title: "Thermal Imaging Channel (ONYX)",
+            rows: [
+              ["Sensor Resolution", "640 × 512 pixels"],
+              ["Wavelength Range", "8–12 µm"],
+              ["Type", "Uncooled microbolometer"],
+              ["Field of View (FOV)", "4.4° × 3.5°"],
+              ["Capability", "Observation through fog, smoke; day and night operation"],
+            ],
+          },
+          {
+            title: "Laser Rangefinder (LRF)",
+            rows: [
+              ["Wavelength", "λ — 1.535 µm"],
+              ["Laser Class", "1"],
+              ["Beam Divergence", "≤ 1 × 1 mrad"],
+              ["Measurement Frequency", "1–5 Hz"],
+              ["Stealth", "Undetectable by MWIR (3–5 µm) and LWIR (8–12 µm) thermal imagers"],
+            ],
+          },
+          {
+            title: "Day Channel",
+            rows: [
+              ["Narrow FOV", "2.2° (horizontal) × 1.65° (vertical)"],
+              ["Wide FOV", "8.0° (horizontal) × 6.0° (vertical)"],
+              ["Sensor Type", "CMOS, 1.3\" sensor"],
+              ["Resolution", "720 × 576 pixels"],
+              ["Detection (man)", "8 km"],
+              ["Recognition (tank)", "2.2 km"],
+            ],
+          },
+        ],
+      },
+    ],
   },
 ];
 
