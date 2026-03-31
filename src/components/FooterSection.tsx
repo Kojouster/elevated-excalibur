@@ -42,7 +42,7 @@ const FooterSection = () => {
             <ul className="space-y-3 text-sm text-muted-foreground">
               <li className="flex items-center gap-3"><MapPin className="w-4 h-4 text-primary flex-shrink-0" />Šternberk, Czech Republic</li>
               <li className="flex items-center gap-3"><Phone className="w-4 h-4 text-primary flex-shrink-0" />+420 585 085 111</li>
-              <li className="flex items-center gap-3"><Mail className="w-4 h-4 text-primary flex-shrink-0" />info@excaliburarmy.com</li>
+              <li className="flex items-center gap-3"><Mail className="w-4 h-4 text-primary flex-shrink-0" />information@palvan.sk</li>
             </ul>
           </div>
         </div>
