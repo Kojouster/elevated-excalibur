@@ -765,8 +765,6 @@ const ProductModal = ({ product, onClose }: { product: Product; onClose: () => v
   // Use variant data if available, otherwise use base product data
   const hasVariants = product.variants && product.variants.length > 0;
   const currentData = hasVariants ? product.variants![activeVariant] : product;
-  const Icon = product.icon;
-  const { t } = useLanguage();
 
   return (
     <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
