@@ -82,9 +82,6 @@ const HeroSection = () => {
         </motion.div>
       </AnimatePresence>
 
-      <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-        <motion.div initial={{ opacity: 0, scale: 0.8, rotate: -10 }} animate={{ opacity: 0.04, scale: 1, rotate: 0 }} transition={{ delay: 0.5, duration: 1.5 }} className="font-heading text-[30vw] font-bold text-foreground select-none leading-none">EA</motion.div>
-      </div>
 
       <div className="relative container mx-auto px-6 lg:px-12 pt-20">
         <div className="max-w-xl">
