@@ -111,7 +111,7 @@ export const sk = {
     services: "Služby",
     contact: "Kontakt",
     contactTitle: "Kontakt",
-    copyright: "© 2026 Excalibur Army. Všetky práva vyhradené.",
+    copyright: "© 2026 PALVAN. Všetky práva vyhradené.",
     privacyPolicy: "Zásady ochrany osobných údajov",
     termsOfUse: "Podmienky používania",
   },
