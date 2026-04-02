@@ -14,7 +14,7 @@ import productZsu from "@/assets/product-zsu-hero.png";
 import productMangust from "@/assets/product-mangust-hero.png";
 import productBtr70 from "@/assets/product-btr70td-hero.png";
 import productBrdm from "@/assets/product-brdm2p-hero.png";
-import productXb30 from "@/assets/product-xb30-hero.png";
+import productXb30 from "@/assets/product-xb30-hero.jpg";
 import ph1 from "@/assets/placeholder-product-1.jpg";
 import ph2 from "@/assets/placeholder-product-2.jpg";
 import ph3 from "@/assets/placeholder-product-3.jpg";
