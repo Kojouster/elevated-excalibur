@@ -240,7 +240,7 @@ const useProducts = (): Product[] => {
     subtitle: t("productsPage.brdmSubtitle"),
     description: t("productsPage.brdmDescription"),
     quickSpecs: ["DEUTZ 4.76L", "Amphibious", "Twin MG Turret"],
-    gallery: [productBrdm],
+    gallery: [productBrdm, ph1, ph2, ph3, ph4],
     specSections: [
       {
         title: "General",
