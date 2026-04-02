@@ -126,7 +126,7 @@ export const en = {
     visionTitle: "OUR VISION",
     visionText: "To be the world's most trusted defence partner — recognized for engineering excellence, innovation, and the ability to deliver complete solutions that meet the evolving challenges of modern defence.",
     factoryStat: "Production Facility",
-    factoryLocation: "Šternberk, Czech Republic",
+    factoryLocation: "Košice, Slovak Republic",
     valuesSubtitle: "What Drives Us",
     valuesTitle: "OUR VALUES",
     innovationTitle: "Innovation",

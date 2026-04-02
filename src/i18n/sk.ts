@@ -125,7 +125,7 @@ export const sk = {
     visionTitle: "NAŠA VÍZIA",
     visionText: "Byť najdôveryhodnejším obranným partnerom na svete — uznávaným za inžiniersku dokonalosť, inovácie a schopnosť poskytovať kompletné riešenia, ktoré spĺňajú vyvíjajúce sa výzvy modernej obrany.",
     factoryStat: "Výrobné zariadenie",
-    factoryLocation: "Šternberk, Česká republika",
+    factoryLocation: "Košice, Slovenská republika",
     valuesSubtitle: "Čo nás poháňa",
     valuesTitle: "NAŠE HODNOTY",
     innovationTitle: "Inovácie",
