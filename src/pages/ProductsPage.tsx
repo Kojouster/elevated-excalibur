@@ -15,6 +15,10 @@ import productMangust from "@/assets/product-mangust-hero.png";
 import productBtr70 from "@/assets/product-btr70td-hero.png";
 import productBrdm from "@/assets/product-brdm2p-hero.png";
 import productXb30 from "@/assets/product-xb30-hero.png";
+import ph1 from "@/assets/placeholder-product-1.jpg";
+import ph2 from "@/assets/placeholder-product-2.jpg";
+import ph3 from "@/assets/placeholder-product-3.jpg";
+import ph4 from "@/assets/placeholder-product-4.jpg";
 
 interface SpecSection {
   title: string;
@@ -62,7 +66,7 @@ const useProducts = (): Product[] => {
     subtitle: t("productsPage.mangustSubtitle"),
     description: t("productsPage.mangustDescription"),
     quickSpecs: ["6×6 Drive", "370 HP", "Level 3A Mine Protection"],
-    gallery: [productMangust, productXb30],
+    gallery: [productMangust, productXb30, ph1, ph2, ph3],
     specSections: [
       {
         title: "General",
@@ -179,7 +183,7 @@ const useProducts = (): Product[] => {
     subtitle: t("productsPage.btr70Subtitle"),
     description: t("productsPage.btr70Description"),
     quickSpecs: ["12,500 kg GVW", "DEUTZ 7.2L", "Amphibious"],
-    gallery: [productBtr70],
+    gallery: [productBtr70, ph1, ph2, ph3, ph4],
     specSections: [
       {
         title: "General",
@@ -236,7 +240,7 @@ const useProducts = (): Product[] => {
     subtitle: t("productsPage.brdmSubtitle"),
     description: t("productsPage.brdmDescription"),
     quickSpecs: ["DEUTZ 4.76L", "Amphibious", "Twin MG Turret"],
-    gallery: [productBrdm],
+    gallery: [productBrdm, ph1, ph2, ph3, ph4],
     specSections: [
       {
         title: "General",
@@ -292,7 +296,7 @@ const useProducts = (): Product[] => {
     subtitle: t("productsPage.mtlbSubtitle"),
     description: t("productsPage.mtlbDescription"),
     quickSpecs: ["11,300 kg", "240 HP", "Amphibious Tracked"],
-    gallery: [productMtlb],
+    gallery: [productMtlb, ph1, ph2, ph3, ph4],
     specSections: [
       {
         title: "General",
@@ -344,7 +348,7 @@ const useProducts = (): Product[] => {
     subtitle: t("productsPage.vlraSubtitle"),
     description: t("productsPage.vlraDescription"),
     quickSpecs: ["122mm / 24 Tubes", "5–40 km Range", "110 km/h"],
-    gallery: [productVlra],
+    gallery: [productVlra, ph1, ph2, ph3, ph4],
     specSections: [
       {
         title: "MLRS Launcher",
@@ -456,7 +460,7 @@ const useProducts = (): Product[] => {
     subtitle: t("productsPage.zsuSubtitle"),
     description: t("productsPage.zsuDescription"),
     quickSpecs: ["3D X-band Radar", "25 km Detection", "Up to 20 Targets"],
-    gallery: [productZsu],
+    gallery: [productZsu, ph1, ph2, ph3, ph4],
     specSections: [
       {
         title: "Modernization Stages",
@@ -496,7 +500,7 @@ const useProducts = (): Product[] => {
     subtitle: t("productsPage.xb30Subtitle"),
     description: t("productsPage.xb30Description"),
     quickSpecs: ["30×173mm Cannon", "Thermal Imaging", "6 km LRF"],
-    gallery: [productXb30],
+    gallery: [productXb30, ph1, ph2, ph3, ph4],
     specSections: [
       {
         title: "Armament",

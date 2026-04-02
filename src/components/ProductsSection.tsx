@@ -1,12 +1,16 @@
 import { motion, useSpring } from "framer-motion";
-import { ArrowRight, Shield, Rocket, Radar, Crosshair } from "lucide-react";
-import { useRef } from "react";
+import { ArrowRight, Shield, Rocket, Radar, Crosshair, ChevronLeft, ChevronRight } from "lucide-react";
+import { useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { useLanguage } from "@/i18n/LanguageContext";
 import productMangust from "@/assets/product-mangust-hero.png";
 import productVlra from "@/assets/product-vlra-mr24-hero.jpg";
 import productZsu from "@/assets/product-zsu-hero.png";
 import productXb30 from "@/assets/product-xb30-hero.png";
+import ph1 from "@/assets/placeholder-product-1.jpg";
+import ph2 from "@/assets/placeholder-product-2.jpg";
+import ph3 from "@/assets/placeholder-product-3.jpg";
+import ph4 from "@/assets/placeholder-product-4.jpg";
 
 const useProducts = () => {
   const { t } = useLanguage();
@@ -15,7 +19,7 @@ const useProducts = () => {
       name: "BTR MANGUST",
       category: "Armoured Vehicles",
       description: t("productsPage.mangustDescription"),
-      image: productMangust,
+      images: [productMangust, ph1, ph2, ph3, ph4],
       icon: Shield,
       specs: ["6×6 Drive", "370 HP", "Level 3A Mine Protection"],
     },
@@ -23,7 +27,7 @@ const useProducts = () => {
       name: "VLRA MR-24",
       category: "Rocket Launchers",
       description: t("productsPage.vlraDescription"),
-      image: productVlra,
+      images: [productVlra, ph1, ph2, ph3, ph4],
       icon: Rocket,
       specs: ["122mm / 24 Tubes", "5–40 km Range", "110 km/h"],
     },
@@ -31,7 +35,7 @@ const useProducts = () => {
       name: "ZSU 23-4M-A1",
       category: "Air Defence",
       description: t("productsPage.zsuDescription"),
-      image: productZsu,
+      images: [productZsu, ph1, ph2, ph3, ph4],
       icon: Radar,
       specs: ["3D X-band Radar", "25 km Detection", "Up to 20 Targets"],
     },
@@ -39,7 +43,7 @@ const useProducts = () => {
       name: "XB-30",
       category: "Combat Modules",
       description: t("productsPage.xb30Description"),
-      image: productXb30,
+      images: [productXb30, ph1, ph2, ph3, ph4],
       icon: Crosshair,
       specs: ["30×173mm Cannon", "Thermal Imaging", "6 km LRF"],
     },
@@ -66,6 +70,11 @@ const TiltCard = ({ children, className }: { children: React.ReactNode; classNam
 const ProductsSection = () => {
   const { t } = useLanguage();
   const products = useProducts();
+  const [imageIndices, setImageIndices] = useState<Record<string, number>>({});
+
+  const setIndex = (name: string, updater: (prev: number, len: number) => number, len: number) => {
+    setImageIndices(prev => ({ ...prev, [name]: updater(prev[name] ?? 0, len) }));
+  };
 
   return (
     <section id="products" className="py-24 lg:py-32 bg-background bg-noise relative">
@@ -86,8 +95,33 @@ const ProductsSection = () => {
                 <TiltCard className="group relative overflow-hidden bg-card border border-border hover:border-primary/40 transition-all duration-500 cursor-pointer">
                   <div className="absolute inset-0 bg-gradient-to-br from-primary/0 via-primary/0 to-primary/0 group-hover:from-primary/5 group-hover:via-transparent group-hover:to-primary/5 transition-all duration-700 pointer-events-none" />
                   <div className="aspect-[16/10] overflow-hidden relative">
-                    <img src={product.image} alt={product.name} loading="lazy" width={1024} height={640} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000" />
-                    <div className="absolute inset-0 bg-gradient-to-t from-card via-card/40 to-transparent" />
+                    {(() => {
+                      const imgIdx = imageIndices[product.name] ?? 0;
+                      return (
+                        <>
+                          <img src={product.images[imgIdx]} alt={product.name} loading="lazy" width={1024} height={640} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000" />
+                          {product.images.length > 1 && (
+                            <>
+                              <button onClick={(e) => { e.preventDefault(); e.stopPropagation(); setIndex(product.name, (p, l) => (p - 1 + l) % l, product.images.length); }}
+                                className="absolute left-2 top-1/2 -translate-y-1/2 w-8 h-8 flex items-center justify-center bg-background/70 backdrop-blur-sm border border-border hover:border-primary text-foreground hover:text-primary transition-colors z-10">
+                                <ChevronLeft className="w-4 h-4" />
+                              </button>
+                              <button onClick={(e) => { e.preventDefault(); e.stopPropagation(); setIndex(product.name, (p, l) => (p + 1) % l, product.images.length); }}
+                                className="absolute right-2 top-1/2 -translate-y-1/2 w-8 h-8 flex items-center justify-center bg-background/70 backdrop-blur-sm border border-border hover:border-primary text-foreground hover:text-primary transition-colors z-10">
+                                <ChevronRight className="w-4 h-4" />
+                              </button>
+                              <div className="absolute bottom-2 left-1/2 -translate-x-1/2 flex gap-1.5 z-10">
+                                {product.images.map((_, i) => (
+                                  <button key={i} onClick={(e) => { e.preventDefault(); e.stopPropagation(); setImageIndices(prev => ({ ...prev, [product.name]: i })); }}
+                                    className={`w-2 h-2 rounded-full transition-all ${i === imgIdx ? 'bg-primary scale-125' : 'bg-foreground/40 hover:bg-foreground/60'}`} />
+                                ))}
+                              </div>
+                            </>
+                          )}
+                        </>
+                      );
+                    })()}
+                    <div className="absolute inset-0 bg-gradient-to-t from-card via-card/40 to-transparent pointer-events-none" />
                     <div className="absolute top-4 right-4 w-12 h-12 bg-background/80 backdrop-blur-sm border border-border flex items-center justify-center group-hover:border-primary/50 group-hover:bg-primary/10 transition-all duration-500">
                       <Icon className="w-5 h-5 text-primary" />
                     </div>
