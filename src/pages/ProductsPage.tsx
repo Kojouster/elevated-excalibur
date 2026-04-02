@@ -296,7 +296,7 @@ const useProducts = (): Product[] => {
     subtitle: t("productsPage.mtlbSubtitle"),
     description: t("productsPage.mtlbDescription"),
     quickSpecs: ["11,300 kg", "240 HP", "Amphibious Tracked"],
-    gallery: [productMtlb],
+    gallery: [productMtlb, ph1, ph2, ph3, ph4],
     specSections: [
       {
         title: "General",
