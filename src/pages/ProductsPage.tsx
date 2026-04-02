@@ -19,7 +19,7 @@ import ph1 from "@/assets/placeholder-product-1.jpg";
 import ph2 from "@/assets/placeholder-product-2.jpg";
 import ph3 from "@/assets/placeholder-product-3.jpg";
 import ph4 from "@/assets/placeholder-product-4.jpg";
-import blackPlaceholder from "@/assets/black-placeholder.jpg";
+import productMangust2 from "@/assets/product-mangust-2.jpg";
 
 interface SpecSection {
   title: string;
@@ -67,7 +67,7 @@ const useProducts = (): Product[] => {
     subtitle: t("productsPage.mangustSubtitle"),
     description: t("productsPage.mangustDescription"),
     quickSpecs: ["6×6 Drive", "370 HP", "Level 3A Mine Protection"],
-    gallery: [productMangust, blackPlaceholder, ph1, ph2, ph3],
+    gallery: [productMangust, productMangust2, ph1, ph2, ph3],
     specSections: [
       {
         title: "General",
