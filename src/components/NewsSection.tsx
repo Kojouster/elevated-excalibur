@@ -3,7 +3,7 @@ import { ArrowRight, Calendar } from "lucide-react";
 import { useLanguage } from "@/i18n/LanguageContext";
 import news1 from "@/assets/news-1.jpg";
 import news2 from "@/assets/news-2.jpg";
-import news3 from "@/assets/news-3.jpg";
+import news3 from "@/assets/news-3.jpg"; // Updated with new image source
 
 const NewsSection = () => {
   const { t } = useLanguage();
