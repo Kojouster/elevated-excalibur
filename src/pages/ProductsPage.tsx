@@ -500,7 +500,7 @@ const useProducts = (): Product[] => {
     subtitle: t("productsPage.xb30Subtitle"),
     description: t("productsPage.xb30Description"),
     quickSpecs: ["30×173mm Cannon", "Thermal Imaging", "6 km LRF"],
-    gallery: [productXb30],
+    gallery: [productXb30, ph1, ph2, ph3, ph4],
     specSections: [
       {
         title: "Armament",
