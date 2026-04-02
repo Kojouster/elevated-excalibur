@@ -11,7 +11,7 @@ import productVlra from "@/assets/product-vlra-mr24-hero.jpg";
 import productsHero from "@/assets/product-mangust-hero.png";
 import productMtlb from "@/assets/product-mt-lb-hero.png";
 import productZsu from "@/assets/product-zsu-hero.png";
-import productMangust from "@/assets/product-mangust-hero.png";
+import productMangust from "@/assets/product-mangust-new.jpg";
 import productBtr70 from "@/assets/product-btr70td-hero.png";
 import productBrdm from "@/assets/product-brdm2p-hero.png";
 import productXb30 from "@/assets/product-xb30-hero.jpg";
