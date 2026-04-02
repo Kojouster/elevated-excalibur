@@ -66,7 +66,7 @@ const useProducts = (): Product[] => {
     subtitle: t("productsPage.mangustSubtitle"),
     description: t("productsPage.mangustDescription"),
     quickSpecs: ["6×6 Drive", "370 HP", "Level 3A Mine Protection"],
-    gallery: [productMangust, productXb30],
+    gallery: [productMangust, productXb30, ph1, ph2, ph3],
     specSections: [
       {
         title: "General",
