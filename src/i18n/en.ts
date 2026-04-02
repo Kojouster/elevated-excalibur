@@ -89,7 +89,7 @@ export const en = {
     title: "CONTACT US",
     description: "Whether you need information about our products, services, or partnership opportunities, our team is ready to assist you. Send us a message and we'll respond within 24 hours.",
     hqLabel: "Headquarters",
-    hqValue: "Šternberk, Czech Republic",
+    hqValue: "Košice, Slovak Republic",
     supportLabel: "Support",
     supportValue: "Global technical assistance available around the clock",
     namePlaceholder: "Your Name",

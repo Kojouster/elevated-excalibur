@@ -89,7 +89,7 @@ export const sk = {
     title: "KONTAKT",
     description: "Či už potrebujete informácie o našich produktoch, službách alebo možnostiach partnerstva, náš tím je pripravený vám pomôcť. Pošlite nám správu a odpovieme do 24 hodín.",
     hqLabel: "Sídlo",
-    hqValue: "Šternberk, Česká republika",
+    hqValue: "Košice, Slovenská republika",
     supportLabel: "Podpora",
     supportValue: "Globálna technická pomoc dostupná nepretržite",
     namePlaceholder: "Vaše meno",
