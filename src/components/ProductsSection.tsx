@@ -95,8 +95,33 @@ const ProductsSection = () => {
                 <TiltCard className="group relative overflow-hidden bg-card border border-border hover:border-primary/40 transition-all duration-500 cursor-pointer">
                   <div className="absolute inset-0 bg-gradient-to-br from-primary/0 via-primary/0 to-primary/0 group-hover:from-primary/5 group-hover:via-transparent group-hover:to-primary/5 transition-all duration-700 pointer-events-none" />
                   <div className="aspect-[16/10] overflow-hidden relative">
-                    <img src={product.image} alt={product.name} loading="lazy" width={1024} height={640} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000" />
-                    <div className="absolute inset-0 bg-gradient-to-t from-card via-card/40 to-transparent" />
+                    {(() => {
+                      const imgIdx = imageIndices[product.name] ?? 0;
+                      return (
+                        <>
+                          <img src={product.images[imgIdx]} alt={product.name} loading="lazy" width={1024} height={640} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000" />
+                          {product.images.length > 1 && (
+                            <>
+                              <button onClick={(e) => { e.preventDefault(); e.stopPropagation(); setIndex(product.name, (p, l) => (p - 1 + l) % l, product.images.length); }}
+                                className="absolute left-2 top-1/2 -translate-y-1/2 w-8 h-8 flex items-center justify-center bg-background/70 backdrop-blur-sm border border-border hover:border-primary text-foreground hover:text-primary transition-colors z-10">
+                                <ChevronLeft className="w-4 h-4" />
+                              </button>
+                              <button onClick={(e) => { e.preventDefault(); e.stopPropagation(); setIndex(product.name, (p, l) => (p + 1) % l, product.images.length); }}
+                                className="absolute right-2 top-1/2 -translate-y-1/2 w-8 h-8 flex items-center justify-center bg-background/70 backdrop-blur-sm border border-border hover:border-primary text-foreground hover:text-primary transition-colors z-10">
+                                <ChevronRight className="w-4 h-4" />
+                              </button>
+                              <div className="absolute bottom-2 left-1/2 -translate-x-1/2 flex gap-1.5 z-10">
+                                {product.images.map((_, i) => (
+                                  <button key={i} onClick={(e) => { e.preventDefault(); e.stopPropagation(); setImageIndices(prev => ({ ...prev, [product.name]: i })); }}
+                                    className={`w-2 h-2 rounded-full transition-all ${i === imgIdx ? 'bg-primary scale-125' : 'bg-foreground/40 hover:bg-foreground/60'}`} />
+                                ))}
+                              </div>
+                            </>
+                          )}
+                        </>
+                      );
+                    })()}
+                    <div className="absolute inset-0 bg-gradient-to-t from-card via-card/40 to-transparent pointer-events-none" />
                     <div className="absolute top-4 right-4 w-12 h-12 bg-background/80 backdrop-blur-sm border border-border flex items-center justify-center group-hover:border-primary/50 group-hover:bg-primary/10 transition-all duration-500">
                       <Icon className="w-5 h-5 text-primary" />
                     </div>
