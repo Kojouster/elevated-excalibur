@@ -8,7 +8,7 @@ import FooterSection from "@/components/FooterSection";
 import BackToTop from "@/components/BackToTop";
 import PageHeader from "@/components/PageHeader";
 import productVlra from "@/assets/product-vlra-mr24-hero.jpg";
-import productsHero from "@/assets/product-mangust-hero.png";
+import productsHero from "@/assets/product-mangust-new.jpg";
 import productMtlb from "@/assets/product-mt-lb-hero.png";
 import productZsu from "@/assets/product-zsu-hero.png";
 import productMangust from "@/assets/product-mangust-new.jpg";
