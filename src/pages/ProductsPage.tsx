@@ -19,6 +19,7 @@ import ph1 from "@/assets/placeholder-product-1.jpg";
 import ph2 from "@/assets/placeholder-product-2.jpg";
 import ph3 from "@/assets/placeholder-product-3.jpg";
 import ph4 from "@/assets/placeholder-product-4.jpg";
+import blackPlaceholder from "@/assets/black-placeholder.jpg";
 
 interface SpecSection {
   title: string;
