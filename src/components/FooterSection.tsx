@@ -40,7 +40,7 @@ const FooterSection = () => {
           <div>
             <h4 className="font-heading text-sm font-bold tracking-wider text-foreground uppercase mb-4">{t("footer.contactTitle")}</h4>
             <ul className="space-y-3 text-sm text-muted-foreground">
-              <li className="flex items-center gap-3"><MapPin className="w-4 h-4 text-primary flex-shrink-0" />Šternberk, Czech Republic</li>
+              <li className="flex items-center gap-3"><MapPin className="w-4 h-4 text-primary flex-shrink-0" />Južná trieda 82/B, 040 17, Košice, Slovak Republic</li>
               <li className="flex items-center gap-3"><Phone className="w-4 h-4 text-primary flex-shrink-0" />+420 585 085 111</li>
               <li className="flex items-center gap-3"><Mail className="w-4 h-4 text-primary flex-shrink-0" />information@palvan.sk</li>
             </ul>
