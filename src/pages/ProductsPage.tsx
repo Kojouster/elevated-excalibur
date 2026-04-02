@@ -348,7 +348,7 @@ const useProducts = (): Product[] => {
     subtitle: t("productsPage.vlraSubtitle"),
     description: t("productsPage.vlraDescription"),
     quickSpecs: ["122mm / 24 Tubes", "5–40 km Range", "110 km/h"],
-    gallery: [productVlra],
+    gallery: [productVlra, ph1, ph2, ph3, ph4],
     specSections: [
       {
         title: "MLRS Launcher",
