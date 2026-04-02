@@ -183,7 +183,7 @@ const useProducts = (): Product[] => {
     subtitle: t("productsPage.btr70Subtitle"),
     description: t("productsPage.btr70Description"),
     quickSpecs: ["12,500 kg GVW", "DEUTZ 7.2L", "Amphibious"],
-    gallery: [productBtr70],
+    gallery: [productBtr70, ph1, ph2, ph3, ph4],
     specSections: [
       {
         title: "General",
