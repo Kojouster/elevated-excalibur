@@ -1,12 +1,16 @@
 import { motion, useSpring } from "framer-motion";
-import { ArrowRight, Shield, Rocket, Radar, Crosshair } from "lucide-react";
-import { useRef } from "react";
+import { ArrowRight, Shield, Rocket, Radar, Crosshair, ChevronLeft, ChevronRight } from "lucide-react";
+import { useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { useLanguage } from "@/i18n/LanguageContext";
 import productMangust from "@/assets/product-mangust-hero.png";
 import productVlra from "@/assets/product-vlra-mr24-hero.jpg";
 import productZsu from "@/assets/product-zsu-hero.png";
 import productXb30 from "@/assets/product-xb30-hero.png";
+import ph1 from "@/assets/placeholder-product-1.jpg";
+import ph2 from "@/assets/placeholder-product-2.jpg";
+import ph3 from "@/assets/placeholder-product-3.jpg";
+import ph4 from "@/assets/placeholder-product-4.jpg";
 
 const useProducts = () => {
   const { t } = useLanguage();
