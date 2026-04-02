@@ -70,6 +70,12 @@ const TiltCard = ({ children, className }: { children: React.ReactNode; classNam
 const ProductsSection = () => {
   const { t } = useLanguage();
   const products = useProducts();
+  const [imageIndices, setImageIndices] = useState<Record<string, number>>({});
+
+  const setIndex = (name: string, updater: (prev: number, len: number) => number, len: number) => {
+    setImageIndices(prev => ({ ...prev, [name]: updater(prev[name] ?? 0, len) }));
+  };
+  const products = useProducts();
 
   return (
     <section id="products" className="py-24 lg:py-32 bg-background bg-noise relative">
