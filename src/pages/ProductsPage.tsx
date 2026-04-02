@@ -460,7 +460,7 @@ const useProducts = (): Product[] => {
     subtitle: t("productsPage.zsuSubtitle"),
     description: t("productsPage.zsuDescription"),
     quickSpecs: ["3D X-band Radar", "25 km Detection", "Up to 20 Targets"],
-    gallery: [productZsu],
+    gallery: [productZsu, ph1, ph2, ph3, ph4],
     specSections: [
       {
         title: "Modernization Stages",
