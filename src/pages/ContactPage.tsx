@@ -41,8 +41,8 @@ const ContactPage = () => {
         <div className="container mx-auto px-6 lg:px-12">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
-              { icon: Mail, label: t("contactPage.emailUs"), value: "info@excaliburarmy.com", action: "mailto:info@excaliburarmy.com" },
-              { icon: Phone, label: t("contactPage.callUs"), value: "+420 585 085 111", action: "tel:+420585085111" },
+              { icon: Mail, label: t("contactPage.emailUs"), value: "information@palvan.sk", action: "mailto:information@palvan.sk" },
+              { icon: Phone, label: t("contactPage.callUs"), value: "+421 905 616 418", action: "tel:+421905616418" },
               { icon: Clock, label: t("contactPage.workingHours"), value: t("contactPage.workingHoursValue"), action: null },
               { icon: Globe, label: t("contactPage.globalPresence"), value: t("contactPage.globalPresenceValue"), action: null },
             ].map((item, i) => {
