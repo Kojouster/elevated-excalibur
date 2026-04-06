@@ -53,7 +53,7 @@ interface Product {
   variants?: ProductVariant[];
 }
 
-const categories = ["All", "Armoured Vehicles", "Rocket Launchers", "Air Defence", "Combat Modules", "Reconnaissance"];
+const categories = ["All", "Armoured Vehicles", "Rocket Launchers", "Air Defence", "Combat Modules"];
 
 const useProducts = (): Product[] => {
   const { t } = useLanguage();
