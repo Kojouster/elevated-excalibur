@@ -235,7 +235,7 @@ const useProducts = (): Product[] => {
   {
     id: 3,
     name: "BRDM-2P",
-    category: "Reconnaissance",
+    category: "Armoured Vehicles",
     image: productBrdm,
     icon: Eye,
     subtitle: t("productsPage.brdmSubtitle"),
