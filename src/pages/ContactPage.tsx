@@ -8,9 +8,7 @@ import PageHeader from "@/components/PageHeader";
 import { useLanguage } from "@/i18n/LanguageContext";
 import headquartersImg from "@/assets/headquarters.jpg";
 const offices = [
-  { city: "Šternberk", country: "Czech Republic", typeKey: "headquartersProduction", address: "Liechtensteinská 1414/7, 785 01 Šternberk", phone: "+420 585 085 111", email: "info@excaliburarmy.com" },
-  { city: "Prague", country: "Czech Republic", typeKey: "businessOffice", address: "Lazarská 13/8, 120 00 Prague 2", phone: "+420 221 595 111", email: "prague@excaliburarmy.com" },
-  { city: "Bratislava", country: "Slovakia", typeKey: "regionalOffice", address: "Prievozská 32, 821 09 Bratislava", phone: "+421 2 2042 1111", email: "bratislava@excaliburarmy.com" },
+  { city: "Košice", country: "Slovak Republic", typeKey: "headquartersProduction", address: "Južná trieda 82/B, 040 17, Košice, Slovak Republic", phone: "+421 905 616 418", email: "information@palvan.sk" },
 ];
 
 const ContactPage = () => {
