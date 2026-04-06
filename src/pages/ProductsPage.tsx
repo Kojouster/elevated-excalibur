@@ -53,7 +53,7 @@ interface Product {
   variants?: ProductVariant[];
 }
 
-const categories = ["All", "Armoured Vehicles", "Rocket Launchers", "Air Defence", "Combat Modules", "Reconnaissance"];
+const categories = ["All", "Armoured Vehicles", "Rocket Launchers", "Air Defence", "Combat Modules"];
 
 const useProducts = (): Product[] => {
   const { t } = useLanguage();
@@ -235,7 +235,7 @@ const useProducts = (): Product[] => {
   {
     id: 3,
     name: "BRDM-2P",
-    category: "Reconnaissance",
+    category: "Armoured Vehicles",
     image: productBrdm,
     icon: Eye,
     subtitle: t("productsPage.brdmSubtitle"),
