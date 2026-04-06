@@ -139,6 +139,20 @@ const ContactPage = () => {
                   </motion.div>
                 ))}
               </div>
+              {/* Map */}
+              <div className="mt-4 border border-border overflow-hidden">
+                <iframe
+                  title="Office Location"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2633.85!2d21.2555!3d48.7164!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x473f2d1b1e5c7e5d%3A0x0!2sJu%C5%BEn%C3%A1%20trieda%2082%2FB%2C%20040%2017%20Ko%C5%A1ice!5e0!3m2!1sen!2ssk!4v1700000000000"
+                  width="100%"
+                  height="220"
+                  style={{ border: 0 }}
+                  allowFullScreen
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  className="w-full"
+                />
+              </div>
             </motion.div>
           </div>
         </div>
