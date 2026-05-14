@@ -91,27 +91,6 @@ const CompanyPage = () => {
         </div>
       </section>
 
-      {/* Leadership */}
-      <section className="py-20 lg:py-28 bg-surface-elevated">
-        <div className="container mx-auto px-6 lg:px-12">
-          <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mb-16">
-            <p className="text-primary tracking-[0.5em] text-sm uppercase mb-4">{t("company.leadershipSubtitle")}</p>
-            <h2 className="font-heading text-4xl md:text-5xl font-bold text-foreground">{t("company.leadershipTitle")}</h2>
-          </motion.div>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
-            {leadership.map((person, i) => (
-              <motion.div key={person.name} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.08 }} className="group text-center p-6 border border-border bg-card hover:border-primary/30 transition-all duration-500">
-                <div className="w-16 h-16 mx-auto mb-4 border-2 border-border group-hover:border-primary transition-colors duration-500 flex items-center justify-center">
-                  <span className="font-heading text-xl font-bold text-primary">{person.initial}</span>
-                </div>
-                <h4 className="font-heading text-sm font-bold text-foreground">{person.name}</h4>
-                <p className="text-muted-foreground text-xs mt-1">{person.role[language]}</p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       <FooterSection />
       <BackToTop />
     </div>
