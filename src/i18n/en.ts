@@ -99,7 +99,7 @@ export const en = {
     sendButton: "Send Message",
   },
   footer: {
-    description: "Leading European defence company specializing in military technology and lifecycle support.",
+    description: "European sales and distribution company focused on military technology and lifecycle support",
     productsTitle: "Products",
     armouredVehicles: "Armoured Vehicles",
     mainBattleTanks: "Main Battle Tanks",
