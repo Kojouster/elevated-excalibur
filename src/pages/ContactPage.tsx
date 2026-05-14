@@ -8,7 +8,26 @@ import PageHeader from "@/components/PageHeader";
 import { useLanguage } from "@/i18n/LanguageContext";
 import headquartersImg from "@/assets/headquarters.jpg";
 const offices = [
-  { city: "Košice", country: "Slovak Republic", typeKey: "headquartersProduction", address: "Južná trieda 82/B, 040 17, Košice, Slovak Republic", phone: "+421 905 616 418", email: "information@palvan.sk" },
+  {
+    city: "Košice",
+    country: "Slovak Republic",
+    typeKey: "headquartersProduction",
+    address: "Južná trieda 82/B, 040 17, Košice, Slovak Republic",
+    phone: "+421 905 616 418",
+    email: "information@palvan.sk",
+    mapSrc:
+      "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2633.85!2d21.2555!3d48.7164!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x473f2d1b1e5c7e5d%3A0x0!2sJu%C5%BEn%C3%A1%20trieda%2082%2FB%2C%20040%2017%20Ko%C5%A1ice!5e0!3m2!1sen!2ssk!4v1700000000000",
+  },
+  {
+    city: "Bratislava",
+    country: "Slovak Republic",
+    typeLabel: "Sales Office",
+    address: "EINPARK Offices by Corwin, Einsteinova 33, 851 01, Bratislava, Slovak Republic",
+    phone: "+421 905 616 418",
+    email: "information@palvan.sk",
+    mapSrc:
+      "https://www.google.com/maps?q=Einsteinova+33,+851+01+Bratislava&output=embed",
+  },
 ];
 
 const ContactPage = () => {
@@ -125,33 +144,34 @@ const ContactPage = () => {
 
             <motion.div initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}>
               <h3 className="font-heading text-xl font-bold text-foreground mb-6">{t("contactPage.ourOffices")}</h3>
-              <div className="space-y-4">
+              <div className="space-y-6">
                 {offices.map((office, i) => (
-                  <motion.div key={office.city} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1 }} className="p-6 border border-border bg-card hover:border-primary/30 transition-all duration-500">
-                    <div className="flex items-center gap-2 mb-3">
-                      <MapPin className="w-4 h-4 text-primary" />
-                      <h4 className="font-heading text-lg font-bold text-foreground">{office.city}</h4>
+                  <motion.div key={office.city} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1 }} className="border border-border bg-card hover:border-primary/30 transition-all duration-500">
+                    <div className="p-6">
+                      <div className="flex items-center gap-2 mb-3">
+                        <MapPin className="w-4 h-4 text-primary" />
+                        <h4 className="font-heading text-lg font-bold text-foreground">{office.city}</h4>
+                      </div>
+                      <p className="text-primary text-xs tracking-wider uppercase mb-2">{office.typeKey ? t(`contactPage.${office.typeKey}`) : office.typeLabel}</p>
+                      <p className="text-muted-foreground text-sm mb-1">{office.address}</p>
+                      <p className="text-muted-foreground text-sm mb-1">{office.phone}</p>
+                      <a href={`mailto:${office.email}`} className="text-primary text-sm hover:text-gold-light transition-colors">{office.email}</a>
                     </div>
-                    <p className="text-primary text-xs tracking-wider uppercase mb-2">{t(`contactPage.${office.typeKey}`)}</p>
-                    <p className="text-muted-foreground text-sm mb-1">{office.address}</p>
-                    <p className="text-muted-foreground text-sm mb-1">{office.phone}</p>
-                    <a href={`mailto:${office.email}`} className="text-primary text-sm hover:text-gold-light transition-colors">{office.email}</a>
+                    <div className="border-t border-border overflow-hidden">
+                      <iframe
+                        title={`${office.city} Office Location`}
+                        src={office.mapSrc}
+                        width="100%"
+                        height="220"
+                        style={{ border: 0 }}
+                        allowFullScreen
+                        loading="lazy"
+                        referrerPolicy="no-referrer-when-downgrade"
+                        className="w-full"
+                      />
+                    </div>
                   </motion.div>
                 ))}
-              </div>
-              {/* Map */}
-              <div className="mt-4 border border-border overflow-hidden">
-                <iframe
-                  title="Office Location"
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2633.85!2d21.2555!3d48.7164!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x473f2d1b1e5c7e5d%3A0x0!2sJu%C5%BEn%C3%A1%20trieda%2082%2FB%2C%20040%2017%20Ko%C5%A1ice!5e0!3m2!1sen!2ssk!4v1700000000000"
-                  width="100%"
-                  height="220"
-                  style={{ border: 0 }}
-                  allowFullScreen
-                  loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
-                  className="w-full"
-                />
               </div>
             </motion.div>
           </div>
