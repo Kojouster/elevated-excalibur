@@ -15,6 +15,7 @@ import productMangust from "@/assets/product-mangust-new.jpg";
 import productBtr70 from "@/assets/product-btr70td-hero.png";
 import productBrdm from "@/assets/product-brdm2p-hero.png";
 import productXb30 from "@/assets/product-xb30-new.jpg";
+import productOrion from "@/assets/product-orion-hero.jpg";
 import ph1 from "@/assets/placeholder-product-1.jpg";
 import ph2 from "@/assets/placeholder-product-2.jpg";
 import ph3 from "@/assets/placeholder-product-3.jpg";
@@ -680,6 +681,96 @@ const useProducts = (): Product[] => {
               ["Recognition (tank)", "2.2 km"],
             ],
           },
+        ],
+      },
+    ],
+  },
+  {
+    id: 8,
+    name: "ZU-23-2 ORION",
+    category: "Air Defence",
+    image: productOrion,
+    icon: Radar,
+    subtitle: "Mobile Anti-Aircraft Platform",
+    description: "The mobile platform 'ZU-23-2 ORION' is an integrated air-defense system designed for surveillance, detection, and destruction of aerial targets including aircraft, helicopters, and unmanned aerial vehicles.",
+    quickSpecs: ["AESA S-band Radar", "23mm Twin Cannon", "35 km Detection"],
+    gallery: [productOrion, ph1, ph2, ph3, ph4],
+    specSections: [
+      {
+        title: "Platform Components",
+        rows: [
+          ["Weapon Control System", "ORION-23"],
+          ["Radar", "RADA RPS-42"],
+          ["Anti-Aircraft Mount", "Automated ZU-23-2 ORION"],
+          ["Power Supply", "Autonomous system"],
+          ["Base", "Metal platform"],
+        ],
+      },
+      {
+        title: "Main Functions",
+        rows: [
+          ["Electro-Optical Module", "Day camera, thermal camera, laser rangefinder"],
+          ["Target Detection", "Automatic"],
+          ["Target Tracking", "Acquisition and tracking"],
+          ["Fire Control", "Ballistic computer with lead-point calculation"],
+          ["Firing", "Automated via electric triggers"],
+          ["Control", "Fully automated (no mechanical pedals/levers)"],
+          ["Burst Control", "Equipped"],
+          ["Ammunition Counter", "Equipped"],
+          ["External Target Designation", "Reception with automatic alignment"],
+        ],
+      },
+      {
+        title: "Autonomous Power Supply",
+        rows: [
+          ["Input Voltage", "24 V"],
+          ["Output Voltage (Circuit 1)", "48 V"],
+          ["Output Voltage (Circuit 2)", "24 V"],
+          ["Battery Autonomy", "6 hours"],
+          ["Diesel Generator Power", "2 kW"],
+        ],
+      },
+      {
+        title: "Metal Platform",
+        rows: [
+          ["Length", "6,000 mm"],
+          ["Width", "2,440 mm"],
+          ["Height", "330 mm"],
+        ],
+      },
+      {
+        title: "RADA RPS-42 Radar",
+        rows: [
+          ["Antenna", "Active Electronically Scanned Array (AESA)"],
+          ["Frequency Band", "S-band"],
+          ["Power Consumption", "320 W (average)"],
+          ["Dimensions", "Diameter 50 cm, depth 20 cm"],
+          ["Weight", "Less than 30 kg"],
+          ["Operating Temperature", "−40 °C to +55 °C"],
+          ["Detection — Automobile", "25 km"],
+          ["Detection — Medium UAV (Shahed-136)", "15–20 km"],
+          ["Detection — Large UAV (Bayraktar TB-2)", "25 km"],
+          ["Detection — Fighter (MiG-29)", "35 km"],
+          ["Detection — Helicopter (Mi-8)", "23 km"],
+          ["Detection — Short-range Missile", "5 km"],
+        ],
+      },
+      {
+        title: "Automated Anti-Aircraft Mount",
+        rows: [
+          ["Armament", "Two paired 23 mm automatic cannons '2A14'"],
+          ["Ammunition Load", "100 rounds (50 per gun)"],
+          ["Height", "1,220 mm"],
+          ["Length", "4,632 mm"],
+          ["Width", "2,880 mm"],
+          ["Weight", "1,000 kg"],
+          ["Azimuth Range", "n × 360°"],
+          ["Elevation / Depression", "+90° / −10°"],
+          ["Angular Speed", "60 ± 5 deg/s"],
+          ["Operating Temperature", "−40 °C to +50 °C"],
+          ["Day Camera — Shahed Detection / Recognition", "5 / 2 km"],
+          ["Thermal Camera — Shahed Detection / Recognition", "5 / 2.5 km"],
+          ["Laser Rangefinder", "Up to 5 km"],
         ],
       },
     ],
