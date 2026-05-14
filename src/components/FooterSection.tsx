@@ -39,7 +39,8 @@ const FooterSection = () => {
           <div>
             <h4 className="font-heading text-sm font-bold tracking-wider text-foreground uppercase mb-4">{t("footer.contactTitle")}</h4>
             <ul className="space-y-3 text-sm text-muted-foreground">
-              <li className="flex items-center gap-3"><MapPin className="w-4 h-4 text-primary flex-shrink-0" /><a href="https://www.google.com/maps/search/?api=1&query=Južná+trieda+82/B,+040+17,+Košice,+Slovak+Republic" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">Južná trieda 82/B, 040 17, Košice, Slovak Republic</a></li>
+              <li className="flex items-start gap-3"><MapPin className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" /><a href="https://www.google.com/maps/search/?api=1&query=Južná+trieda+82/B,+040+17,+Košice,+Slovak+Republic" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">Južná trieda 82/B, 040 17, Košice, Slovak Republic</a></li>
+              <li className="flex items-start gap-3"><MapPin className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" /><a href="https://www.google.com/maps/search/?api=1&query=EINPARK+Offices+Einsteinova+33,+851+01,+Bratislava,+Slovak+Republic" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">EINPARK Offices, Einsteinova 33, 851 01, Bratislava, Slovak Republic</a></li>
               <li className="flex items-center gap-3"><Phone className="w-4 h-4 text-primary flex-shrink-0" />+421 905 616 418</li>
               <li className="flex items-center gap-3"><Mail className="w-4 h-4 text-primary flex-shrink-0" />information@palvan.sk</li>
             </ul>
