@@ -1,7 +1,7 @@
 import { motion, AnimatePresence, useSpring } from "framer-motion";
 import { useState, useRef, useEffect } from "react";
 import { useSearchParams } from "react-router-dom";
-import { ArrowRight, Shield, Crosshair, Rocket, X, ChevronLeft, ChevronRight, Filter, Radar, Truck, Eye, ChevronDown } from "lucide-react";
+import { ArrowRight, Shield, Crosshair, Rocket, X, ChevronLeft, ChevronRight, Filter, Radar, Truck, Eye, ChevronDown, Ship } from "lucide-react";
 import { useLanguage } from "@/i18n/LanguageContext";
 import Navbar from "@/components/Navbar";
 import FooterSection from "@/components/FooterSection";
@@ -21,6 +21,12 @@ import ph2 from "@/assets/placeholder-product-2.jpg";
 import ph3 from "@/assets/placeholder-product-3.jpg";
 import ph4 from "@/assets/placeholder-product-4.jpg";
 import productMangust2 from "@/assets/product-mangust-2.jpg";
+import productTridentT8 from "@/assets/product-trident-t8.jpg";
+import productTridentT8b from "@/assets/product-trident-t8-2.jpg";
+import productTridentT10 from "@/assets/product-trident-t10.jpg";
+import productTridentT10b from "@/assets/product-trident-t10-2.jpg";
+import productTridentT12 from "@/assets/product-trident-t12.jpg";
+import productTridentT12b from "@/assets/product-trident-t12-2.jpg";
 
 interface SpecSection {
   title: string;
@@ -54,7 +60,7 @@ interface Product {
   variants?: ProductVariant[];
 }
 
-const categories = ["All", "Armoured Vehicles", "Rocket Launchers", "Air Defence", "Combat Modules"];
+const categories = ["All", "Armoured Vehicles", "Rocket Launchers", "Air Defence", "Combat Modules", "Boats"];
 
 const useProducts = (): Product[] => {
   const { t } = useLanguage();
@@ -775,6 +781,105 @@ const useProducts = (): Product[] => {
       },
     ],
   },
+  {
+    id: 9,
+    name: "TRIDENT T8",
+    category: "Boats",
+    image: productTridentT8,
+    icon: Ship,
+    subtitle: "Professional Aluminum Patrol Boat",
+    description: "TRIDENT T8 is one of the most advanced boats in the professional equipment segment, distinguished by innovation and adaptability. Its ultra-durable welded aluminum hull with D-shaped tubes (D-TUBE technology) delivers long service life, increased internal cockpit space, and enhanced rigidity compared to standard round tubes. Ideally suited for law enforcement agencies and commercial use, with reliable performance in low temperatures and under heavy loads.",
+    quickSpecs: ["7.80 m Length", "500 HP Max", "14/10 Persons"],
+    gallery: [productTridentT8, productTridentT8b, ph1, ph2, ph3],
+    specSections: [
+      {
+        title: "General Specifications",
+        rows: [
+          ["Length", "780 cm (25' 7\")"],
+          ["Maximum Power", "500 HP"],
+          ["Capacity", "14 / 10 persons"],
+          ["Weight", "1,700 kg (3,740 lbs)"],
+          ["Hull", "Welded aluminum"],
+          ["Tube Technology", "D-TUBE (D-shaped tubes)"],
+        ],
+      },
+      {
+        title: "Configuration",
+        rows: [
+          ["Consoles", "Multiple options available"],
+          ["Seating", "Customizable"],
+          ["Equipment", "Modular for specific needs"],
+          ["Use Cases", "Law enforcement, commercial"],
+        ],
+      },
+    ],
+  },
+  {
+    id: 10,
+    name: "TRIDENT T10",
+    category: "Boats",
+    image: productTridentT10,
+    icon: Ship,
+    subtitle: "High-Tech Patrol & Commercial Boat",
+    description: "TRIDENT T10 is a high-tech boat in the GALAXY lineup, designed for the most demanding tasks like patrol and commercial use. Its welded aluminum hull and D-TUBE system with D-shaped tubes provide high strength, reliability, and optimal space utilization. The expanded cockpit ensures efficient accommodation of crew, cargo, and specialized equipment — the optimal solution for rapid response, aquatic security, and commercial transport.",
+    quickSpecs: ["9.60 m Length", "700 HP Max", "16 Persons"],
+    gallery: [productTridentT10, productTridentT10b, ph1, ph2, ph3],
+    specSections: [
+      {
+        title: "General Specifications",
+        rows: [
+          ["Length", "960 cm (31' 6\")"],
+          ["Maximum Power", "700 HP"],
+          ["Capacity", "16 persons"],
+          ["Weight", "2,000 kg (4,400 lbs)"],
+          ["Hull", "Welded aluminum"],
+          ["Tube Technology", "D-TUBE (D-shaped tubes)"],
+        ],
+      },
+      {
+        title: "Configuration",
+        rows: [
+          ["Consoles", "Wide range available"],
+          ["Seating", "Customizable"],
+          ["Equipment", "Modular cockpit"],
+          ["Use Cases", "Rapid response, aquatic security, commercial transport"],
+        ],
+      },
+    ],
+  },
+  {
+    id: 11,
+    name: "TRIDENT T12",
+    category: "Boats",
+    image: productTridentT12,
+    icon: Ship,
+    subtitle: "Flagship Patrol & Commercial Vessel",
+    description: "TRIDENT T12 — the flagship model among GALAXY's innovative boats, designed for the most demanding conditions. This vessel delivers unparalleled reliability during complex patrol or commercial operations thanks to its robust aluminum hull and unique D-TUBE technology. The enlarged cockpit comfortably accommodates crew, special equipment, cargo, or even medical gear, with a layout engineered for ease of operation during extended missions.",
+    quickSpecs: ["11.60 m Length", "1200 HP Max", "20/12 Persons"],
+    gallery: [productTridentT12, productTridentT12b, ph1, ph2, ph3],
+    specSections: [
+      {
+        title: "General Specifications",
+        rows: [
+          ["Length", "1,160 cm (38' 1\")"],
+          ["Maximum Power", "1,200 HP"],
+          ["Capacity", "20 / 12 persons"],
+          ["Weight", "3,400 kg (7,480 lbs)"],
+          ["Hull", "Robust welded aluminum"],
+          ["Tube Technology", "D-TUBE (D-shaped tubes)"],
+        ],
+      },
+      {
+        title: "Configuration",
+        rows: [
+          ["Consoles", "Wide range available"],
+          ["Seating", "Customizable"],
+          ["Equipment", "Modular — supports medical gear & cargo"],
+          ["Use Cases", "Patrol, commercial operations, extended missions"],
+        ],
+      },
+    ],
+  },
   ];
 };
 
@@ -1011,6 +1116,7 @@ const ProductsPage = () => {
     "Air Defence": t("productsPage.airDefence"),
     "Combat Modules": t("productsPage.combatModules"),
     "Reconnaissance": t("productsPage.reconnaissance"),
+    "Boats": "Boats",
   };
 
   return (
