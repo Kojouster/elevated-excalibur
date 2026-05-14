@@ -8,17 +8,8 @@ import { useLanguage } from "@/i18n/LanguageContext";
 import factoryImg from "@/assets/factory.jpg";
 import headquartersImg from "@/assets/headquarters.jpg";
 
-const leadership = [
-  { name: "Martin Koller", role: { en: "Chief Executive Officer", sk: "Generálny riaditeľ" }, initial: "MK" },
-  { name: "Jan Dvořák", role: { en: "Chief Technology Officer", sk: "Technický riaditeľ" }, initial: "JD" },
-  { name: "Petr Novák", role: { en: "VP of Global Sales", sk: "VP globálneho predaja" }, initial: "PN" },
-  { name: "Eva Svobodová", role: { en: "VP of Operations", sk: "VP prevádzky" }, initial: "ES" },
-  { name: "Tomáš Havel", role: { en: "Chief Financial Officer", sk: "Finančný riaditeľ" }, initial: "TH" },
-  { name: "Karel Procházka", role: { en: "VP of Engineering", sk: "VP inžinierstva" }, initial: "KP" },
-];
-
 const CompanyPage = () => {
-  const { language, t } = useLanguage();
+  const { t } = useLanguage();
 
   const values = [
     { icon: Eye, title: t("company.innovationTitle"), description: t("company.innovationDesc") },
