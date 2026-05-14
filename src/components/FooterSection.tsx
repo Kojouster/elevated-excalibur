@@ -33,7 +33,6 @@ const FooterSection = () => {
             <ul className="space-y-3 text-sm text-muted-foreground">
               <li><Link to="/company" className="hover:text-primary transition-colors">{t("footer.aboutUs")}</Link></li>
               <li><Link to="/company" className="hover:text-primary transition-colors">{t("footer.ourMission")}</Link></li>
-              <li><Link to="/services" className="hover:text-primary transition-colors">{t("footer.services")}</Link></li>
               <li><Link to="/contact" className="hover:text-primary transition-colors">{t("footer.contact")}</Link></li>
             </ul>
           </div>
