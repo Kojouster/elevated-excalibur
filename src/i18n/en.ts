@@ -346,6 +346,6 @@ export const en = {
     faq3q: "Can you customize solutions for specific requirements?",
     faq3a: "Absolutely. Our engineering team specializes in tailoring solutions to specific operational requirements, climate conditions, and integration needs. Every project begins with a thorough consultation phase.",
     faq4q: "What certifications do you hold?",
-    faq4a: "We hold ISO 9001 quality management, ISO 14001 environmental management, and AQAP 2110 NATO quality assurance certifications, along with various national defence industry approvals.",
+    faq4a: "We are fully certified and authorized to sell military equipment in accordance with applicable industry and regulatory requirements.",
   },
 };
