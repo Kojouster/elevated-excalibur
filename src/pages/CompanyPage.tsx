@@ -8,17 +8,8 @@ import { useLanguage } from "@/i18n/LanguageContext";
 import factoryImg from "@/assets/factory.jpg";
 import headquartersImg from "@/assets/headquarters.jpg";
 
-const leadership = [
-  { name: "Martin Koller", role: { en: "Chief Executive Officer", sk: "Generálny riaditeľ" }, initial: "MK" },
-  { name: "Jan Dvořák", role: { en: "Chief Technology Officer", sk: "Technický riaditeľ" }, initial: "JD" },
-  { name: "Petr Novák", role: { en: "VP of Global Sales", sk: "VP globálneho predaja" }, initial: "PN" },
-  { name: "Eva Svobodová", role: { en: "VP of Operations", sk: "VP prevádzky" }, initial: "ES" },
-  { name: "Tomáš Havel", role: { en: "Chief Financial Officer", sk: "Finančný riaditeľ" }, initial: "TH" },
-  { name: "Karel Procházka", role: { en: "VP of Engineering", sk: "VP inžinierstva" }, initial: "KP" },
-];
-
 const CompanyPage = () => {
-  const { language, t } = useLanguage();
+  const { t } = useLanguage();
 
   const values = [
     { icon: Eye, title: t("company.innovationTitle"), description: t("company.innovationDesc") },
@@ -87,27 +78,6 @@ const CompanyPage = () => {
                 </motion.div>
               );
             })}
-          </div>
-        </div>
-      </section>
-
-      {/* Leadership */}
-      <section className="py-20 lg:py-28 bg-surface-elevated">
-        <div className="container mx-auto px-6 lg:px-12">
-          <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mb-16">
-            <p className="text-primary tracking-[0.5em] text-sm uppercase mb-4">{t("company.leadershipSubtitle")}</p>
-            <h2 className="font-heading text-4xl md:text-5xl font-bold text-foreground">{t("company.leadershipTitle")}</h2>
-          </motion.div>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
-            {leadership.map((person, i) => (
-              <motion.div key={person.name} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.08 }} className="group text-center p-6 border border-border bg-card hover:border-primary/30 transition-all duration-500">
-                <div className="w-16 h-16 mx-auto mb-4 border-2 border-border group-hover:border-primary transition-colors duration-500 flex items-center justify-center">
-                  <span className="font-heading text-xl font-bold text-primary">{person.initial}</span>
-                </div>
-                <h4 className="font-heading text-sm font-bold text-foreground">{person.name}</h4>
-                <p className="text-muted-foreground text-xs mt-1">{person.role[language]}</p>
-              </motion.div>
-            ))}
           </div>
         </div>
       </section>
