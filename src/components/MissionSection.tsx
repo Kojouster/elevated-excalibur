@@ -36,7 +36,7 @@ const MissionSection = () => {
   const { t } = useLanguage();
 
   const stats = [
-    { value: 30, suffix: "+", label: t("mission.stat1") },
+    { value: 10, suffix: "+", label: t("mission.stat1") },
     { value: 60, suffix: "+", label: t("mission.stat2") },
     { value: 1000, suffix: "+", label: t("mission.stat3") },
   ];
