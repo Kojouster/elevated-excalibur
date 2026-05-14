@@ -29,7 +29,7 @@ const CompanyPage = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="relative p-8 lg:p-10 border border-border bg-card group hover:border-primary/30 transition-all duration-500">
               <motion.div initial={{ scaleX: 0 }} whileInView={{ scaleX: 1 }} viewport={{ once: true }} className="absolute top-0 left-0 right-0 h-0.5 bg-primary origin-left" transition={{ duration: 0.8 }} />
-              <Heart className="w-8 h-8 text-primary mb-4" />
+              <Shield className="w-8 h-8 text-primary mb-4" />
               <h2 className="font-heading text-2xl font-bold text-foreground mb-4">{t("company.missionTitle")}</h2>
               <p className="text-muted-foreground leading-relaxed">{t("company.missionText")}</p>
             </motion.div>
