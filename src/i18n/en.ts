@@ -334,7 +334,7 @@ export const en = {
     message: "Message *",
     send: "Send Message",
     ourOffices: "OUR OFFICES",
-    headquartersProduction: "Headquarters & Production",
+    headquartersProduction: "HEADQUARTERS & SALES",
     businessOffice: "Business Office",
     regionalOffice: "Regional Office",
     faqSubtitle: "Questions",
