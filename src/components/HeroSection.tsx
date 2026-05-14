@@ -3,10 +3,10 @@ import { useState, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight, ChevronUp, ChevronDown, Shield, Crosshair, Rocket, Radar, type LucideIcon } from "lucide-react";
 import { useLanguage } from "@/i18n/LanguageContext";
-import heroImage from "@/assets/hero-military.jpg";
-import productTank from "@/assets/product-tank.jpg";
-import productHowitzer from "@/assets/product-howitzer.jpg";
-import productRocket from "@/assets/product-rocket.jpg";
+import productMangust from "@/assets/product-mangust-new.jpg";
+import productVlra from "@/assets/product-vlra-mr24-hero.jpg";
+import productZsu from "@/assets/product-zsu-hero.png";
+import productXb30 from "@/assets/product-xb30-new.jpg";
 
 interface HeroSlide {
   name: string;
@@ -20,28 +20,28 @@ const useSlides = (t: (key: string) => string): HeroSlide[] => [
   {
     name: "BTR MANGUST",
     category: t("productsPage.armouredVehicles"),
-    image: heroImage,
+    image: productMangust,
     icon: Shield,
     description: t("productsPage.mangustDescription"),
   },
   {
     name: "VLRA MR-24",
     category: t("productsPage.rocketLaunchers"),
-    image: productRocket,
+    image: productVlra,
     icon: Rocket,
     description: t("productsPage.vlraDescription"),
   },
   {
     name: "ZSU 23-4M-A1",
     category: t("productsPage.airDefence"),
-    image: productHowitzer,
+    image: productZsu,
     icon: Radar,
     description: t("productsPage.zsuDescription"),
   },
   {
     name: "XB-30",
     category: t("productsPage.combatModules"),
-    image: productTank,
+    image: productXb30,
     icon: Crosshair,
     description: t("productsPage.xb30Description"),
   },
