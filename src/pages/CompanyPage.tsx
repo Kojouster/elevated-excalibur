@@ -43,21 +43,6 @@ const CompanyPage = () => {
         </div>
       </section>
 
-      {/* Factory Image */}
-      <section className="relative h-[40vh] min-h-[300px] overflow-hidden">
-        <img src={factoryImg} alt="Manufacturing facility" className="w-full h-full object-cover" loading="lazy" width={1200} height={600} />
-        <div className="absolute inset-0 bg-background/50" />
-        <div className="absolute inset-0 flex items-center justify-center">
-          <motion.div initial={{ opacity: 0, scale: 0.9 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} className="text-center">
-            <Building className="w-12 h-12 text-primary mx-auto mb-4" />
-            <p className="font-heading text-3xl md:text-4xl font-bold text-foreground">
-              150,000 m² <span className="text-primary">{t("company.factoryStat")}</span>
-            </p>
-            <p className="text-muted-foreground mt-2">{t("company.factoryLocation")}</p>
-          </motion.div>
-        </div>
-      </section>
-
       {/* Values */}
       <section className="py-20 lg:py-28 bg-background bg-noise">
         <div className="container mx-auto px-6 lg:px-12">
