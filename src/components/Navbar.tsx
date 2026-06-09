@@ -12,7 +12,6 @@ const Navbar = () => {
 
   const navItems = [
     { label: t("nav.company"), href: "/company" },
-    { label: t("nav.products"), href: "/products" },
     { label: t("nav.contact"), href: "/contact" },
   ];
 

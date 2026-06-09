@@ -1,12 +1,11 @@
 import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
-import PartnersStrip from "@/components/PartnersStrip";
 import SectionDivider from "@/components/SectionDivider";
-import ProductsSection from "@/components/ProductsSection";
-import MissionSection from "@/components/MissionSection";
+import CompanyOverview from "@/components/CompanyOverview";
+import CapabilitiesSection from "@/components/CapabilitiesSection";
+import ComplianceSection from "@/components/ComplianceSection";
+import TrustSignals from "@/components/TrustSignals";
 import CtaBanner from "@/components/CtaBanner";
-import ServicesSection from "@/components/ServicesSection";
-import NewsSection from "@/components/NewsSection";
 import ContactForm from "@/components/ContactForm";
 import FooterSection from "@/components/FooterSection";
 import BackToTop from "@/components/BackToTop";
@@ -17,12 +16,14 @@ const Index = () => {
       <Navbar />
       <HeroSection />
       <SectionDivider />
-      <ProductsSection />
+      <CompanyOverview />
       <SectionDivider flipped />
-      <MissionSection />
-      <CtaBanner />
+      <CapabilitiesSection />
       <SectionDivider />
-      <NewsSection />
+      <ComplianceSection />
+      <SectionDivider flipped />
+      <TrustSignals />
+      <CtaBanner />
       <ContactForm />
       <FooterSection />
       <BackToTop />
