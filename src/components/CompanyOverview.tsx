@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Building2, Compass, HandshakeIcon, ScrollText } from "lucide-react";
+import { Building2, Compass, Handshake, ScrollText } from "lucide-react";
 
 const pillars = [
   {
@@ -13,7 +13,7 @@ const pillars = [
     text: "Cross-border experience covering both export and import operations for institutional clients.",
   },
   {
-    icon: HandshakeIcon,
+    icon: Handshake,
     title: "Trusted Partner",
     text: "Long-standing relationships built on discretion, reliability, and professional handling of every engagement.",
   },
