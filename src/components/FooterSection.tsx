@@ -20,12 +20,12 @@ const FooterSection = () => {
             <p className="text-muted-foreground text-sm leading-relaxed">{t("footer.description")}</p>
           </div>
           <div>
-            <h4 className="font-heading text-sm font-bold tracking-wider text-foreground uppercase mb-4">{t("footer.productsTitle")}</h4>
+            <h4 className="font-heading text-sm font-bold tracking-wider text-foreground uppercase mb-4">Capabilities</h4>
             <ul className="space-y-3 text-sm text-muted-foreground">
-              <li><Link to="/products" className="hover:text-primary transition-colors">{t("footer.armouredVehicles")}</Link></li>
-              <li><Link to="/products" className="hover:text-primary transition-colors">{t("footer.mainBattleTanks")}</Link></li>
-              <li><Link to="/products" className="hover:text-primary transition-colors">{t("footer.selfPropelledHowitzers")}</Link></li>
-              <li><Link to="/products" className="hover:text-primary transition-colors">{t("footer.rocketLaunchers")}</Link></li>
+              <li><Link to="/#capabilities" className="hover:text-primary transition-colors">Military Sales</Link></li>
+              <li><Link to="/#capabilities" className="hover:text-primary transition-colors">Export Operations</Link></li>
+              <li><Link to="/#capabilities" className="hover:text-primary transition-colors">Import Operations</Link></li>
+              <li><Link to="/#compliance" className="hover:text-primary transition-colors">Compliance</Link></li>
             </ul>
           </div>
           <div>
