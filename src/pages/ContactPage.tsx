@@ -174,7 +174,13 @@ const ContactPage = () => {
                       </div>
                       <p className="text-primary text-xs tracking-wider uppercase mb-2">{office.typeKey ? t(`contactPage.${office.typeKey}`) : office.typeLabel}</p>
                       <p className="text-muted-foreground text-sm mb-1">{office.address}</p>
-                      <p className="text-muted-foreground text-sm mb-1">{office.phone}</p>
+                      <div className="flex flex-col space-y-1 mb-1">
+                        {office.phones.map((p) => (
+                          <a key={p.lang} href={p.href} className="text-muted-foreground text-sm hover:text-primary transition-colors">
+                            <span className="text-primary mr-2">{p.lang}</span>{p.number}
+                          </a>
+                        ))}
+                      </div>
                       <a href={`mailto:${office.email}`} className="text-primary text-sm hover:text-gold-light transition-colors">{office.email}</a>
                     </div>
                     <div className="border-t border-border overflow-hidden">
