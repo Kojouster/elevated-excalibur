@@ -1,10 +1,12 @@
 import { Mail, Phone, MapPin } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useLanguage } from "@/i18n/LanguageContext";
+import { useHomeContent } from "@/i18n/useHomeContent";
 import palvanLogo from "@/assets/palvan-logo.png";
 
 const FooterSection = () => {
   const { t } = useLanguage();
+  const f = useHomeContent().footer;
 
   return (
     <footer id="contact" className="bg-card border-t border-border">
