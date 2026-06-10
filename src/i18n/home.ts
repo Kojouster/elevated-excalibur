@@ -66,10 +66,24 @@ export type HomeLocale = {
     stats: { value: number | string; suffix: string; label: string; raw?: boolean }[];
     milestones: { year: string; text: string }[];
   };
+  faq: {
+    eyebrow: string;
+    title1: string;
+    titleAccent: string;
+    description: string;
+    items: { q: string; a: string }[];
+  };
   navbar: {
     capabilitiesAria: string;
   };
   footer: {
+    capabilities: string;
+    militarySales: string;
+    exportOps: string;
+    importOps: string;
+    compliance: string;
+  };
+};
     capabilities: string;
     militarySales: string;
     exportOps: string;
