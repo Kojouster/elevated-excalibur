@@ -141,9 +141,9 @@ const ComplianceSection = () => {
                     <dt className="text-muted-foreground/70 text-xs uppercase tracking-wider mb-1">Permit Number</dt>
                     <dd className="text-foreground font-mono">PO32025-1050</dd>
                   </div>
-                  <div>
-                    <dt className="text-muted-foreground/70 text-xs uppercase tracking-wider mb-1">Date of Issue</dt>
-                    <dd className="text-foreground">6 February 2025</dd>
+                  <div className="hidden">
+                    <dt className="text-muted-foreground/70 text-xs uppercase tracking-wider mb-1"></dt>
+                    <dd className="text-foreground"></dd>
                   </div>
                   <div>
                     <dt className="text-muted-foreground/70 text-xs uppercase tracking-wider mb-1">Holder</dt>
