@@ -7,13 +7,18 @@ import BackToTop from "@/components/BackToTop";
 import PageHeader from "@/components/PageHeader";
 import { useLanguage } from "@/i18n/LanguageContext";
 import headquartersImg from "@/assets/headquarters.jpg";
+const phones = [
+  { lang: "EN", number: "+421 905 616 418", href: "tel:+421905616418" },
+  { lang: "SK", number: "+421 917 600 610", href: "tel:+421917600610" },
+];
+
 const offices = [
   {
     city: "Košice",
     country: "Slovak Republic",
     typeKey: "headquartersProduction",
     address: "Južná trieda 82/B, 040 17, Košice, Slovak Republic",
-    phone: "+421 905 616 418",
+    phones,
     email: "information@palvan.sk",
     mapSrc:
       "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2633.85!2d21.2555!3d48.7164!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x473f2d1b1e5c7e5d%3A0x0!2sJu%C5%BEn%C3%A1%20trieda%2082%2FB%2C%20040%2017%20Ko%C5%A1ice!5e0!3m2!1sen!2ssk!4v1700000000000",
@@ -23,7 +28,7 @@ const offices = [
     country: "Slovak Republic",
     typeLabel: "Sales Office",
     address: "EINPARK Offices by Corwin, Einsteinova 33, 851 01, Bratislava, Slovak Republic",
-    phone: "+421 905 616 418",
+    phones,
     email: "information@palvan.sk",
     mapSrc:
       "https://www.google.com/maps?q=Einsteinova+33,+851+01+Bratislava&output=embed",
