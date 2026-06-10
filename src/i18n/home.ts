@@ -66,6 +66,13 @@ export type HomeLocale = {
     stats: { value: number | string; suffix: string; label: string; raw?: boolean }[];
     milestones: { year: string; text: string }[];
   };
+  faq: {
+    eyebrow: string;
+    title1: string;
+    titleAccent: string;
+    description: string;
+    items: { q: string; a: string }[];
+  };
   navbar: {
     capabilitiesAria: string;
   };
@@ -239,6 +246,39 @@ export const homeEN: HomeLocale = {
       { year: "Today", text: "27+ years of continuous activity in the regulated defence sector." },
     ],
   },
+  faq: {
+    eyebrow: "Common Questions",
+    title1: "Things Clients ",
+    titleAccent: "Frequently Ask",
+    description:
+      "A quick overview of how PALVAN engages, what is required to start, and how we operate within the regulated defence sector.",
+    items: [
+      {
+        q: "Who does PALVAN work with?",
+        a: "We work with institutional clients, government bodies, and authorized industry partners engaged in regulated defence trade. Every engagement is preceded by appropriate counterparty verification.",
+      },
+      {
+        q: "What is required to start an engagement?",
+        a: "Typically a formal request from an authorized party, an outline of the requirement, and the relevant end-user information. From there, we structure the engagement and clarify what documentation will be needed.",
+      },
+      {
+        q: "Are you licensed to trade in defence products?",
+        a: "Yes. PALVAN holds a Permit for Trading in Defence Industry Products issued by the Ministry of Economy of the Slovak Republic (PO32025-1050), authorizing domestic trade, foreign trade, transfer, and brokerage activity.",
+      },
+      {
+        q: "How do you handle confidentiality?",
+        a: "Information shared with PALVAN is treated with strict confidentiality. Internal handling, communications, and record-keeping are aligned with the sensitivity of the sector we operate in.",
+      },
+      {
+        q: "Do you operate internationally?",
+        a: "Yes. We have long-standing experience with both export and import operations, conducted in accordance with applicable Slovak, EU, and international rules.",
+      },
+      {
+        q: "How can I contact PALVAN?",
+        a: "You can reach us by email at information@palvan.sk or by phone — EN +421 905 616 418, SK +421 917 600 610. Our team typically responds within one business day.",
+      },
+    ],
+  },
   navbar: { capabilitiesAria: "Capabilities" },
   footer: {
     capabilities: "Capabilities",
@@ -408,6 +448,39 @@ export const homeSK: HomeLocale = {
       { year: "2005", text: "Expanzia do medzinárodných operácií v oblasti vojenského obchodu." },
       { year: "2015", text: "Vybudovanie dlhodobých cezhraničných vývozných a dovozných procesov." },
       { year: "Dnes", text: "27+ rokov nepretržitej činnosti v regulovanom obrannom sektore." },
+    ],
+  },
+  faq: {
+    eyebrow: "Časté otázky",
+    title1: "Na čo sa klienti ",
+    titleAccent: "najčastejšie pýtajú",
+    description:
+      "Stručný prehľad o tom, ako PALVAN spolupracuje, čo je potrebné na začatie a ako pôsobíme v regulovanom obrannom sektore.",
+    items: [
+      {
+        q: "S kým PALVAN spolupracuje?",
+        a: "Spolupracujeme s inštitucionálnymi klientmi, štátnymi orgánmi a autorizovanými priemyselnými partnermi pôsobiacimi v regulovanom obrannom obchode. Každej spolupráci predchádza primerané overenie protistrany.",
+      },
+      {
+        q: "Čo je potrebné na začatie spolupráce?",
+        a: "Spravidla formálna požiadavka od oprávnenej strany, opis požiadavky a relevantné údaje o koncovom používateľovi. Následne navrhneme štruktúru spolupráce a ujasníme potrebnú dokumentáciu.",
+      },
+      {
+        q: "Máte licenciu na obchodovanie s obrannými výrobkami?",
+        a: "Áno. PALVAN je držiteľom povolenia na obchodovanie s výrobkami obranného priemyslu vydaného Ministerstvom hospodárstva Slovenskej republiky (PO32025-1050), ktoré oprávňuje na domáci obchod, zahraničný obchod, transfer a sprostredkovateľskú činnosť.",
+      },
+      {
+        q: "Ako pristupujete k dôvernosti?",
+        a: "Informácie zdieľané so spoločnosťou PALVAN sú spracovávané s prísnou dôvernosťou. Interné spracovanie, komunikácia a evidencia sú prispôsobené citlivosti sektora, v ktorom pôsobíme.",
+      },
+      {
+        q: "Pôsobíte aj medzinárodne?",
+        a: "Áno. Máme dlhoročné skúsenosti s vývoznými aj dovoznými operáciami, ktoré realizujeme v súlade s platnými slovenskými, európskymi a medzinárodnými pravidlami.",
+      },
+      {
+        q: "Ako môžem kontaktovať PALVAN?",
+        a: "Napíšte nám na information@palvan.sk alebo zavolajte — EN +421 905 616 418, SK +421 917 600 610. Náš tím zvyčajne odpovie do jedného pracovného dňa.",
+      },
     ],
   },
   navbar: { capabilitiesAria: "Schopnosti" },

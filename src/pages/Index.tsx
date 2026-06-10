@@ -5,6 +5,7 @@ import CompanyOverview from "@/components/CompanyOverview";
 import CapabilitiesSection from "@/components/CapabilitiesSection";
 import ComplianceSection from "@/components/ComplianceSection";
 import TrustSignals from "@/components/TrustSignals";
+import FaqSection from "@/components/FaqSection";
 import CtaBanner from "@/components/CtaBanner";
 import ContactForm from "@/components/ContactForm";
 import FooterSection from "@/components/FooterSection";
@@ -23,6 +24,8 @@ const Index = () => {
       <ComplianceSection />
       <SectionDivider flipped />
       <TrustSignals />
+      <SectionDivider />
+      <FaqSection />
       <CtaBanner />
       <ContactForm />
       <FooterSection />
@@ -32,3 +35,4 @@ const Index = () => {
 };
 
 export default Index;
+
