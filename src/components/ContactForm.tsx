@@ -35,7 +35,10 @@ const ContactForm = () => {
                 </div>
                 <div>
                   <p className="font-heading text-sm font-bold text-foreground tracking-wide">{t("contactForm.supportLabel")}</p>
-                  <p className="text-muted-foreground text-sm">{t("contactForm.supportValue")}</p>
+                  <div className="flex flex-col text-muted-foreground text-sm">
+                    <span>EN +421 905 616 418</span>
+                    <span>SK +421 917 600 610</span>
+                  </div>
                 </div>
               </div>
             </div>
