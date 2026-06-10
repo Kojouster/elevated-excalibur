@@ -84,13 +84,6 @@ export type HomeLocale = {
     compliance: string;
   };
 };
-    capabilities: string;
-    militarySales: string;
-    exportOps: string;
-    importOps: string;
-    compliance: string;
-  };
-};
 
 export const homeEN: HomeLocale = {
   hero: {
