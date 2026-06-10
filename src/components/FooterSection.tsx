@@ -42,10 +42,10 @@ const FooterSection = () => {
               <li className="flex items-start gap-3"><MapPin className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" /><a href="https://www.google.com/maps/search/?api=1&query=Južná+trieda+82/B,+040+17,+Košice,+Slovak+Republic" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">Južná trieda 82/B, 040 17, Košice, Slovak Republic</a></li>
               <li className="flex items-start gap-3"><MapPin className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" /><a href="https://www.google.com/maps/search/?api=1&query=EINPARK+Offices+Einsteinova+33,+851+01,+Bratislava,+Slovak+Republic" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">EINPARK Offices, Einsteinova 33, 851 01, Bratislava, Slovak Republic</a></li>
               <li className="flex items-start gap-3">
-                <Phone className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
-                <div className="flex flex-col">
-                  <span>EN +421 905 616 418</span>
-                  <span>SK +421 917 600 610</span>
+                <Phone className="w-4 h-4 text-primary flex-shrink-0 mt-1" />
+                <div className="flex flex-col space-y-1">
+                  <p>EN +421 905 616 418</p>
+                  <p>SK +421 917 600 610</p>
                 </div>
               </li>
               <li className="flex items-center gap-3"><Mail className="w-4 h-4 text-primary flex-shrink-0" />information@palvan.sk</li>
