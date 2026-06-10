@@ -61,10 +61,17 @@ const ContactPage = () => {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
               { icon: Mail, label: t("contactPage.emailUs"), value: "information@palvan.sk", action: "mailto:information@palvan.sk" },
-              { icon: Phone, label: t("contactPage.callUs"), value: "+421 905 616 418", action: "tel:+421905616418" },
+              {
+                icon: Phone,
+                label: t("contactPage.callUs"),
+                phones: [
+                  { lang: "EN", number: "+421 905 616 418", href: "tel:+421905616418" },
+                  { lang: "SK", number: "+421 917 600 610", href: "tel:+421917600610" },
+                ],
+              },
               { icon: Clock, label: t("contactPage.workingHours"), value: t("contactPage.workingHoursValue"), action: null },
               { icon: Globe, label: t("contactPage.globalPresence"), value: t("contactPage.globalPresenceValue"), action: null },
-            ].map((item, i) => {
+            ].map((item: any, i) => {
               const Icon = item.icon;
               return (
                 <motion.div key={i} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: i * 0.1 }} className="group p-6 border border-border bg-card hover:border-primary/30 transition-all duration-500">
@@ -72,7 +79,15 @@ const ContactPage = () => {
                     <Icon className="w-5 h-5 text-primary" />
                   </div>
                   <p className="text-muted-foreground text-xs tracking-wider uppercase mb-1">{item.label}</p>
-                  {item.action ? (
+                  {item.phones ? (
+                    <div className="flex flex-col space-y-1">
+                      {item.phones.map((p: any) => (
+                        <a key={p.lang} href={p.href} className="text-foreground font-heading text-sm font-bold hover:text-primary transition-colors">
+                          <span className="text-primary mr-2">{p.lang}</span>{p.number}
+                        </a>
+                      ))}
+                    </div>
+                  ) : item.action ? (
                     <a href={item.action} className="text-foreground font-heading text-sm font-bold hover:text-primary transition-colors">{item.value}</a>
                   ) : (
                     <p className="text-foreground font-heading text-sm font-bold">{item.value}</p>
