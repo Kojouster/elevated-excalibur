@@ -246,6 +246,39 @@ export const homeEN: HomeLocale = {
       { year: "Today", text: "27+ years of continuous activity in the regulated defence sector." },
     ],
   },
+  faq: {
+    eyebrow: "Common Questions",
+    title1: "Things Clients ",
+    titleAccent: "Frequently Ask",
+    description:
+      "A quick overview of how PALVAN engages, what is required to start, and how we operate within the regulated defence sector.",
+    items: [
+      {
+        q: "Who does PALVAN work with?",
+        a: "We work with institutional clients, government bodies, and authorized industry partners engaged in regulated defence trade. Every engagement is preceded by appropriate counterparty verification.",
+      },
+      {
+        q: "What is required to start an engagement?",
+        a: "Typically a formal request from an authorized party, an outline of the requirement, and the relevant end-user information. From there, we structure the engagement and clarify what documentation will be needed.",
+      },
+      {
+        q: "Are you licensed to trade in defence products?",
+        a: "Yes. PALVAN holds a Permit for Trading in Defence Industry Products issued by the Ministry of Economy of the Slovak Republic (PO32025-1050), authorizing domestic trade, foreign trade, transfer, and brokerage activity.",
+      },
+      {
+        q: "How do you handle confidentiality?",
+        a: "Information shared with PALVAN is treated with strict confidentiality. Internal handling, communications, and record-keeping are aligned with the sensitivity of the sector we operate in.",
+      },
+      {
+        q: "Do you operate internationally?",
+        a: "Yes. We have long-standing experience with both export and import operations, conducted in accordance with applicable Slovak, EU, and international rules.",
+      },
+      {
+        q: "How can I contact PALVAN?",
+        a: "You can reach us by email at information@palvan.sk or by phone — EN +421 905 616 418, SK +421 917 600 610. Our team typically responds within one business day.",
+      },
+    ],
+  },
   navbar: { capabilitiesAria: "Capabilities" },
   footer: {
     capabilities: "Capabilities",
