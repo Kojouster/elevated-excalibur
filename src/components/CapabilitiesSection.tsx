@@ -1,66 +1,20 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
 import { Ship, PackageCheck, Globe, Users } from "lucide-react";
+import { useHomeContent } from "@/i18n/useHomeContent";
 
-const tabs = [
-  {
-    id: "sales",
-    icon: PackageCheck,
-    label: "Military Sales",
-    title: "Professional Military Sales",
-    body: "We support institutional clients through every stage of a regulated sale — from initial requirement and sourcing to contract execution and handover. Each engagement is handled with discretion, full documentation, and adherence to applicable end-use requirements.",
-    bullets: [
-      "Requirement analysis and sourcing",
-      "Contract structuring and negotiation",
-      "End-user verification and documentation",
-      "Discreet handling of sensitive engagements",
-    ],
-  },
-  {
-    id: "export",
-    icon: Ship,
-    label: "Export Operations",
-    title: "Cross-Border Export",
-    body: "PALVAN manages export operations in line with applicable Slovak, EU, and international rules. We coordinate licensing, logistics, and compliance documentation so that cross-border movement is conducted lawfully and on schedule.",
-    bullets: [
-      "Export license preparation and filing",
-      "Customs and freight coordination",
-      "Compliance documentation and traceability",
-      "Coordination with national authorities",
-    ],
-  },
-  {
-    id: "import",
-    icon: Globe,
-    label: "Import Operations",
-    title: "Regulated Import",
-    body: "Our import workflow combines technical understanding with regulatory expertise. We handle the full lifecycle of an import operation, including documentation, customs interaction, and delivery to authorized recipients.",
-    bullets: [
-      "Import authorization and clearance",
-      "Technical and regulatory pre-checks",
-      "Authorized recipient verification",
-      "Secure logistics planning",
-    ],
-  },
-  {
-    id: "advisory",
-    icon: Users,
-    label: "Advisory",
-    title: "Sector Advisory",
-    body: "Drawing on more than 27 years in the field, we advise clients on feasibility, regulatory exposure, and the practical realities of operating in a regulated international market.",
-    bullets: [
-      "Feasibility and market assessment",
-      "Regulatory exposure analysis",
-      "Counterparty due diligence",
-      "Strategic transaction planning",
-    ],
-  },
-];
+const iconMap: Record<string, typeof Ship> = {
+  sales: PackageCheck,
+  export: Ship,
+  import: Globe,
+  advisory: Users,
+};
 
 const CapabilitiesSection = () => {
-  const [active, setActive] = useState(tabs[0].id);
-  const current = tabs.find((t) => t.id === active)!;
-  const Icon = current.icon;
+  const c = useHomeContent().capabilities;
+  const [active, setActive] = useState(c.tabs[0].id);
+  const current = c.tabs.find((t) => t.id === active) ?? c.tabs[0];
+  const Icon = iconMap[current.id] ?? PackageCheck;
 
   return (
     <section id="capabilities" className="py-24 lg:py-32 bg-card/30 bg-noise relative">
@@ -71,22 +25,17 @@ const CapabilitiesSection = () => {
           viewport={{ once: true }}
           className="max-w-3xl mb-12"
         >
-          <p className="text-primary tracking-[0.5em] text-sm uppercase mb-4">Capabilities</p>
+          <p className="text-primary tracking-[0.5em] text-sm uppercase mb-4">{c.eyebrow}</p>
           <h2 className="font-heading text-4xl md:text-5xl font-bold text-foreground mb-6 leading-tight">
-            Military Sales, <span className="text-gradient-gold">Export &amp; Import</span>
+            {c.title1}<span className="text-gradient-gold">{c.titleAccent}</span>
           </h2>
-          <p className="text-muted-foreground leading-relaxed">
-            A focused service offering built around the realities of regulated international
-            defence trade. Each capability is delivered with the documentation, oversight,
-            and professionalism the sector requires.
-          </p>
+          <p className="text-muted-foreground leading-relaxed">{c.description}</p>
         </motion.div>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
-          {/* Tabs */}
           <div className="lg:col-span-4 flex lg:flex-col gap-2 overflow-x-auto lg:overflow-visible">
-            {tabs.map((tab) => {
-              const TIcon = tab.icon;
+            {c.tabs.map((tab) => {
+              const TIcon = iconMap[tab.id] ?? PackageCheck;
               const isActive = tab.id === active;
               return (
                 <button
@@ -119,7 +68,6 @@ const CapabilitiesSection = () => {
             })}
           </div>
 
-          {/* Panel */}
           <motion.div
             key={current.id}
             initial={{ opacity: 0, y: 12 }}

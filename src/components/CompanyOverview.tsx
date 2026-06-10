@@ -1,30 +1,11 @@
 import { motion } from "framer-motion";
 import { Building2, Compass, Handshake, ScrollText } from "lucide-react";
+import { useHomeContent } from "@/i18n/useHomeContent";
 
-const pillars = [
-  {
-    icon: Building2,
-    title: "Established 2000",
-    text: "A Slovak Republic–based company operating continuously in the defence sector for more than two decades.",
-  },
-  {
-    icon: Compass,
-    title: "International Reach",
-    text: "Cross-border experience covering both export and import operations for institutional clients.",
-  },
-  {
-    icon: Handshake,
-    title: "Trusted Partner",
-    text: "Long-standing relationships built on discretion, reliability, and professional handling of every engagement.",
-  },
-  {
-    icon: ScrollText,
-    title: "Regulated Operations",
-    text: "All activities conducted in accordance with applicable national and international regulations.",
-  },
-];
+const icons = [Building2, Compass, Handshake, ScrollText];
 
 const CompanyOverview = () => {
+  const c = useHomeContent().company;
   return (
     <section id="overview" className="py-24 lg:py-32 bg-background bg-noise relative">
       <div className="container mx-auto px-6 lg:px-12">
@@ -34,20 +15,16 @@ const CompanyOverview = () => {
           viewport={{ once: true }}
           className="max-w-3xl mb-16"
         >
-          <p className="text-primary tracking-[0.5em] text-sm uppercase mb-4">Company</p>
+          <p className="text-primary tracking-[0.5em] text-sm uppercase mb-4">{c.eyebrow}</p>
           <h2 className="font-heading text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6 leading-tight">
-            Trusted Experience in <span className="text-gradient-gold">Military Export and Import</span>
+            {c.title1}<span className="text-gradient-gold">{c.titleAccent}</span>
           </h2>
-          <p className="text-muted-foreground text-lg leading-relaxed">
-            PALVAN is a Slovakia-based company operating in the defence sector since 2000.
-            Over more than two decades, we have built a reputation as a reliable, discreet, and
-            professional partner for institutional clients engaged in regulated international trade.
-          </p>
+          <p className="text-muted-foreground text-lg leading-relaxed">{c.description}</p>
         </motion.div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {pillars.map((p, i) => {
-            const Icon = p.icon;
+          {c.pillars.map((p, i) => {
+            const Icon = icons[i];
             return (
               <motion.div
                 key={p.title}
