@@ -450,6 +450,39 @@ export const homeSK: HomeLocale = {
       { year: "Dnes", text: "27+ rokov nepretržitej činnosti v regulovanom obrannom sektore." },
     ],
   },
+  faq: {
+    eyebrow: "Časté otázky",
+    title1: "Na čo sa klienti ",
+    titleAccent: "najčastejšie pýtajú",
+    description:
+      "Stručný prehľad o tom, ako PALVAN spolupracuje, čo je potrebné na začatie a ako pôsobíme v regulovanom obrannom sektore.",
+    items: [
+      {
+        q: "S kým PALVAN spolupracuje?",
+        a: "Spolupracujeme s inštitucionálnymi klientmi, štátnymi orgánmi a autorizovanými priemyselnými partnermi pôsobiacimi v regulovanom obrannom obchode. Každej spolupráci predchádza primerané overenie protistrany.",
+      },
+      {
+        q: "Čo je potrebné na začatie spolupráce?",
+        a: "Spravidla formálna požiadavka od oprávnenej strany, opis požiadavky a relevantné údaje o koncovom používateľovi. Následne navrhneme štruktúru spolupráce a ujasníme potrebnú dokumentáciu.",
+      },
+      {
+        q: "Máte licenciu na obchodovanie s obrannými výrobkami?",
+        a: "Áno. PALVAN je držiteľom povolenia na obchodovanie s výrobkami obranného priemyslu vydaného Ministerstvom hospodárstva Slovenskej republiky (PO32025-1050), ktoré oprávňuje na domáci obchod, zahraničný obchod, transfer a sprostredkovateľskú činnosť.",
+      },
+      {
+        q: "Ako pristupujete k dôvernosti?",
+        a: "Informácie zdieľané so spoločnosťou PALVAN sú spracovávané s prísnou dôvernosťou. Interné spracovanie, komunikácia a evidencia sú prispôsobené citlivosti sektora, v ktorom pôsobíme.",
+      },
+      {
+        q: "Pôsobíte aj medzinárodne?",
+        a: "Áno. Máme dlhoročné skúsenosti s vývoznými aj dovoznými operáciami, ktoré realizujeme v súlade s platnými slovenskými, európskymi a medzinárodnými pravidlami.",
+      },
+      {
+        q: "Ako môžem kontaktovať PALVAN?",
+        a: "Napíšte nám na information@palvan.sk alebo zavolajte — EN +421 905 616 418, SK +421 917 600 610. Náš tím zvyčajne odpovie do jedného pracovného dňa.",
+      },
+    ],
+  },
   navbar: { capabilitiesAria: "Schopnosti" },
   footer: {
     capabilities: "Schopnosti",
