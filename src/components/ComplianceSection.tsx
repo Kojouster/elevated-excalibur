@@ -1,31 +1,13 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
 import { ChevronDown, ShieldCheck, FileCheck2, Lock, BadgeCheck } from "lucide-react";
+import { useHomeContent } from "@/i18n/useHomeContent";
 
-const items = [
-  {
-    icon: FileCheck2,
-    title: "Permits, Licenses & Documentation",
-    body: "PALVAN operates with the necessary documentation, permits, and licenses required for activities in the defence and regulated-trade sector. All operations are conducted in line with applicable Slovak, EU, and international rules.",
-  },
-  {
-    icon: ShieldCheck,
-    title: "End-User Verification",
-    body: "Every engagement includes appropriate end-user verification and documentation. We work only with authorized counterparties and decline activity that does not meet our compliance standards.",
-  },
-  {
-    icon: Lock,
-    title: "Confidentiality & Discretion",
-    body: "Information shared with PALVAN is treated with strict confidentiality. Internal handling, communications, and record-keeping are aligned with the sensitivity of the sector we operate in.",
-  },
-  {
-    icon: BadgeCheck,
-    title: "Responsible Operations",
-    body: "We take a long-term view of our role in the market. Decisions are made on the basis of legality, reliability, and professional responsibility — not short-term opportunity.",
-  },
-];
+const icons = [FileCheck2, ShieldCheck, Lock, BadgeCheck];
 
 const ComplianceSection = () => {
+  const c = useHomeContent().compliance;
+  const lic = c.license;
   const [open, setOpen] = useState<number | null>(0);
 
   return (
@@ -38,24 +20,17 @@ const ComplianceSection = () => {
             viewport={{ once: true }}
             className="lg:col-span-5 lg:sticky lg:top-28"
           >
-            <p className="text-primary tracking-[0.5em] text-sm uppercase mb-4">Compliance</p>
+            <p className="text-primary tracking-[0.5em] text-sm uppercase mb-4">{c.eyebrow}</p>
             <h2 className="font-heading text-4xl md:text-5xl font-bold text-foreground mb-6 leading-tight">
-              Professional, Licensed, and <span className="text-gradient-gold">Documented</span>
+              {c.title1}<span className="text-gradient-gold">{c.titleAccent}</span>
             </h2>
-            <p className="text-muted-foreground leading-relaxed mb-6">
-              PALVAN has more than 27 years of experience in military sales, including export and
-              import operations, and operates with all necessary documentation, permits, and
-              licenses required by applicable regulations.
-            </p>
-            <p className="text-muted-foreground/80 text-sm leading-relaxed">
-              Compliance is not an add-on — it is the foundation on which every engagement is
-              structured.
-            </p>
+            <p className="text-muted-foreground leading-relaxed mb-6">{c.intro1}</p>
+            <p className="text-muted-foreground/80 text-sm leading-relaxed">{c.intro2}</p>
           </motion.div>
 
           <div className="lg:col-span-7 space-y-3">
-            {items.map((item, i) => {
-              const Icon = item.icon;
+            {c.items.map((item, i) => {
+              const Icon = icons[i] ?? FileCheck2;
               const isOpen = open === i;
               return (
                 <motion.div
@@ -90,10 +65,7 @@ const ComplianceSection = () => {
                   </button>
                   <motion.div
                     initial={false}
-                    animate={{
-                      height: isOpen ? "auto" : 0,
-                      opacity: isOpen ? 1 : 0,
-                    }}
+                    animate={{ height: isOpen ? "auto" : 0, opacity: isOpen ? 1 : 0 }}
                     transition={{ duration: 0.3 }}
                     className="overflow-hidden"
                   >
@@ -120,9 +92,9 @@ const ComplianceSection = () => {
                 <FileCheck2 className="w-5 h-5 text-primary" />
               </span>
               <div>
-                <p className="text-primary tracking-[0.3em] text-xs uppercase">License Record</p>
+                <p className="text-primary tracking-[0.3em] text-xs uppercase">{lic.eyebrow}</p>
                 <h3 className="font-heading text-lg lg:text-xl font-bold text-foreground">
-                  Pal.Van., s.r.o.
+                  {lic.holder}
                 </h3>
               </div>
             </div>
@@ -130,81 +102,63 @@ const ComplianceSection = () => {
             <div className="p-6 lg:p-8 space-y-8">
               <div>
                 <h4 className="font-heading text-sm font-bold tracking-wider text-foreground uppercase mb-4">
-                  Permit for Trading in Defence Industry Products
+                  {lic.permitTitle}
                 </h4>
                 <dl className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-4 text-sm">
                   <div>
-                    <dt className="text-muted-foreground/70 text-xs uppercase tracking-wider mb-1">Issuing Authority</dt>
-                    <dd className="text-foreground">Ministry of Economy of the Slovak Republic</dd>
+                    <dt className="text-muted-foreground/70 text-xs uppercase tracking-wider mb-1">{lic.issuingAuthority}</dt>
+                    <dd className="text-foreground">{lic.issuingAuthorityValue}</dd>
                   </div>
                   <div>
-                    <dt className="text-muted-foreground/70 text-xs uppercase tracking-wider mb-1">Permit Number</dt>
+                    <dt className="text-muted-foreground/70 text-xs uppercase tracking-wider mb-1">{lic.permitNumber}</dt>
                     <dd className="text-foreground font-mono">PO32025-1050</dd>
                   </div>
-                  <div className="hidden">
-                    <dt className="text-muted-foreground/70 text-xs uppercase tracking-wider mb-1"></dt>
-                    <dd className="text-foreground"></dd>
-                  </div>
                   <div>
-                    <dt className="text-muted-foreground/70 text-xs uppercase tracking-wider mb-1">Holder</dt>
-                    <dd className="text-foreground">Pal.Van., s.r.o.</dd>
+                    <dt className="text-muted-foreground/70 text-xs uppercase tracking-wider mb-1">{lic.holderLabel}</dt>
+                    <dd className="text-foreground">{lic.holder}</dd>
                   </div>
                 </dl>
               </div>
 
               <div className="border-t border-border pt-6">
                 <h4 className="font-heading text-sm font-bold tracking-wider text-foreground uppercase mb-4">
-                  Company Details
+                  {lic.companyDetails}
                 </h4>
                 <dl className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-4 text-sm">
                   <div>
-                    <dt className="text-muted-foreground/70 text-xs uppercase tracking-wider mb-1">Company ID</dt>
+                    <dt className="text-muted-foreground/70 text-xs uppercase tracking-wider mb-1">{lic.companyId}</dt>
                     <dd className="text-foreground font-mono">36199206</dd>
                   </div>
                   <div>
-                    <dt className="text-muted-foreground/70 text-xs uppercase tracking-wider mb-1">Tax ID</dt>
+                    <dt className="text-muted-foreground/70 text-xs uppercase tracking-wider mb-1">{lic.taxId}</dt>
                     <dd className="text-foreground font-mono">SK2021524582</dd>
                   </div>
                   <div className="sm:col-span-2">
-                    <dt className="text-muted-foreground/70 text-xs uppercase tracking-wider mb-1">Registered Address</dt>
-                    <dd className="text-foreground">Južná trieda 82B, 040 17 Košice – Juh, Slovakia</dd>
+                    <dt className="text-muted-foreground/70 text-xs uppercase tracking-wider mb-1">{lic.registeredAddress}</dt>
+                    <dd className="text-foreground">{lic.registeredAddressValue}</dd>
                   </div>
                 </dl>
               </div>
 
               <div className="border-t border-border pt-6">
                 <h4 className="font-heading text-sm font-bold tracking-wider text-foreground uppercase mb-4">
-                  Scope of Authorization
+                  {lic.scope}
                 </h4>
                 <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-2 text-sm text-muted-foreground">
-                  <li className="flex items-start gap-2">
-                    <span className="text-primary mt-1">›</span>
-                    <span>Domestic trade in defence industry products</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-primary mt-1">›</span>
-                    <span>Foreign trade activity</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-primary mt-1">›</span>
-                    <span>Transfer of defence industry products</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-primary mt-1">›</span>
-                    <span>Brokerage activity</span>
-                  </li>
+                  {lic.scopeItems.map((s) => (
+                    <li key={s} className="flex items-start gap-2">
+                      <span className="text-primary mt-1">›</span>
+                      <span>{s}</span>
+                    </li>
+                  ))}
                 </ul>
               </div>
 
               <div className="border-t border-border pt-6">
                 <h4 className="font-heading text-sm font-bold tracking-wider text-foreground uppercase mb-4">
-                  Compliance Notes
+                  {lic.notes}
                 </h4>
-                <p className="text-muted-foreground text-sm leading-relaxed">
-                  All activities under this permit are conducted in accordance with Slovak Act
-                  No. 392/2011 Coll. on trading in defence industry products and the related
-                  reporting obligations toward the competent authorities of the Slovak Republic.
-                </p>
+                <p className="text-muted-foreground text-sm leading-relaxed">{lic.notesBody}</p>
               </div>
             </div>
           </div>
