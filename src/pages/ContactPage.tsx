@@ -7,13 +7,18 @@ import BackToTop from "@/components/BackToTop";
 import PageHeader from "@/components/PageHeader";
 import { useLanguage } from "@/i18n/LanguageContext";
 import headquartersImg from "@/assets/headquarters.jpg";
+const phones = [
+  { lang: "EN", number: "+421 905 616 418", href: "tel:+421905616418" },
+  { lang: "SK", number: "+421 917 600 610", href: "tel:+421917600610" },
+];
+
 const offices = [
   {
     city: "Košice",
     country: "Slovak Republic",
     typeKey: "headquartersProduction",
     address: "Južná trieda 82/B, 040 17, Košice, Slovak Republic",
-    phone: "+421 905 616 418",
+    phones,
     email: "information@palvan.sk",
     mapSrc:
       "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2633.85!2d21.2555!3d48.7164!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x473f2d1b1e5c7e5d%3A0x0!2sJu%C5%BEn%C3%A1%20trieda%2082%2FB%2C%20040%2017%20Ko%C5%A1ice!5e0!3m2!1sen!2ssk!4v1700000000000",
@@ -23,7 +28,7 @@ const offices = [
     country: "Slovak Republic",
     typeLabel: "Sales Office",
     address: "EINPARK Offices by Corwin, Einsteinova 33, 851 01, Bratislava, Slovak Republic",
-    phone: "+421 905 616 418",
+    phones,
     email: "information@palvan.sk",
     mapSrc:
       "https://www.google.com/maps?q=Einsteinova+33,+851+01+Bratislava&output=embed",
@@ -61,10 +66,17 @@ const ContactPage = () => {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
               { icon: Mail, label: t("contactPage.emailUs"), value: "information@palvan.sk", action: "mailto:information@palvan.sk" },
-              { icon: Phone, label: t("contactPage.callUs"), value: "+421 905 616 418", action: "tel:+421905616418" },
+              {
+                icon: Phone,
+                label: t("contactPage.callUs"),
+                phones: [
+                  { lang: "EN", number: "+421 905 616 418", href: "tel:+421905616418" },
+                  { lang: "SK", number: "+421 917 600 610", href: "tel:+421917600610" },
+                ],
+              },
               { icon: Clock, label: t("contactPage.workingHours"), value: t("contactPage.workingHoursValue"), action: null },
               { icon: Globe, label: t("contactPage.globalPresence"), value: t("contactPage.globalPresenceValue"), action: null },
-            ].map((item, i) => {
+            ].map((item: any, i) => {
               const Icon = item.icon;
               return (
                 <motion.div key={i} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: i * 0.1 }} className="group p-6 border border-border bg-card hover:border-primary/30 transition-all duration-500">
@@ -72,7 +84,15 @@ const ContactPage = () => {
                     <Icon className="w-5 h-5 text-primary" />
                   </div>
                   <p className="text-muted-foreground text-xs tracking-wider uppercase mb-1">{item.label}</p>
-                  {item.action ? (
+                  {item.phones ? (
+                    <div className="flex flex-col space-y-1">
+                      {item.phones.map((p: any) => (
+                        <a key={p.lang} href={p.href} className="text-foreground font-heading text-sm font-bold hover:text-primary transition-colors">
+                          <span className="text-primary mr-2">{p.lang}</span>{p.number}
+                        </a>
+                      ))}
+                    </div>
+                  ) : item.action ? (
                     <a href={item.action} className="text-foreground font-heading text-sm font-bold hover:text-primary transition-colors">{item.value}</a>
                   ) : (
                     <p className="text-foreground font-heading text-sm font-bold">{item.value}</p>
@@ -154,7 +174,13 @@ const ContactPage = () => {
                       </div>
                       <p className="text-primary text-xs tracking-wider uppercase mb-2">{office.typeKey ? t(`contactPage.${office.typeKey}`) : office.typeLabel}</p>
                       <p className="text-muted-foreground text-sm mb-1">{office.address}</p>
-                      <p className="text-muted-foreground text-sm mb-1">{office.phone}</p>
+                      <div className="flex flex-col space-y-1 mb-1">
+                        {office.phones.map((p) => (
+                          <a key={p.lang} href={p.href} className="text-muted-foreground text-sm hover:text-primary transition-colors">
+                            <span className="text-primary mr-2">{p.lang}</span>{p.number}
+                          </a>
+                        ))}
+                      </div>
                       <a href={`mailto:${office.email}`} className="text-primary text-sm hover:text-gold-light transition-colors">{office.email}</a>
                     </div>
                     <div className="border-t border-border overflow-hidden">
