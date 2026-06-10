@@ -22,12 +22,12 @@ const FooterSection = () => {
             <p className="text-muted-foreground text-sm leading-relaxed">{t("footer.description")}</p>
           </div>
           <div>
-            <h4 className="font-heading text-sm font-bold tracking-wider text-foreground uppercase mb-4">Capabilities</h4>
+            <h4 className="font-heading text-sm font-bold tracking-wider text-foreground uppercase mb-4">{f.capabilities}</h4>
             <ul className="space-y-3 text-sm text-muted-foreground">
-              <li><Link to="/#capabilities" className="hover:text-primary transition-colors">Military Sales</Link></li>
-              <li><Link to="/#capabilities" className="hover:text-primary transition-colors">Export Operations</Link></li>
-              <li><Link to="/#capabilities" className="hover:text-primary transition-colors">Import Operations</Link></li>
-              <li><Link to="/#compliance" className="hover:text-primary transition-colors">Compliance</Link></li>
+              <li><Link to="/#capabilities" className="hover:text-primary transition-colors">{f.militarySales}</Link></li>
+              <li><Link to="/#capabilities" className="hover:text-primary transition-colors">{f.exportOps}</Link></li>
+              <li><Link to="/#capabilities" className="hover:text-primary transition-colors">{f.importOps}</Link></li>
+              <li><Link to="/#compliance" className="hover:text-primary transition-colors">{f.compliance}</Link></li>
             </ul>
           </div>
           <div>
