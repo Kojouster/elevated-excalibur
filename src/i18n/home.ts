@@ -88,14 +88,14 @@ export type HomeLocale = {
 export const homeEN: HomeLocale = {
   hero: {
     eyebrow: "Established 2000 · Slovak Republic",
-    title1: "27+ Years in ",
+    title1: "26+ Years in ",
     titleAccent: "Military Sales",
     title2: "and International Trade",
     description:
       "PALVAN delivers decades of experience in military sales, export, and import activities, supported by the necessary documentation, permits, and licenses required for regulated international operations.",
     ctaInquiry: "Make an Inquiry",
     ctaCapabilities: "Our Capabilities",
-    badges: ["27+ Years Experience", "Export & Import", "Licensed & Documented"],
+    badges: ["26+ Years Experience", "Export & Import", "Licensed & Documented"],
     scroll: "Scroll",
   },
   company: {
@@ -170,7 +170,7 @@ export const homeEN: HomeLocale = {
         id: "advisory",
         label: "Advisory",
         title: "Sector Advisory",
-        body: "Drawing on more than 27 years in the field, we advise clients on feasibility, regulatory exposure, and the practical realities of operating in a regulated international market.",
+        body: "Drawing on more than 26 years in the field, we advise clients on feasibility, regulatory exposure, and the practical realities of operating in a regulated international market.",
         bullets: [
           "Feasibility and market assessment",
           "Regulatory exposure analysis",
@@ -185,7 +185,7 @@ export const homeEN: HomeLocale = {
     title1: "Professional, Licensed, and ",
     titleAccent: "Documented",
     intro1:
-      "PALVAN has more than 27 years of experience in military sales, including export and import operations, and operates with all necessary documentation, permits, and licenses required by applicable regulations.",
+      "PALVAN has more than 26 years of experience in military sales, including export and import operations, and operates with all necessary documentation, permits, and licenses required by applicable regulations.",
     intro2: "Compliance is not an add-on — it is the foundation on which every engagement is structured.",
     items: [
       {
@@ -235,7 +235,7 @@ export const homeEN: HomeLocale = {
     title1: "A Long-Standing Presence in a ",
     titleAccent: "Serious Industry",
     stats: [
-      { value: 27, suffix: "+", label: "Years of Experience" },
+      { value: 26, suffix: "+", label: "Years of Experience" },
       { value: 2000, suffix: "", label: "Established Since", raw: true },
       { value: 100, suffix: "%", label: "Documented Operations" },
     ],
@@ -243,7 +243,7 @@ export const homeEN: HomeLocale = {
       { year: "2000", text: "PALVAN founded in the Slovak Republic." },
       { year: "2005", text: "Expansion into international military trade operations." },
       { year: "2015", text: "Established long-term cross-border export and import workflows." },
-      { year: "Today", text: "27+ years of continuous activity in the regulated defence sector." },
+      { year: "Today", text: "26+ years of continuous activity in the regulated defence sector." },
     ],
   },
   faq: {
@@ -292,14 +292,14 @@ export const homeEN: HomeLocale = {
 export const homeSK: HomeLocale = {
   hero: {
     eyebrow: "Založené v roku 2000 · Slovenská republika",
-    title1: "27+ rokov v ",
+    title1: "26+ rokov v ",
     titleAccent: "predaji vojenskej techniky",
     title2: "a medzinárodnom obchode",
     description:
       "PALVAN prináša desaťročia skúseností v predaji, vývoze a dovoze vojenskej techniky, podporené potrebnou dokumentáciou, povoleniami a licenciami požadovanými pre regulované medzinárodné operácie.",
     ctaInquiry: "Poslať dopyt",
     ctaCapabilities: "Naše schopnosti",
-    badges: ["27+ rokov skúseností", "Vývoz a dovoz", "Licencované a zdokumentované"],
+    badges: ["26+ rokov skúseností", "Vývoz a dovoz", "Licencované a zdokumentované"],
     scroll: "Posunúť",
   },
   company: {
@@ -374,7 +374,7 @@ export const homeSK: HomeLocale = {
         id: "advisory",
         label: "Poradenstvo",
         title: "Odborné poradenstvo",
-        body: "Vďaka viac ako 27 rokom v odvetví radíme klientom v otázkach realizovateľnosti, regulačného rizika a praktických aspektov fungovania na regulovanom medzinárodnom trhu.",
+        body: "Vďaka viac ako 26 rokom v odvetví radíme klientom v otázkach realizovateľnosti, regulačného rizika a praktických aspektov fungovania na regulovanom medzinárodnom trhu.",
         bullets: [
           "Posúdenie realizovateľnosti a trhu",
           "Analýza regulačného rizika",
@@ -389,7 +389,7 @@ export const homeSK: HomeLocale = {
     title1: "Profesionálne, licencované a ",
     titleAccent: "zdokumentované",
     intro1:
-      "PALVAN má viac ako 27 rokov skúseností v predaji vojenskej techniky vrátane vývozných a dovozných operácií a disponuje všetkou potrebnou dokumentáciou, povoleniami a licenciami požadovanými platnými predpismi.",
+      "PALVAN má viac ako 26 rokov skúseností v predaji vojenskej techniky vrátane vývozných a dovozných operácií a disponuje všetkou potrebnou dokumentáciou, povoleniami a licenciami požadovanými platnými predpismi.",
     intro2: "Súlad nie je doplnok — je to základ, na ktorom je postavený každý prípad.",
     items: [
       {
@@ -439,7 +439,7 @@ export const homeSK: HomeLocale = {
     title1: "Dlhodobá prítomnosť vo ",
     titleAccent: "vážnom odvetví",
     stats: [
-      { value: 27, suffix: "+", label: "Rokov skúseností" },
+      { value: 26, suffix: "+", label: "Rokov skúseností" },
       { value: 2000, suffix: "", label: "Pôsobíme od roku", raw: true },
       { value: 100, suffix: "%", label: "Zdokumentovaných operácií" },
     ],
@@ -447,7 +447,7 @@ export const homeSK: HomeLocale = {
       { year: "2000", text: "Založenie spoločnosti PALVAN v Slovenskej republike." },
       { year: "2005", text: "Expanzia do medzinárodných operácií v oblasti vojenského obchodu." },
       { year: "2015", text: "Vybudovanie dlhodobých cezhraničných vývozných a dovozných procesov." },
-      { year: "Dnes", text: "27+ rokov nepretržitej činnosti v regulovanom obrannom sektore." },
+      { year: "Dnes", text: "26+ rokov nepretržitej činnosti v regulovanom obrannom sektore." },
     ],
   },
   faq: {
