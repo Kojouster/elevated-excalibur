@@ -374,7 +374,7 @@ export const homeSK: HomeLocale = {
         id: "advisory",
         label: "Poradenstvo",
         title: "Odborné poradenstvo",
-        body: "Vďaka viac ako 27 rokom v odvetví radíme klientom v otázkach realizovateľnosti, regulačného rizika a praktických aspektov fungovania na regulovanom medzinárodnom trhu.",
+        body: "Vďaka viac ako 26 rokom v odvetví radíme klientom v otázkach realizovateľnosti, regulačného rizika a praktických aspektov fungovania na regulovanom medzinárodnom trhu.",
         bullets: [
           "Posúdenie realizovateľnosti a trhu",
           "Analýza regulačného rizika",
