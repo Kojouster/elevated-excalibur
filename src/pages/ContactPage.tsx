@@ -1,3 +1,4 @@
+import Seo from "@/components/Seo";
 import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
 import { Send, Mail, Phone, MapPin, Clock, Globe, CheckCircle, ChevronDown, ChevronUp } from "lucide-react";
