@@ -1,3 +1,5 @@
+import Seo from "@/components/Seo";
+import { useHomeContent } from "@/i18n/useHomeContent";
 import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
 import SectionDivider from "@/components/SectionDivider";
