@@ -118,8 +118,8 @@ export const en = {
   // Company page
   company: {
     subtitle: "About Us",
-    title: "PALVAN",
-    titleAccent: "",
+    title: "PALVAN — European Military",
+    titleAccent: "Supplier",
     description: "European supplier of military technology with over a decade of experience in sales and lifecycle support.",
     missionTitle: "OUR MISSION",
     missionText: "To protect nations and their people by delivering reliable, innovative defence solutions. We are committed to ensuring freedom and security through superior military technology, comprehensive lifecycle support, and unwavering partnership with our customers.",
