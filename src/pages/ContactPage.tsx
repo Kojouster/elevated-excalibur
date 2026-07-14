@@ -1,3 +1,4 @@
+import Seo from "@/components/Seo";
 import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
 import { Send, Mail, Phone, MapPin, Clock, Globe, CheckCircle, ChevronDown, ChevronUp } from "lucide-react";
@@ -57,6 +58,11 @@ const ContactPage = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <Seo
+        title="Contact PALVAN — Defence Sales & Trade Inquiries"
+        description="Contact PALVAN's Košice and Bratislava offices for defence trade, procurement, and lifecycle support inquiries. Responses within one business day."
+        path="/contact"
+      />
       <Navbar />
       <PageHeader subtitle={t("contactPage.subtitle")} title={t("contactPage.title")} titleAccent={t("contactPage.titleAccent")} description={t("contactPage.description")} backgroundImage={headquartersImg} />
 

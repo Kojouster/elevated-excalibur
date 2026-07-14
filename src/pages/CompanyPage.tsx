@@ -1,3 +1,4 @@
+import Seo from "@/components/Seo";
 import { motion } from "framer-motion";
 import { Eye, Award, Users, Globe, Zap, Shield } from "lucide-react";
 import Navbar from "@/components/Navbar";
@@ -23,6 +24,11 @@ const CompanyPage = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <Seo
+        title="About PALVAN — European Military Supplier & Defence Partner"
+        description="Learn about PALVAN, a European supplier of military equipment with 26+ years of experience in sales, modernization, and lifecycle support of defence systems."
+        path="/company"
+      />
       <Navbar />
       <PageHeader
         subtitle={t("company.subtitle")}

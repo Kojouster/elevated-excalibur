@@ -14,7 +14,7 @@ const FooterSection = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
           <div>
             <Link to="/" className="flex items-center gap-3 mb-6">
-              <img src={palvanLogo} alt="PALVAN" className="h-14 w-auto invert" />
+              <img src={palvanLogo} alt="PALVAN company logo" className="h-14 w-auto invert" />
               <div className="font-heading">
                 <div className="text-sm font-bold tracking-[0.3em] text-foreground leading-none"></div>
               </div>

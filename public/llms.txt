@@ -1,0 +1,9 @@
+# PALVAN
+
+> European supplier of military equipment, specializing in sales, modernization, repair and lifecycle support of advanced defence systems. Based in Košice, Slovak Republic, with 26+ years of experience in international defence trade.
+
+## Pages
+
+- [Home](/): Overview of PALVAN's defence capabilities, products, and services.
+- [Company](/company): About PALVAN, mission, vision, values, and leadership.
+- [Contact](/contact): Offices in Košice and Bratislava, phone numbers, and inquiry form.
