@@ -1,3 +1,4 @@
+import Seo from "@/components/Seo";
 import { motion } from "framer-motion";
 import { Eye, Award, Users, Globe, Zap, Shield } from "lucide-react";
 import Navbar from "@/components/Navbar";
