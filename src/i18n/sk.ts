@@ -117,8 +117,8 @@ export const sk = {
   },
   company: {
     subtitle: "O nás",
-    title: "PALVAN",
-    titleAccent: "",
+    title: "PALVAN — Európsky vojenský",
+    titleAccent: "dodávateľ",
     description: "Popredná európska obranná spoločnosť s viac ako 30-ročnými skúsenosťami v oblasti vojenskej technológie, modernizácie a podpory životného cyklu.",
     missionTitle: "NAŠA MISIA",
     missionText: "Chrániť národy a ich ľudí poskytovaním spoľahlivých a inovatívnych obranných riešení. Sme odhodlaní zabezpečiť slobodu a bezpečnosť prostredníctvom vynikajúcej vojenskej technológie, komplexnej podpory životného cyklu a neochvejného partnerstva s našimi zákazníkmi.",
