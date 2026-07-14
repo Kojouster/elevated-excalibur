@@ -14,8 +14,24 @@ import FooterSection from "@/components/FooterSection";
 import BackToTop from "@/components/BackToTop";
 
 const Index = () => {
+  const faq = useHomeContent().faq;
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: (faq?.items ?? []).map((it: { q: string; a: string }) => ({
+      "@type": "Question",
+      name: it.q,
+      acceptedAnswer: { "@type": "Answer", text: it.a },
+    })),
+  };
   return (
     <div className="min-h-screen bg-background">
+      <Seo
+        title="PALVAN — European Military Supplier & Defence Trade"
+        description="European supplier of military equipment: sales, modernization, repair and lifecycle support of advanced defence systems."
+        path="/"
+        jsonLd={faqSchema.mainEntity.length ? faqSchema : undefined}
+      />
       <Navbar />
       <HeroSection />
       <SectionDivider />
