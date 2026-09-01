@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
-
-const BLOCKED_COUNTRIES = ["RU"];
+import { supabase } from "@/integrations/supabase/client";
 
 type GateState = "checking" | "allowed" | "blocked";
 
@@ -13,30 +12,26 @@ const BlockGate = ({ children }: { children: React.ReactNode }) => {
 
     const check = async () => {
       try {
-        // ipapi.co returns country_code plus proxy/vpn hints on some plans.
-        // We use it as a best-effort client-side signal.
-        const res = await fetch("https://ipapi.co/json/", { cache: "no-store" });
-        if (!res.ok) throw new Error("geo lookup failed");
-        const data = await res.json();
+        // The decision is made server-side from the real connection IP.
+        // The browser never determines the country itself.
+        const { data, error } = await supabase.functions.invoke("geo-gate", {
+          body: {},
+        });
         if (cancelled) return;
+        if (error) throw error;
 
-        const country: string | undefined = data.country_code;
-        // Some responses include these fields; treat as soft signals.
-        const isProxy = Boolean(data.proxy || data.hosting || data.vpn || data.tor);
-
-        if (country && BLOCKED_COUNTRIES.includes(country)) {
-          setReason("Access from your region is not permitted.");
-          setState("blocked");
-          return;
-        }
-        if (isProxy) {
-          setReason("Access via VPN, proxy, or anonymizer networks is not permitted.");
+        if (data?.decision === "blocked") {
+          setReason(
+            data.reason === "proxy"
+              ? "Access via VPN, proxy, or anonymizer networks is not permitted."
+              : "Access from your region is not permitted.",
+          );
           setState("blocked");
           return;
         }
         setState("allowed");
       } catch {
-        // On lookup failure, fail open so legitimate users are not blocked.
+        // Server check unavailable: allow browsing of this public marketing site.
         if (!cancelled) setState("allowed");
       }
     };
